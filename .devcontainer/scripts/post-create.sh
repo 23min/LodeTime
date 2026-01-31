@@ -10,7 +10,13 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-# Create workspace directories
+# Create workspace directories (ensure permissions when running as non-root)
+if [ ! -d "/workspace-data" ]; then
+  sudo mkdir -p /workspace-data
+fi
+if [ ! -w "/workspace-data" ]; then
+  sudo chown -R "$(id -u):$(id -g)" /workspace-data
+fi
 mkdir -p /workspace-data/{backups,dropzone,scratch,exports}
 
 # Install Elixir dependencies

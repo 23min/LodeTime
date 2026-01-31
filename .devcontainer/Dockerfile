@@ -33,7 +33,11 @@ RUN wget -q https://github.com/mikefarah/yq/releases/latest/download/yq_linux_am
 
 # Create vscode user
 RUN useradd -m -s /bin/zsh vscode \
-    && echo "vscode ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+    && echo "vscode ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
+    && mkdir -p /home/vscode/.vscode-server/extensions \
+    && mkdir -p /home/vscode/.vscode-server/bin \
+    && mkdir -p /home/vscode/.vscode-server/data \
+    && chown -R vscode:vscode /home/vscode
 
 USER vscode
 WORKDIR /home/vscode

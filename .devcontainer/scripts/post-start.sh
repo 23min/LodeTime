@@ -3,6 +3,9 @@
 
 echo "🔄 LodeTime container started"
 
+# Ensure mounted VS Code extension volume is writable by the remote user
+sudo chown -R vscode:vscode /home/vscode/.vscode-server/extensions 2>/dev/null || true
+
 # Verify workspace-data is mounted
 if [ ! -d /workspace-data ]; then
     echo "⚠️  Warning: /workspace-data not mounted"
