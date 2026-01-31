@@ -2,7 +2,11 @@
 
 > A living development companion
 
-LodeTime is a BEAM-based development tool that watches your codebase, understands its architecture, runs tests continuously, and communicates with you and AI tools.
+LodeTime is a BEAM-based development companion that keeps a project’s intent, architecture, and health “alive” while you work. Instead of being a one‑off CLI, it’s designed to run alongside your editor, continuously watching the codebase, tracking how it maps to your planned architecture, and surfacing what’s drifting, broken, or unfinished.
+
+Use it when you want more than tests-in-CI: you want a system that remembers what you meant to build, checks whether the code still matches that intent, and gives you a real‑time view of progress. It aims to bridge humans, code, and AI tools by turning your architecture docs into a living source of truth that can answer questions, flag mismatches, and guide the next step.
+
+In short: LodeTime is for teams who want a persistent, always‑on “project brain” that combines architecture awareness, continuous validation, and fast, conversational status checks.
 
 ## Status
 
