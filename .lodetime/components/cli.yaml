@@ -1,0 +1,7 @@
+id: cli
+name: LodeTime CLI
+status: planned
+language: go
+description: Command-line interface (Go)
+location: cmd/lodetime-cli/
+depends_on: [cli-socket]

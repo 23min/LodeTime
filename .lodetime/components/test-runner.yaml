@@ -1,0 +1,6 @@
+id: test-runner
+name: Test Runner
+status: planned
+description: Runs tests for affected components
+location: lib/lodetime/runner/
+depends_on: [graph-server, state-server]

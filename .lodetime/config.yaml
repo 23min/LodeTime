@@ -1,0 +1,43 @@
+# LodeTime Configuration
+project: lodetime
+version: "0.1.0"
+description: A living development companion
+
+current_phase: 0
+bootstrap_mode: true
+
+languages: [elixir, go]
+
+zones:
+  core:
+    paths: [lib/lodetime/]
+    tracking: full
+  cli:
+    paths: [cmd/lodetime-cli/]
+    tracking: full
+  tests:
+    paths: [test/]
+    tracking: none
+  docs:
+    paths: [docs/]
+    tracking: light
+
+build_order:
+  - config-loader
+  - graph-server
+  - cli-socket
+  - cli
+  - file-watcher
+  - state-server
+  - test-runner
+  - notify-router
+  - mcp-server
+
+triggers:
+  file_system:
+    enabled: true
+    debounce_ms: 2000
+    ignore: ["_build/**", "deps/**", ".git/**"]
+  git:
+    on_stage: true
+    on_commit: true

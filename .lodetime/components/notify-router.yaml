@@ -1,0 +1,6 @@
+id: notify-router
+name: Notification Router
+status: planned
+description: Routes notifications to channels
+location: lib/lodetime/interface/notify/
+depends_on: [state-server]

@@ -1,0 +1,11 @@
+id: graph-api
+name: Graph API
+version: "1.0"
+description: Internal API for architecture graph queries
+operations:
+  - {name: get_component, type: query}
+  - {name: component_for_path, type: query}
+  - {name: dependencies, type: query}
+  - {name: dependents, type: query}
+  - {name: affected_by_change, type: query}
+  - {name: update_status, type: mutation}

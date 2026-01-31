@@ -1,0 +1,11 @@
+id: cli-protocol
+name: CLI Protocol
+version: "1.0"
+description: JSON over TCP socket protocol for CLI ↔ Server
+transport: {type: TCP, port: 9998, format: JSON}
+commands:
+  - {name: status, response: system status}
+  - {name: component, args: {id: string}}
+  - {name: dependencies, args: {id: string, depth: number}}
+  - {name: affected, args: {id: string}}
+  - {name: list, args: {status?: string}}

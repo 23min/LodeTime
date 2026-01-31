@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  lodetime-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      # Main workspace (git repo)
+      - ..:/workspace:cached
+      
+      # Named volumes for build caches (survive rebuilds)
+      - lodetime-build:/workspace/_build
+      - lodetime-deps:/workspace/deps
+      - lodetime-gomod:/go/pkg/mod
+      - lodetime-history:/home/vscode/.shell_history
+      - vscode-extensions:/home/vscode/.vscode-server/extensions
+      
+    # Keep container running
+    command: sleep infinity
+    
+    # Environment
+    environment:
+      - MIX_ENV=dev
+      - SHELL=/bin/zsh
+
+volumes:
+  lodetime-build:
+  lodetime-deps:
+  lodetime-gomod:
+  lodetime-history:
+  vscode-extensions:

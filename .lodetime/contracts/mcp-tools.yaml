@@ -1,0 +1,9 @@
+id: mcp-tools
+name: MCP Tools
+version: "1.0"
+description: Tools exposed to AI via MCP
+tools:
+  - {name: lodetime_context, description: Get context for file/component}
+  - {name: lodetime_validate, description: Check if action is allowed}
+  - {name: lodetime_affected, description: Impact analysis}
+  - {name: lodetime_update, description: Update component status}

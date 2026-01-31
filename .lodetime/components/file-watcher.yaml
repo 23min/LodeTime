@@ -1,0 +1,6 @@
+id: file-watcher
+name: File Watcher
+status: planned
+description: Watches file system for changes
+location: lib/lodetime/watcher/
+depends_on: [graph-server]

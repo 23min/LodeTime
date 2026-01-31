@@ -1,0 +1,57 @@
+# Elixir
+/_build/
+/deps/
+/*.ez
+*.beam
+.elixir_ls/
+
+# Go
+/bin/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test
+/cover/
+*.coverdata
+
+# Generated
+/doc/
+.fetch
+
+# Dependencies
+/assets/node_modules/
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+.vscode/*
+!.vscode/tasks.json
+!.vscode/extensions.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+*.pem
+*.key
+.env
+.env.local
+.env.*.local
+
+# LodeTime runtime (not config)
+.lodetime/cache/
+.lodetime/state.json
+
+# Temporary
+tmp/
+temp/
+*.tmp
+*.log
+
+# Crash dumps
+erl_crash.dump

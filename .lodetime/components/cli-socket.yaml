@@ -1,0 +1,7 @@
+id: cli-socket
+name: CLI Socket Server
+status: planned
+description: TCP socket server for CLI communication
+location: lib/lodetime/interface/cli_socket/
+depends_on: [graph-server]
+implements_contracts: [cli-protocol]

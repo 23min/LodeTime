@@ -1,0 +1,7 @@
+id: config-loader
+name: Config Loader
+status: planned
+description: Loads .lodetime/ YAML configuration files
+location: lib/lodetime/config/
+depends_on: []
+tests: [test/lodetime/config/loader_test.exs]

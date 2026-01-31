@@ -1,0 +1,6 @@
+id: state-server
+name: State Server
+status: planned
+description: Tracks runtime state (health, test results)
+location: lib/lodetime/state/
+depends_on: [graph-server]

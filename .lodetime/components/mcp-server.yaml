@@ -1,0 +1,7 @@
+id: mcp-server
+name: MCP Server
+status: planned
+description: Exposes LodeTime via MCP protocol for AI tools
+location: lib/lodetime/interface/mcp/
+depends_on: [graph-server, state-server]
+implements_contracts: [mcp-tools]

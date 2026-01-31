@@ -1,0 +1,62 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Elixir: Run Tests",
+      "type": "shell",
+      "command": "mix test",
+      "group": "test",
+      "problemMatcher": "$mixCompileError"
+    },
+    {
+      "label": "Elixir: Run Tests (Watch)",
+      "type": "shell",
+      "command": "mix test.watch",
+      "group": "test",
+      "isBackground": true
+    },
+    {
+      "label": "Elixir: Compile",
+      "type": "shell",
+      "command": "mix compile",
+      "group": "build",
+      "problemMatcher": "$mixCompileError"
+    },
+    {
+      "label": "Elixir: Format",
+      "type": "shell",
+      "command": "mix format",
+      "group": "build"
+    },
+    {
+      "label": "Elixir: Credo",
+      "type": "shell",
+      "command": "mix credo --strict",
+      "group": "test"
+    },
+    {
+      "label": "Go: Build CLI",
+      "type": "shell",
+      "command": "cd cmd/lodetime-cli && go build -o ../../bin/lodetime .",
+      "group": "build"
+    },
+    {
+      "label": "Go: Test CLI",
+      "type": "shell",
+      "command": "cd cmd/lodetime-cli && go test ./...",
+      "group": "test"
+    },
+    {
+      "label": "LodeTime: Status",
+      "type": "shell",
+      "command": "./bin/lodetime status",
+      "group": "none"
+    },
+    {
+      "label": "LodeTime: Full Check",
+      "type": "shell",
+      "command": "mix format && mix credo --strict && mix test",
+      "group": "test"
+    }
+  ]
+}
