@@ -10,13 +10,15 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "openai.chatgpt",
         "jakebecker.elixir-ls",
         "phoenixframework.phoenix",
         "golang.go",
         "redhat.vscode-yaml",
         "eamodio.gitlens",
         "usernamehw.errorlens",
-        "gruntfuggly.todo-tree"
+        "gruntfuggly.todo-tree",
+        "mhutchie.git-graph"
       ],
       "settings": {
         "editor.formatOnSave": true,
