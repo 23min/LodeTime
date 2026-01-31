@@ -38,6 +38,19 @@ mix compile
 ./bin/lodetime status
 ```
 
+## Persistent Workspace & Dropzone
+
+To prevent losing files on container rebuilds, a host directory is mounted into the container:
+
+- Host: `~/lodetime-workspace/`
+- Container: `/workspace-data/`
+
+`./setup-host.sh` creates the host directory and subfolders like `dropzone/`, `backups/`, `exports/`, and `chat-sessions/`. Anything placed in `~/lodetime-workspace/dropzone/` will appear in the container at `/workspace-data/dropzone/`.
+
+On WSL, the script also creates a Windows-accessible dropzone and symlinks it to `/workspace-data/win-dropzone` for easy drag-and-drop.
+
+Codex state is configured to live in `/workspace-data/.codex` so chat history and settings persist across container rebuilds.
+
 ## Project Structure
 
 ```

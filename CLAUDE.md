@@ -42,6 +42,15 @@ cd cmd/lodetime-cli && go build -o ../../bin/lodetime .
 ./bin/lodetime status
 ```
 
+## Persistent Workspace & Dropzone
+
+The devcontainer mounts a host directory for persistence:
+
+- Host: `~/lodetime-workspace/`
+- Container: `/workspace-data/`
+
+Run `./setup-host.sh` on the host to create it. Use `/workspace-data/dropzone` for quick file exchange, and `/workspace-data/backups` or `/workspace-data/exports` for manual backups.
+
 ## Project Structure
 
 - `.lodetime/` - Architecture definitions

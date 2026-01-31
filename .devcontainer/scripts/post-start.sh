@@ -10,6 +10,10 @@ sudo chown -R vscode:vscode /home/vscode/.vscode-server/extensions 2>/dev/null |
 if [ ! -d /workspace-data ]; then
     echo "⚠️  Warning: /workspace-data not mounted"
     echo "   Run setup-host.sh on your host machine first"
+else
+    # Persist Codex state on the host mount
+    mkdir -p /workspace-data/.codex
+    sudo chown -R vscode:vscode /workspace-data/.codex 2>/dev/null || true
 fi
 
 # Build CLI if missing

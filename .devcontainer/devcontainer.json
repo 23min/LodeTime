@@ -3,10 +3,8 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "lodetime-dev",
   "workspaceFolder": "/workspace",
-
   "remoteUser": "vscode",
   "updateRemoteUserUID": true,
-
   "customizations": {
     "vscode": {
       "extensions": [
@@ -21,6 +19,15 @@
         "mhutchie.git-graph"
       ],
       "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.profiles.linux": {
+          "zsh": {
+            "path": "/usr/bin/zsh",
+            "args": [
+              "-l"
+            ]
+          }
+        },
         "editor.formatOnSave": true,
         "editor.tabSize": 2,
         "files.trimTrailingWhitespace": true,
@@ -33,12 +40,12 @@
       }
     }
   },
-  // "mounts": [
-  //   "source=${localEnv:HOME}/lodetime-workspace,target=/workspace-data,type=bind,consistency=cached"
-  // ],
+  "mounts": [
+    // Codex state persists via CODEX_HOME -> /workspace-data/.codex (see docker-compose env)
+    "source=${localEnv:HOME}/lodetime-workspace,target=/workspace-data,type=bind,consistency=cached"
+  ],
   "postCreateCommand": "bash .devcontainer/scripts/post-create.sh",
   "postStartCommand": "bash .devcontainer/scripts/post-start.sh",
-  // "remoteUser": "root",
   "features": {
     "ghcr.io/devcontainers/features/git:1": {}
   }

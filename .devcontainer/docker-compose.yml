@@ -15,6 +15,9 @@ services:
       - lodetime-gomod:/go/pkg/mod
       - lodetime-history:/home/vscode/.shell_history
       - vscode-extensions:/home/vscode/.vscode-server/extensions
+
+      # Persistent workspace data (survives rebuilds)
+      - ${HOME}/lodetime-workspace:/workspace-data:cached
       
     # Keep container running
     command: sleep infinity
@@ -23,6 +26,7 @@ services:
     environment:
       - MIX_ENV=dev
       - SHELL=/bin/zsh
+      - CODEX_HOME=/workspace-data/.codex
 
 volumes:
   lodetime-build:
