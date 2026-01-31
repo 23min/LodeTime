@@ -14,6 +14,23 @@ else
     # Persist Codex state on the host mount
     mkdir -p /workspace-data/.codex
     sudo chown -R vscode:vscode /workspace-data/.codex 2>/dev/null || true
+
+    # Make git pushes less annoying: auto-load SSH key into ssh-agent.
+    # This will prompt for the key passphrase once per container session (first new terminal).
+    ZSHRC="$HOME/.zshrc"
+    SSH_ADD_MARKER_BEGIN="# >>> lodetime ssh-add >>>"
+    if [ -f "$ZSHRC" ] && ! grep -qF "$SSH_ADD_MARKER_BEGIN" "$ZSHRC" 2>/dev/null; then
+        cat >> "$ZSHRC" << 'EOF'
+
+# >>> lodetime ssh-add >>>
+# If VS Code forwarded an ssh-agent into the container, add the mounted key once per session.
+# You may be prompted for the key passphrase the first time after a container restart.
+if [ -n "$SSH_AUTH_SOCK" ] && [ -f /workspace-data/.ssh/id_ed25519 ]; then
+  ssh-add -l >/dev/null 2>&1 || ssh-add /workspace-data/.ssh/id_ed25519
+fi
+# <<< lodetime ssh-add <<<
+EOF
+    fi
 fi
 
 # Build CLI if missing
