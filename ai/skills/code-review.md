@@ -18,6 +18,7 @@
 **Do not use when:**
 - Work in progress (not ready for review)
 - No changes to review
+- Before any red-green-refactor cycles or test results exist
 
 ## Inputs
 - **Required:**

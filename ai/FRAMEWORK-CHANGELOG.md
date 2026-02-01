@@ -4,6 +4,41 @@ This file tracks major changes, improvements, and versions of the AI-Assisted De
 
 ---
 
+## [1.0.3] - 2026-02-01
+
+### Changed
+
+- Codified release sources of truth (milestone specs + tracking; epic-wrap updates CHANGELOG)
+- Clarified gap handling options and approvals
+- Tightened skill boundaries between milestone planning/drafting/execution/review
+- Removed wiki language guidance from ALWAYS_DO.md
+
+---
+
+## [1.0.2] - 2026-01-31
+
+### Added
+
+- Planner agent for milestone decomposition and sequencing
+- milestone-plan skill to formalize milestone breakdowns
+
+### Changed
+
+- Updated epic and milestone handoffs to include milestone planning
+- Updated session-start routing and README lifecycle flow
+
+---
+
+## [1.0.1] - 2026-01-31
+
+### Changed
+
+- Removed the deployer agent and reassigned release ownership to documenter
+- Clarified implementer responsibility to keep code, tests, and dev/ docs in sync
+- Removed translation-sync responsibilities (no wiki/Swedish in this repo)
+
+---
+
 ## [1.0.0] - 2026-01-28
 
 ### Major Framework Improvements
@@ -83,7 +118,7 @@ This release represents a comprehensive standardization and enhancement of the f
 
 - **ALWAYS_DO.md** - Expanded with conflict resolution, performance guidance, enhanced security
 - **README.md** - Added Project Conventions, Glossary, updated structure, **hierarchical Development Lifecycle** showing epic vs milestone release flows
-- **All agent files** - Migrated to new template (architect, implementer, tester, documenter, deployer, maintainer)
+- **All agent files** - Migrated to new template (architect, implementer, tester, documenter, maintainer)
 - **milestone-start.md** - Added DoD Checklist section to tracking doc template
 - **All production skills** - Updated to standardized template with maturity labels, common failure modes, version history:
   - epic-refine.md, epic-start.md, epic-wrap.md
@@ -104,7 +139,7 @@ This is the first official versioned release of the framework. Previous iteratio
 ## [Pre-1.0] - Before 2026-01-28
 
 Initial framework development with basic structure:
-- Core agents (architect, implementer, tester, documenter, deployer)
+- Core agents (architect, implementer, tester, documenter)
 - Essential skills (epic lifecycle, milestone lifecycle, TDD workflows)
 - Basic guardrails in ALWAYS_DO.md
 - README with quick start guide

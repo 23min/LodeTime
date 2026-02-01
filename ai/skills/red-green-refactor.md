@@ -30,6 +30,7 @@
 ## Preconditions / preflight
 - Milestone spec exists with clear acceptance criteria
 - Test framework is set up and working
+- Tracking doc exists (created in milestone-start)
 
 ## Process
 1) **RED**: Write failing tests first (record in tracking doc)
@@ -54,6 +55,7 @@
 - Tests must be deterministic (no external network calls)
 - Keep refactoring small and incremental
 - Run tests after each refactor (ensure still GREEN)
+- Do not re-plan milestone scope here; follow the milestone spec and tracking plan
 
 ## Common Failure Modes
 1. Writing implementation before tests → Stop, write failing test first

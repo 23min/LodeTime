@@ -27,6 +27,8 @@
 - [ ] Tracking doc is up to date
 - [ ] No WIP or commented-out code
 - [ ] Conventional commit messages used
+- [ ] Ownership sanity check: documenter updates specs/release notes; implementer/tester own tracking logs
+- [ ] Milestone spec release notes and tracking doc are finalized (source of truth for epic wrap)
 
 ---
 
@@ -169,6 +171,8 @@ Update project documentation to reflect what shipped:
 - [ ] Architecture docs updated (if applicable)
 - [ ] Examples updated (if applicable)
 ```
+
+Note: Do NOT update `CHANGELOG.md` here; it is updated during epic-wrap before merge.
 
 ### Step 5: Commit Documentation Updates
 

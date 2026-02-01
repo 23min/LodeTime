@@ -2,7 +2,7 @@
 
 **Maturity:** Production-ready
 
-**Purpose:** Initialize or confirm epic context before milestone work begins.
+**Purpose:** Initialize or confirm epic context before milestone planning or work begins.
 
 **Trigger phrases:**
 - "Start epic [name]"
@@ -37,15 +37,15 @@
    - `ROADMAP.md` (high-level status)
    - `dev/architecture/epic-roadmap.md` (detailed technical view)
 4) Confirm or create epic integration branch per dev/development/branching-strategy.md
-5) Summarize epic scope and milestone list from epic spec
-6) Ready to hand off to milestone-start for first milestone
+5) Summarize epic scope and any existing milestone outline from epic spec
+6) Ready to hand off to milestone-plan for milestone decomposition
 
 Outputs:
 - Epic moved from architecture (planning) to epics/active (execution)
 - Roadmaps updated to reflect epic in progress
 - Epic context summary
 - Confirmed branch plan
-- Ready for milestone work
+- Ready for milestone planning
 
 ## Decision points
 - **Decision:** Branch strategy
@@ -64,11 +64,11 @@ Outputs:
 3. Wrong branch → Verify branching strategy before creating milestone branch
 
 ## Handoff
-- **Next skill:** milestone-start (for specific milestone execution)
+- **Next skill:** milestone-plan (for milestone decomposition)
 
 ## Related Skills
 - **Before this:** epic-refine (creates epic context)
-- **After this:** milestone-start (execute specific milestone)
+- **After this:** milestone-plan (plan milestones), milestone-draft (if plan already exists)
 
 ---
 

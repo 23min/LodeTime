@@ -40,10 +40,10 @@ The AI understands many variations of this question. All of these work:
 Ask: "Which agent should work on this?" and describe the task:
 
 - **Planning architecture** → `architect` agent (strategic decisions, epic planning)
+- **Planning milestones** → `planner` agent (milestone decomposition, sequencing)
 - **Implementing features** → `implementer` agent (TDD, coding, milestone execution)
 - **Writing tests** → `tester` agent (test strategy, coverage, quality)
 - **Writing documentation** → `documenter` agent (specs, guides, ADRs)
-- **Deploying infrastructure** → `deployer` agent (CI/CD, environments)
 - **Framework improvements** → `maintainer` agent (this repo/framework only, not solution code)
 
 ### "How do I fix a bug?"

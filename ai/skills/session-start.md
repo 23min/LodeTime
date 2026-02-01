@@ -21,7 +21,7 @@ Present a brief orientation:
 Welcome! I'll help you start working with the right approach.
 
 This project uses AI-assisted development with:
-- Agents (architect, implementer, tester, documenter, deployer)
+- Agents (architect, planner, implementer, tester, documenter)
 - Skills (reusable workflows for epics, milestones, releases)
 - Guardrails (TDD, no time estimates, milestone-first)
 ```
@@ -35,14 +35,15 @@ Ask the user:
 Provide menu:
 ```
 1. Plan a new epic (large architectural initiative)
-2. Draft a milestone specification (discrete feature)
-3. Start or continue implementing a milestone
-4. Write or fix tests for existing code
-5. Review code changes
-6. Wrap up a completed milestone
-7. Create a release
-8. Create or switch branches
-9. Something else (describe it)
+2. Plan milestones for an epic
+3. Draft a milestone specification (discrete feature)
+4. Start or continue implementing a milestone
+5. Write or fix tests for existing code
+6. Review code changes
+7. Wrap up a completed milestone
+8. Create a release
+9. Create or switch branches
+10. Something else (describe it)
 ```
 
 ### Step 3: Route to Appropriate Skill
@@ -52,14 +53,15 @@ Based on the user's choice, hand off to the right skill and agent:
 | Choice | Agent | Skill | Action |
 |--------|-------|-------|--------|
 | 1 | architect | [epic-refine](epic-refine.md) | Run structured Q&A for epic planning |
-| 2 | documenter | [milestone-draft](milestone-draft.md) | Draft milestone spec |
-| 3 | implementer | [milestone-start](milestone-start.md) | Begin or resume milestone |
-| 4 | tester | [red-green-refactor](red-green-refactor.md) | TDD workflow |
-| 5 | tester | [code-review](code-review.md) | Review checklist |
-| 6 | documenter | [milestone-wrap](milestone-wrap.md) | Complete milestone |
-| 7 | deployer | [release](release.md) | Release ceremony |
-| 8 | architect | [branching](branching.md) | Branch strategy |
-| 9 | - | - | Ask for more details and route accordingly |
+| 2 | planner | [milestone-plan](milestone-plan.md) | Decompose epic into milestones |
+| 3 | documenter | [milestone-draft](milestone-draft.md) | Draft milestone spec |
+| 4 | implementer | [milestone-start](milestone-start.md) | Begin or resume milestone |
+| 5 | tester | [red-green-refactor](red-green-refactor.md) | TDD workflow |
+| 6 | tester | [code-review](code-review.md) | Review checklist |
+| 7 | documenter | [milestone-wrap](milestone-wrap.md) | Complete milestone |
+| 8 | documenter | [release](release.md) | Release ceremony |
+| 9 | architect | [branching](branching.md) | Branch strategy |
+| 10 | - | - | Ask for more details and route accordingly |
 
 ### Step 4: Context Gathering
 
@@ -69,6 +71,10 @@ Before handing off to the selected skill, gather any additional context:
 - Epic name/slug
 - High-level goal
 - Known constraints
+
+**For milestone planning:**
+- Epic slug and summary
+- Known dependencies or sequencing constraints
 
 **For milestone work:**
 - Milestone ID
@@ -116,7 +122,7 @@ AI: "Switching to architect role and using epic-refine skill.
 ```
 User: "What should I work on?"
 AI: [Presents menu]
-User: "3 - Continue milestone M-03.10"
+User: "4 - Continue milestone M-03.10"
 AI: "Which branch are you on?"
 User: "feature/api-m3/graph-queries"
 AI: "Switching to implementer role and using milestone-start skill.
@@ -130,7 +136,7 @@ AI: "Switching to implementer role and using milestone-start skill.
 ```
 User: "Help me get started"
 AI: [Presents menu]
-User: "4 - Write tests"
+User: "5 - Write tests"
 AI: "What component or feature needs tests?"
 User: "Graph traversal logic in Core"
 AI: "Switching to tester role and using red-green-refactor skill.
@@ -148,6 +154,7 @@ If the user's initial request is clear enough, skip the menu and go directly:
 | User Request | Skip to Skill |
 |-------------|---------------|
 | "Plan epic X" | [epic-refine](epic-refine.md) |
+| "Plan milestones for epic X" | [milestone-plan](milestone-plan.md) |
 | "Start milestone M-X" | [milestone-start](milestone-start.md) |
 | "Write tests for..." | [red-green-refactor](red-green-refactor.md) |
 | "Review my changes" | [code-review](code-review.md) |

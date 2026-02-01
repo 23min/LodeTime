@@ -30,6 +30,7 @@
 - All milestones in epic have status ✅ Complete
 - All milestone tests passing
 - Epic integration branch exists (if used)
+- Milestone release notes and tracking docs are finalized
 
 ## Process:
 1) Verify each milestone status is ✅ Complete.
@@ -37,7 +38,7 @@
 2) Move milestone specs from `dev/milestones/` to `dev/milestones/completed/` as a batch (e.g., `M-01.01.md`, `M-01.02.md`, etc.).
 
 3) Create epic release document at `dev/epics/releases/<epic-slug>.md`:
-   - Aggregate all milestone release notes
+   - Summarize milestone release notes (from milestone specs + tracking docs only)
    - Summarize epic achievements and impact
    - List all completed milestones
    - Document breaking changes (if any)
@@ -66,7 +67,7 @@
      [Business value and user impact]
      ```
 
-4) Update root `CHANGELOG.md` (create if it doesn't exist):
+4) Update root `CHANGELOG.md` (create if it doesn't exist) **before merge**:
    - Add high-level entry for this epic
    - Link to detailed epic release document
    - Keep it concise (1-3 lines per epic)
@@ -108,23 +109,25 @@ Outputs:
 - Update all affected roadmaps (epic-roadmap.md, ROADMAP.md, charters)
 - Ensure release ceremony steps are planned or completed
 - Don't skip documentation sync (prevents drift)
+- Epic release doc must only summarize milestone release notes/tracking
+- CHANGELOG.md updates happen here (not in milestone-wrap or release)
 
 ## Common Failure Modes
 1. Incomplete milestones → Review each milestone status before proceeding
 2. Forgotten documentation updates → Use checklist in step 3 of process
-3. No release plan → Coordinate with deployer before merging
+3. No release plan → Coordinate with architect before merging
 
 ## Handoff
-- **Next skill:** release (deployer) for epic-level release ceremony
+- **Next skill:** release (documenter) for epic-level release ceremony
 
 ## Related Skills
 - **Before this:** milestone-wrap (for each milestone)
 - **After this:** release (epic-level release)
-- **Involves:** documenter (archive, docs), architect (merge decision), deployer (release)
+- **Involves:** documenter (archive, docs), architect (merge decision)
 
 ---
 
 **Version:** 1.0.0  
 **Last Updated:** 2026-01-28
 
-**Agent:** documenter (with architect and deployer coordination)
+**Agent:** documenter (with architect coordination)

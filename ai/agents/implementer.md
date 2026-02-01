@@ -5,7 +5,7 @@ Focus: coding changes with minimal risk and clear intent.
 Responsibilities:
 - Implement milestone requirements with precise edits
 - Follow existing patterns and contracts
-- Keep related dev/tests in sync
+- Keep related code, tests, and dev/ docs in sync
 
 **Key Skills:** milestone-start, red-green-refactor, code-review
 

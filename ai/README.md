@@ -13,6 +13,7 @@ This framework provides role-based personas, reusable workflows, and guardrails 
 
 **Need specific help?**
 - Planning an epic → [skills/epic-refine.md](skills/epic-refine.md)
+- Planning milestones → [skills/milestone-plan.md](skills/milestone-plan.md)
 - Implementing a milestone → [skills/milestone-start.md](skills/milestone-start.md)
 - Writing tests → [skills/red-green-refactor.md](skills/red-green-refactor.md)
 - Releasing → [skills/release.md](skills/release.md)
@@ -25,10 +26,10 @@ This framework provides role-based personas, reusable workflows, and guardrails 
 ### 📁 agents/
 Role-based personas that define focus areas and responsibilities:
 - **architect** - Design decisions, system boundaries, epic planning
+- **planner** - Milestone decomposition, sequencing, dependencies
 - **implementer** - Coding with minimal risk, following TDD
 - **tester** - Test planning, TDD workflow, regression safety
 - **documenter** - Documentation quality, release notes
-- **deployer** - Infrastructure, packaging, releases
 - **maintainer** - AI framework evolution (agents/skills), repository infrastructure
 
 ### 📁 skills/
@@ -37,7 +38,7 @@ Reusable workflows for common development tasks:
 - **Milestone lifecycle**: milestone-draft → milestone-start → milestone-wrap
 - **Development**: red-green-refactor, code-review
 - **Infrastructure**: branching, deployment, release
-- **Planning**: roadmap, gap-triage
+- **Planning**: milestone-plan, roadmap, gap-triage
 - **Framework maintenance**: framework-review, post-mortem
 
 ### 📁 instructions/
@@ -85,21 +86,22 @@ epic-refine (architect)
   ↓
 epic-start (architect)
   ↓
-[Plan milestones - architect + documenter]
+milestone-plan (planner)
+  ↓
+milestone-draft (documenter)
   ↓
 [Execute milestones - see Milestone Work below]
   ↓
-epic-wrap (documenter + architect + deployer)
+epic-wrap (documenter + architect)
   ↓
 [PR or direct merge to main]
   ↓
-release (deployer) - Epic release ceremony
+release (documenter) - Epic release ceremony
 ```
 
 **Epic-wrap involves:**
 - Documenter: Archive milestone specs, update roadmaps
 - Architect: Verify architecture docs align with implementation
-- Deployer: Coordinate merge strategy and release planning
 
 ### 2. Milestone-Level Work (Discrete Features)
 
@@ -122,6 +124,38 @@ milestone-wrap (documenter)
 - **If interim milestone** → Optional tag/deploy, continue to next milestone
 - **If standalone milestone** → Optional release ceremony
 
+---
+
+## Ownership & Handoffs
+
+Use this to prevent overlap and make cross‑agent sequencing explicit.
+
+**Ownership (single source of truth):**
+- Architect: `dev/architecture/**`, epic scope/decisions, merge strategy
+- Planner: Milestone Plan section in `dev/architecture/<epic-slug>/README.md`
+- Documenter: `dev/epics/**`, `dev/milestones/**` (specs), `CHANGELOG.md`
+- Implementer: code + tests + **tracking progress only** in tracking docs
+- Tester: test plan/coverage in tracking docs + review sign‑off
+- Maintainer: `ai/**` only (framework), not project content
+
+**Handoff artifacts (required):**
+- Architect → Planner: epic summary + constraints + non‑goals
+- Planner → Documenter: Milestone Plan section (IDs, scope, dependencies, order)
+- Documenter → Implementer: finalized milestone spec + tracking doc
+- Implementer → Tester: test results + status updates in tracking doc
+- Documenter → Architect: release notes/roadmap updates for epic wrap
+
+**Release sources of truth:**
+- Milestone spec + tracking doc are authoritative for what shipped
+- Epic-wrap summarizes milestone release notes; `CHANGELOG.md` updates only in epic-wrap
+- Release skill tags/publishes only; no doc edits
+
+**Gap handling:**
+- Gaps are out-of-scope by default; review with architect/planner
+- Rarely, include in the current milestone (requires architect + documenter approval)
+- Otherwise plan into an epic/milestone or treat as one-off work on a separate branch
+- One-off work requires explicit user approval and PROVENANCE.md logging
+
 ### 3. Release Strategies
 
 **Milestone Release (interim/optional):**
@@ -139,7 +173,7 @@ epic-wrap (all milestones complete)
   ↓
 [PR or direct merge to main - architect decides]
   ↓
-release (deployer) - Version bump, changelog, tag
+release (documenter) - Version bump, changelog, tag
   ↓
 [Deploy to production]
   ↓
@@ -155,6 +189,7 @@ release (deployer) - Version bump, changelog, tag
 | User Request | Use This Skill |
 |-------------|----------------|
 | "Start a new epic" | [epic-refine](skills/epic-refine.md) |
+| "Plan milestones for epic X" | [milestone-plan](skills/milestone-plan.md) |
 | "Plan milestone X" | [milestone-draft](skills/milestone-draft.md) |
 | "Begin milestone X" / "Continue M-X" | [milestone-start](skills/milestone-start.md) |
 | "Write tests for..." | [red-green-refactor](skills/red-green-refactor.md) |
@@ -214,10 +249,10 @@ Discrete, shippable units of work with clear acceptance criteria. Examples:
 
 **Agent Roles:**
 - **Architect** - System design, epic planning, architectural decisions
+- **Planner** - Milestone decomposition, sequencing, dependencies
 - **Implementer** - Coding with minimal risk, following TDD
 - **Tester** - Test planning, validation, regression safety
 - **Documenter** - Documentation quality, release notes
-- **Deployer** - Infrastructure, packaging, releases
 - **Maintainer** - AI framework evolution (agents/skills), repository infrastructure (NOT solution development)
 
 ---

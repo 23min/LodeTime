@@ -66,6 +66,32 @@ When in doubt: ask the user.
 - Use TDD: RED -> GREEN -> REFACTOR; list tests first in tracking docs.
 - Keep milestone specs stable; use tracking docs for progress updates.
 
+## Ownership & handoffs (required)
+- **Single source of truth:**
+  - Architect: `dev/architecture/**`, epic scope/decisions, merge strategy
+  - Planner: Milestone Plan section in `dev/architecture/<epic-slug>/README.md`
+  - Documenter: `dev/epics/**`, `dev/milestones/**` (specs), `CHANGELOG.md`
+  - Implementer: code + tests + **tracking progress only** in tracking docs
+  - Tester: test plan/coverage in tracking docs + review sign-off
+  - Maintainer: `ai/**` only (framework), not project content
+- **Required handoff artifacts:**
+  - Architect → Planner: epic summary + constraints + non-goals
+  - Planner → Documenter: Milestone Plan section (IDs, scope, dependencies, order)
+  - Documenter → Implementer: finalized milestone spec + tracking doc
+  - Implementer → Tester: test results + status updates in tracking doc
+  - Documenter → Architect: release notes/roadmap updates for epic wrap
+- **Release sources of truth:**
+  - Milestone spec + tracking doc are authoritative for what shipped
+  - Epic-wrap summarizes milestone release notes; `CHANGELOG.md` is updated only in epic-wrap
+  - Release skill tags/publishes only; no doc edits
+
+## Gap handling
+- Gaps are out-of-scope by default; record them in dev/ROADMAP.md
+- Review gaps with architect or planner before deciding placement
+- Rarely, include in the current milestone (requires architect + documenter approval)
+- Otherwise plan into an epic/milestone (preferred) or treat as one-off work on a separate branch
+- One-off work requires explicit user approval and must be logged in PROVENANCE.md
+
 ## Build/test
 - Build and test before handoff when asked to implement changes.
 - If full test suite is too slow, run per-project tests and record results.
@@ -137,7 +163,7 @@ Use Conventional Commits format:
 
 **Examples:**
 ```
-docs(wiki): add AI configuration documentation
+docs(ai): update agent handoff rules
 
 feat(reporting): implement data extraction from PerfOps
 
@@ -157,17 +183,6 @@ The entire repository is maintained in English to optimize AI performance. This 
 - AI instructions
 - Commit messages
 - PROVENANCE.md
-
-**Wiki language:** Primarily Swedish
-
-The `wiki/` folder contains Swedish content for team communication. When writing or updating wiki content:
-- Use Swedish for explanatory prose
-- Keep technical terms natural (don't force translations for common tech jargon)
-- Keep file paths, commands, and code examples in English
-- Keep tool/product names unchanged (e.g., InfrastructureTemplate, PerfOps, GitHub)
-- Keep references to English repo content in English
-
-**Example:** "Vi använder devcontainer för att säkerställa reproducerbar miljö. Se `.devcontainer/devcontainer.json` för konfiguration."
 
 ---
 

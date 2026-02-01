@@ -12,7 +12,7 @@ Both [GitHub Spec Kit](https://github.com/github/spec-kit) and the framework in 
 
 **GitHub Spec Kit** is an open-source toolkit from GitHub that implements **Specification-Driven Development (SDD)**—a methodology where specifications become executable, directly generating working implementations. It provides CLI tools, templates, and slash commands (`/speckit.specify`, `/speckit.plan`, `/speckit.implement`) to transform natural language requirements into structured specifications and then into code, with AI handling much of the generation autonomously.
 
-**Our AI Framework** (in the `ai/` directory) implements **AI-First Development**—a structured approach using role-based AI agents (architect, implementer, tester, documenter, deployer, maintainer) and reusable skills (epic-refine, milestone-start, red-green-refactor, etc.) to manage the full software development lifecycle from epic planning through milestone execution to releases. The framework emphasizes human oversight at every commit while leveraging AI assistance for implementation.
+**Our AI Framework** (in the `ai/` directory) implements **AI-First Development**—a structured approach using role-based AI agents (architect, planner, implementer, tester, documenter, maintainer) and reusable skills (epic-refine, milestone-start, red-green-refactor, etc.) to manage the full software development lifecycle from epic planning through milestone execution to releases. The framework emphasizes human oversight at every commit while leveraging AI assistance for implementation.
 
 Given their similar goals of using structured specifications to drive development quality and consistency, **a comparison is warranted** to determine whether adopting Spec Kit makes sense for this project, or whether our custom framework better serves Treehouse's specific needs around multi-epic orchestration, brownfield integration, and compliance requirements.
 
@@ -147,7 +147,7 @@ project/
 - **Spec Kit doesn't have "epic" concept** - it's flat feature lists
 
 #### 2. Agent Role Clarity
-- Explicit separation: architect, implementer, tester, documenter, deployer, maintainer
+- Explicit separation: architect, planner, implementer, tester, documenter, maintainer
 - Models real team dynamics and responsibilities
 - Clear escalation paths: "Escalate to architect when spec is unclear"
 - **Spec Kit assumes one AI assistant** does everything
@@ -324,7 +324,7 @@ This **directly conflicts** with our human-gated philosophy. We need oversight a
 ### 5. Already Have Working Process
 
 **We've invested significant effort:**
-- 6 agent definitions (architect, implementer, tester, documenter, deployer, maintainer)
+- 6 agent definitions (architect, planner, implementer, tester, documenter, maintainer)
 - 16 production-ready skills (epic-refine, milestone-start, red-green-refactor, etc.)
 - Epic/milestone tracking infrastructure in `dev/`
 - Framework v1.0.0 with comprehensive changelog

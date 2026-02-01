@@ -18,7 +18,7 @@
 - Epic wrapped (epic-wrap completed)
 - Epic merged to main
 - Epic release document exists in `dev/epics/releases/<epic-slug>.md`
-- Root `CHANGELOG.md` updated
+- Root `CHANGELOG.md` updated (during epic-wrap, before merge)
 
 ## Process
 
@@ -72,6 +72,10 @@ Announce the release:
 - Traceability established (epic slug in tag)
 - **Next step:** Use `deployment.md` skill if infrastructure changes needed
 
+## Guardrails
+- Do not update `CHANGELOG.md` here (epic-wrap owns it)
+- Do not edit milestone specs or tracking docs during release
+
 ## Git Tag Benefits
 
 Using `epic/<epic-slug>` format provides:
@@ -85,4 +89,4 @@ Using `epic/<epic-slug>` format provides:
 **Version:** 2.0.0  
 **Last Updated:** 2026-01-28
 
-**Agent:** deployer
+**Agent:** documenter

@@ -11,7 +11,10 @@
 
 **Use when:**
 - The milestone spec exists and is marked 📋 Planned or 🔄 In Progress
-- You're ready to write code and tests
+- You're ready to set up tracking and begin implementation
+
+**Do not use when:**
+- You only need to run the next TDD cycle (use red-green-refactor)
 
 ---
 
@@ -31,6 +34,7 @@
 2. **Milestone spec exists** - Look for the spec file (status should be 📋 Planned or 🔄 In Progress)
 3. **Current branch** - Are you on main, epic branch, or milestone branch?
 4. **Build is green** - No existing errors
+5. **Ownership sanity check** - Spec is owned by documenter; tracking doc updates are owned by implementer/tester
 
 If any context is missing, gather it before proceeding.
 
@@ -200,6 +204,8 @@ Start the TDD cycle (see [red-green-refactor](red-green-refactor.md)):
 3. **REFACTOR**: Improve structure
 4. Update tracking doc with each cycle
 
+Once the first cycle is underway, continue with red-green-refactor for execution.
+
 ---
 
 ## Session Guardrails
@@ -216,7 +222,7 @@ Start the TDD cycle (see [red-green-refactor](red-green-refactor.md)):
 - ❌ Commit without updating tracking doc
 - ❌ Skip running tests
 - ❌ Use time estimates
-- ❌ Modify milestone spec during implementation (use tracking doc)
+- ❌ Modify milestone spec during implementation (use tracking doc and escalate to documenter if changes are needed)
 
 ---
 

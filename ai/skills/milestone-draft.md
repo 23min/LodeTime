@@ -2,7 +2,7 @@
 
 **Maturity:** Production-ready
 
-**Purpose:** Draft milestone specification documents after epic-refine is complete.
+**Purpose:** Draft milestone specification documents after milestone planning is complete.
 
 **Trigger phrases:**
 - "Draft milestone [ID]"
@@ -10,17 +10,20 @@
 - "Write milestone specification"
 
 **Use when:**
-- The epic is refined and you are ready to create milestone specs
+- The epic is refined and milestones are planned
 - The milestone does not yet exist, or needs a full rewrite to align with the guide
 
 **Do not use when:**
 - Epic not yet refined (run epic-refine first)
+- Milestone plan does not exist (run milestone-plan first)
 - Milestone already exists and is current (use milestone-start instead)
 
 ## Inputs
 - **Required:**
   - Epic slug and context
   - Milestone ID and title
+- **Required (from planner):**
+  - Milestone plan or outline
 - **Optional:**
   - Dependencies and target statement
   - Any decisions or constraints captured during epic-refine
@@ -28,21 +31,23 @@
 ## Preconditions / preflight
 - Epic context exists (epic-refine completed)
 - Milestone ID assigned and unique
+- Milestone plan exists in `dev/architecture/<epic-slug>/README.md`
 
 ## Guardrails
 - Follow dev/development/milestone-documentation-guide.md
 - Follow dev/development/milestone-rules-quick-ref.md
 - No time estimates
 - Diagrams must use Mermaid
+- Do not change milestone sequence or scope without looping back to planner/architect
 
 ## Process:
-1) Ensure epic context exists. If missing, run epic-refine first.
+1) Ensure epic context and milestone plan exist. If missing, run epic-refine and milestone-plan first.
 2) Create or update the milestone spec under `dev/milestones/<milestone-id>.md` (e.g., `dev/milestones/M-03.10.md`).
 3) Populate required sections with testable acceptance criteria and explicit scope boundaries.
 4) Include a TDD-ready implementation plan that calls out RED -> GREEN -> REFACTOR.
    - **Optional:** Use @plan as subagent to decompose complex implementation phases into tactical steps
    - @plan excels at breaking down "how to implement" into granular TDD cycles
-5) Add or update references in:
+5) Add or update references in (if needed):
    - dev/architecture/epic-roadmap.md (epic status and milestone list)
    - dev/ROADMAP.md (high-level status)
    - dev/architecture/<epic-slug>/README.md (if it lists milestones)
@@ -69,7 +74,7 @@ Outputs:
 - **Next skill:** milestone-start (when ready to begin implementation)
 
 ## Related Skills
-- **Before this:** epic-refine (provides epic context)
+- **Before this:** epic-refine (provides epic context), milestone-plan (provides milestone breakdown)
 - **After this:** milestone-start (executes the spec)
 
 ---

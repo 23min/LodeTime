@@ -2,7 +2,7 @@
 
 **Maturity:** Production-ready
 
-**Purpose:** Run a human-in-the-loop preflight to confirm epic scope, decisions, and constraints before any milestone specs are drafted.
+**Purpose:** Run a human-in-the-loop preflight to confirm epic scope, decisions, and constraints before milestone planning or specs are drafted.
 
 **Trigger phrases:**
 - "Start a new epic"
@@ -37,7 +37,7 @@
    - dev/architecture/epic-roadmap.md
    - dev/ROADMAP.md
 3) Run a structured Q&A and capture decisions in a short notes block.
-4) Produce an initial milestone outline for the epic.
+4) Produce an initial milestone outline for the epic (planner will formalize it).
 5) Confirm open questions and owners; do not proceed to drafting milestones until resolved or explicitly deferred.
 
 Structured Q&A (capture answers verbatim):
@@ -59,7 +59,7 @@ Outputs:
 - Epic summary (one paragraph) and decisions list
 - Open questions list with owners
 - Milestone outline (IDs optional but preferred) with rough sequencing
-- A clear handoff to milestone-draft for each planned milestone
+- A clear handoff to milestone-plan for formal milestone breakdown
 
 ## Decision points
 - **Decision:** Proceed to milestone drafting or defer?
@@ -69,7 +69,7 @@ Outputs:
 
 ## Guardrails
 - Do not start coding or implementation planning here
-- Use milestone-draft once the epic decisions are confirmed
+- Use milestone-plan once the epic decisions are confirmed
 - Capture all decisions in epic documentation (no hidden assumptions)
 - All "out of scope" items should be explicit to prevent scope creep
 
@@ -79,11 +79,11 @@ Outputs:
 3. No written output → Ensure epic README or session log captures all decisions
 
 ## Handoff
-- **Next skill:** milestone-draft (for each planned milestone, once questions resolved)
+- **Next skill:** milestone-plan (for milestone decomposition, once questions resolved)
 
 ## Related Skills
 - **Before this:** N/A (entry point for epic work)
-- **After this:** epic-start (if milestones drafted), milestone-draft (for each milestone)
+- **After this:** epic-start (if activating the epic), milestone-plan (for milestone decomposition)
 - **Alternatives:** Skip if epic is small enough to be a single milestone
 
 ---
