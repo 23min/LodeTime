@@ -48,15 +48,15 @@
    - **Optional:** Use @plan as subagent to decompose complex implementation phases into tactical steps
    - @plan excels at breaking down "how to implement" into granular TDD cycles
 5) Add or update references in (if needed):
-   - dev/architecture/epic-roadmap.md (epic status and milestone list)
-   - dev/ROADMAP.md (high-level status)
+   - EPIC_TECH_ROADMAP_PATH (epic status and milestone list)
+   - EPIC_ROADMAP_PATH (high-level epic status; see `ai/instructions/PROJECT_PATHS.md`)
    - dev/architecture/<epic-slug>/README.md (if it lists milestones)
 
 Outputs:
 - A complete milestone spec in `dev/milestones/<milestone-id>.md`
 - Clear dependencies and success criteria
 - TDD-ready implementation phases and test plan
-- Updated epic roadmap and ROADMAP.md
+- Updated epic roadmap(s)
 
 ## Decision points
 - **Decision:** Milestone scope boundaries

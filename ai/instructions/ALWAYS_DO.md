@@ -86,7 +86,7 @@ When in doubt: ask the user.
   - Release skill tags/publishes only; no doc edits
 
 ## Gap handling
-- Gaps are out-of-scope by default; record them in dev/ROADMAP.md
+- Gaps are out-of-scope by default; record them in EPIC_ROADMAP_PATH (see `ai/instructions/PROJECT_PATHS.md`)
 - Review gaps with architect or planner before deciding placement
 - Rarely, include in the current milestone (requires architect + documenter approval)
 - Otherwise plan into an epic/milestone (preferred) or treat as one-off work on a separate branch

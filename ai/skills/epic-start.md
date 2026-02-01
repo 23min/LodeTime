@@ -34,8 +34,8 @@
 1) Verify epic has been refined in `dev/architecture/<epic-slug>/README.md`
 2) Move (or copy) epic spec to `dev/epics/active/<epic-slug>.md` to signal active work
 3) Review and update roadmaps:
-   - `ROADMAP.md` (high-level status)
-   - `dev/architecture/epic-roadmap.md` (detailed technical view)
+   - EPIC_ROADMAP_PATH (high-level epic status; see `ai/instructions/PROJECT_PATHS.md`)
+   - EPIC_TECH_ROADMAP_PATH (detailed technical view)
 4) Confirm or create epic integration branch per dev/development/branching-strategy.md
 5) Summarize epic scope and any existing milestone outline from epic spec
 6) Ready to hand off to milestone-plan for milestone decomposition
@@ -60,7 +60,7 @@ Outputs:
 
 ## Common Failure Modes
 1. Missing epic docs → Run epic-refine first
-2. Unclear which milestone to start → Review epic-roadmap.md for sequencing
+2. Unclear which milestone to start → Review EPIC_TECH_ROADMAP_PATH for sequencing
 3. Wrong branch → Verify branching strategy before creating milestone branch
 
 ## Handoff

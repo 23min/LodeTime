@@ -81,8 +81,8 @@
 5) Move epic spec from `dev/epics/active/<epic-slug>.md` to `dev/epics/completed/<epic-slug>.md`
 
 6) Update:
-   - `ROADMAP.md` (high-level: mark epic complete)
-   - `dev/architecture/epic-roadmap.md` (technical: mark complete, update status)
+   - EPIC_ROADMAP_PATH (high-level: mark epic complete; see `ai/instructions/PROJECT_PATHS.md`)
+   - EPIC_TECH_ROADMAP_PATH (technical: mark complete, update status)
 
 7) Ask whether the epic should merge via PR or directly to main.
 
@@ -106,7 +106,7 @@ Outputs:
 
 ## Guardrails
 - Verify ALL milestones complete before archiving
-- Update all affected roadmaps (epic-roadmap.md, ROADMAP.md, charters)
+- Update all affected epic roadmaps (EPIC_ROADMAP_PATH, EPIC_TECH_ROADMAP_PATH)
 - Ensure release ceremony steps are planned or completed
 - Don't skip documentation sync (prevents drift)
 - Epic release doc must only summarize milestone release notes/tracking

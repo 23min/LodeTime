@@ -34,8 +34,8 @@
 1) Locate or create the epic folder under dev/architecture/<epic-slug>/.
 2) Review existing epic docs and roadmap entries (if any):
    - dev/architecture/<epic-slug>/README.md
-   - dev/architecture/epic-roadmap.md
-   - dev/ROADMAP.md
+   - EPIC_TECH_ROADMAP_PATH
+   - EPIC_ROADMAP_PATH (see `ai/instructions/PROJECT_PATHS.md`)
 3) Run a structured Q&A and capture decisions in a short notes block.
 4) Produce an initial milestone outline for the epic (planner will formalize it).
 5) Confirm open questions and owners; do not proceed to drafting milestones until resolved or explicitly deferred.

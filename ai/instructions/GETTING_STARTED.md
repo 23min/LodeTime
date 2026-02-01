@@ -21,7 +21,7 @@ The AI understands many variations of this question. All of these work:
 ### "I'm new to this project, where do I start?"
 
 1. Read `ai/instructions/ALWAYS_DO.md` for critical rules
-2. Check `ROADMAP.md` for active/planned work
+2. Check EPIC_ROADMAP_PATH for active/planned work (see `ai/instructions/PROJECT_PATHS.md`)
 3. Review `dev/epics/active/` to see what's in progress
 4. Ask: "What agents are available?" or "Show me the workflow for starting a feature"
 
@@ -99,7 +99,7 @@ Copilot: [Uses milestone-wrap skill]
 ### Deploying Changes
 ```
 You: "Deploy this to staging"
-Copilot: [Uses deployment skill]
+Copilot: [Uses deployment skill if active in skills/inactive/]
 - Validates environment
 - Runs deployment
 - Verifies health checks

@@ -1,8 +1,10 @@
-# Skill: deployment
+# Skill: deployment (inactive)
 
 **Maturity:** STUB - Project-specific implementation required
 
 **Purpose:** Deploy application to target environments.
+
+**Status:** Inactive by default. Move to `ai/skills/` to activate.
 
 **Required Documentation:** 
 Create `dev/development/deployment.md` in your project covering:

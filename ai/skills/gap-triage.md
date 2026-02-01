@@ -35,7 +35,7 @@
 ## Process
 1) Confirm the item is truly out-of-scope for the current milestone.
    - If in-scope → update the milestone spec via milestone-draft (documenter) and stop.
-2) Record the gap in the backlog section of dev/ROADMAP.md (or agreed backlog doc)
+2) Record the gap in the backlog section of EPIC_ROADMAP_PATH (see `ai/instructions/PROJECT_PATHS.md`)
 3) Classify: scope gap, design gap, implementation gap, or documentation gap
 4) Review with architect or planner to determine the right home:
    - Include in current milestone (rare; requires architect + documenter approval)
@@ -48,14 +48,14 @@
 
 ## Outputs
 - Gap recorded with owner and target
-- Decision documented in tracking doc and/or ROADMAP.md
+- Decision documented in tracking doc and/or EPIC_ROADMAP_PATH
 - One-off work logged in PROVENANCE.md (if chosen)
 
 ## Decision points
 - **Decision:** Where should the gap live?
   - **Options:** A) Include in current milestone (rare), B) Plan into epic/milestone, C) Defer to backlog, D) One-off change on separate branch
   - **Default:** C (defer) unless architect/planner agree on placement
-  - **Record in:** Tracking doc and ROADMAP.md
+  - **Record in:** Tracking doc and EPIC_ROADMAP_PATH
   - **Authority:** Architect/planner decide placement; [USER] decides one-off; documenter approves spec updates
 
 ## Guardrails

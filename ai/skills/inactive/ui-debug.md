@@ -1,8 +1,10 @@
-# Skill: ui-debug
+# Skill: ui-debug (inactive)
 
 **Maturity:** Production-ready
 
 **Purpose:** Diagnose UI issues quickly and reproducibly.
+
+**Status:** Inactive by default. Move to `ai/skills/` to activate.
 
 **Trigger phrases:**
 - "Debug UI issue"

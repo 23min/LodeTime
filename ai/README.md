@@ -37,9 +37,14 @@ Reusable workflows for common development tasks:
 - **Epic lifecycle**: epic-refine → epic-start → epic-wrap
 - **Milestone lifecycle**: milestone-draft → milestone-start → milestone-wrap
 - **Development**: red-green-refactor, code-review
-- **Infrastructure**: branching, deployment, release
+- **Infrastructure**: branching, release (deployment is in inactive/)
 - **Planning**: milestone-plan, roadmap, gap-triage
 - **Framework maintenance**: framework-review, post-mortem
+
+Project-specific skills live in `skills/custom/`.
+Library but inactive skills live in `skills/inactive/`.
+
+**Custom (LodeTime) skills:** architecture-spec-maintenance, component-refine, phase-progress
 
 ### 📁 instructions/
 Global guardrails that apply to every session:
@@ -52,7 +57,7 @@ Global guardrails that apply to every session:
 This framework assumes standard paths. If your project differs, update this section and global-search-replace references.
 
 ### Standard Paths
-- Roadmap: `ROADMAP.md` (high-level strategic), `dev/architecture/epic-roadmap.md` (detailed technical)
+- Epic roadmap: `EPIC_ROADMAP_PATH` (high-level), `EPIC_TECH_ROADMAP_PATH` (detailed technical)
 - Changelog: `CHANGELOG.md` (root, high-level epic releases)
 - Architecture: `dev/architecture/<epic-slug>/` (planning phase, ADRs)
 - Epics: `dev/epics/active/` (execution phase), `dev/epics/completed/` (archived)
@@ -68,8 +73,14 @@ This framework assumes standard paths. If your project differs, update this sect
 - Test results: tracking docs
 - Git tags: `epic/<epic-slug>` (for epic releases only, no milestone tags)
 
+See `ai/instructions/PROJECT_PATHS.md` for concrete values in this repo.
+
 ### Overrides for This Project
-[List any deviations from standard paths here]
+- **Path overrides live in** `ai/instructions/PROJECT_PATHS.md`.
+- **Phase roadmap:** `docs/phases/IMPLEMENTATION-PHASES.md` (phases are not epics).
+- **Architecture source of truth:** `.lodetime/`.
+
+Note: Epics are tracked separately from phases; a phase can contain multiple epics.
 
 ---
 

@@ -2,7 +2,9 @@
 
 **Maturity:** Production-ready
 
-**Purpose:** Maintain the lifecycle of epics between the high-level roadmap and epic architecture docs.
+**Purpose:** Maintain the lifecycle of epics between the epic roadmap and architecture docs.
+
+**Note:** This skill manages epics, not phases. Phase updates use the custom phase-progress skill.
 
 **Trigger phrases:**
 - "Update roadmap"
@@ -33,12 +35,12 @@
 - For complete: epic-wrap has been completed
 
 ## Policy
-- dev/ROADMAP.md is the authoritative list of proposed and active epics
-- dev/architecture/epic-roadmap.md is the authoritative list of epics with docs
+- EPIC_ROADMAP_PATH is the authoritative list of proposed and active epics (see `ai/instructions/PROJECT_PATHS.md`)
+- EPIC_TECH_ROADMAP_PATH is the authoritative list of epics with docs
 - These two files must stay in sync
 
 ## Status flow
-- **Proposed:** Only in dev/ROADMAP.md
+- **Proposed:** Only in EPIC_ROADMAP_PATH
 - **Planned:** Epic folder exists with README.md
 - **Active:** Milestones underway
 - **Complete:** Epic wrapped and milestones archived
@@ -46,18 +48,18 @@
 ## Process
 
 **1) Proposed epic:**
-- Add to dev/ROADMAP.md with intent and rough ordering
+- Add to EPIC_ROADMAP_PATH with intent and rough ordering
 - No epic folder required
 
 **2) Promote to Planned/Active:**
 - Run epic-refine
 - Create dev/architecture/<epic-slug>/README.md
-- Add to dev/architecture/epic-roadmap.md
-- Update dev/ROADMAP.md status
+- Add to EPIC_TECH_ROADMAP_PATH
+- Update EPIC_ROADMAP_PATH status
 
 **3) Complete:**
 - Run epic-wrap
-- Update dev/ROADMAP.md and dev/architecture/epic-roadmap.md
+- Update EPIC_ROADMAP_PATH and EPIC_TECH_ROADMAP_PATH
 
 ## Outputs
 - Roadmap and epic roadmap in sync
@@ -66,8 +68,8 @@
 
 ## Decision points
 - **Decision:** Conflicting roadmap info
-  - **Options:** A) ROADMAP.md wins, B) epic-roadmap.md wins, C) Manual reconciliation
-  - **Default:** A (ROADMAP.md is authoritative for status)
+  - **Options:** A) EPIC_ROADMAP_PATH wins, B) EPIC_TECH_ROADMAP_PATH wins, C) Manual reconciliation
+  - **Default:** A (EPIC_ROADMAP_PATH is authoritative for status)
   - **Record in:** Update both files to match
 
 ## Guardrails

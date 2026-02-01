@@ -115,11 +115,11 @@ Update project documentation to reflect what shipped:
 
 **Required updates:**
 
-1. **High-level Roadmap** (`ROADMAP.md` in root)
+1. **High-level Epic Roadmap** (EPIC_ROADMAP_PATH; see `ai/instructions/PROJECT_PATHS.md`)
    - Update milestone status from 🔄 In Progress to ✅ Complete
    - Update epic status if this was the last milestone
 
-2. **Technical Epic Roadmap** (`dev/architecture/epic-roadmap.md`)
+2. **Technical Epic Roadmap** (EPIC_TECH_ROADMAP_PATH)
    - Mark milestone complete
    - Update epic progress percentage or status
    - Update dependencies and ordering if needed
@@ -165,8 +165,8 @@ Update project documentation to reflect what shipped:
 - [ ] Milestone spec marked ✅ Complete
 - [ ] Milestone spec has Release Notes section added
 - [ ] Tracking doc finalized
-- [ ] ROADMAP.md updated (high-level)
-- [ ] dev/architecture/epic-roadmap.md updated (technical)
+- [ ] EPIC_ROADMAP_PATH updated (high-level)
+- [ ] EPIC_TECH_ROADMAP_PATH updated (technical)
 - [ ] Reference docs updated (if applicable)
 - [ ] Architecture docs updated (if applicable)
 - [ ] Examples updated (if applicable)

@@ -134,7 +134,7 @@ Create structured milestone specification templates with:
 No clear strategy for context loading and session state management:
 
 1. **Global vs Session Context Confusion:**
-   - **Global context** (static baseline): ai/instructions/ALWAYS_DO.md, agents, skills, architecture decisions, ROADMAP.md
+   - **Global context** (static baseline): ai/instructions/ALWAYS_DO.md, agents, skills, architecture decisions, EPIC_ROADMAP_PATH
    - **Session context** (active work): Current epic/milestone, today's decisions, conversation insights
    - Unclear which is automatically loaded vs manually loaded
 

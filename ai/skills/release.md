@@ -2,7 +2,7 @@
 
 **Maturity:** Production-ready (updated)
 
-**Purpose:** Execute release ceremony after epic is wrapped and merged to main. This creates git tags and updates documentation. For infrastructure deployment, use the separate `deployment.md` skill.
+**Purpose:** Execute release ceremony after epic is wrapped and merged to main. This creates git tags and updates documentation. For infrastructure deployment, use the separate `skills/inactive/deployment.md` skill if activated.
 
 **Trigger phrases:**
 - "Create a release"
@@ -70,7 +70,7 @@ Announce the release:
 - GitHub Release created (if applicable)
 - Team notified
 - Traceability established (epic slug in tag)
-- **Next step:** Use `deployment.md` skill if infrastructure changes needed
+- **Next step:** Use `skills/inactive/deployment.md` if infrastructure changes needed and the skill is active
 
 ## Guardrails
 - Do not update `CHANGELOG.md` here (epic-wrap owns it)

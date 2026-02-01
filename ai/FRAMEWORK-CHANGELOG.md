@@ -4,6 +4,22 @@ This file tracks major changes, improvements, and versions of the AI-Assisted De
 
 ---
 
+## [1.0.4] - 2026-02-01
+
+### Added
+
+- `skills/custom/` for project-specific skills
+- `skills/inactive/` for library skills not in use
+- Project path overrides in `ai/instructions/PROJECT_PATHS.md`
+
+### Changed
+
+- Moved deployment and ui-debug skills to `skills/inactive/`
+- Epic roadmap references now use EPIC_ROADMAP_PATH / EPIC_TECH_ROADMAP_PATH
+- Added custom skills for phase progression and architecture/component specs
+
+---
+
 ## [1.0.3] - 2026-02-01
 
 ### Changed
@@ -124,7 +140,7 @@ This release represents a comprehensive standardization and enhancement of the f
   - epic-refine.md, epic-start.md, epic-wrap.md
   - milestone-draft.md, milestone-wrap.md
   - red-green-refactor.md, code-review.md
-  - gap-triage.md, roadmap.md, ui-debug.md, session-start.md
+  - gap-triage.md, roadmap.md, ui-debug.md (inactive/), session-start.md
 
 ### Version Notes
 
