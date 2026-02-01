@@ -12,6 +12,39 @@ At this stage the architecture is still a rough draft: components were sketched 
 - Provide useful feedback loops (status, drift, tests, docs) without being intrusive.
 - Deliver tangible capability at each phase (0–3) with clear usage and validation steps.
 
+## TODO — Topics to discuss (long form)
+
+1) **Phase 0 (manual mode)**  
+   - Exact deliverables (what “done” looks like)  
+   - Minimum `.lodetime/` schema completeness **(resolved)**  
+   - How humans/AI should use it without runtime **(resolved)**
+
+2) **Phase 2 (watcher + validation protocol)**  
+   - Which signals trigger checks? **(resolved)**  
+   - What checks run at checkpoint vs full? **(resolved)**  
+   - How does LodeTime avoid spam (severity levels)? **(resolved)**
+
+3) **Phase 3 (MCP + advanced workflows)**  
+   - What MCP tools are actually exposed?  
+   - How “tell” works vs “ask”. **(resolved)**
+
+4) **Runtime state & durability**  
+   - What “durable queue” means in practice. **(resolved)**  
+   - Where logs/metrics live and how they’re retained. **(resolved — metrics deferred)**
+
+5) **User workflows (day‑to‑day)**  
+   - “How do I use this as a developer?” **(resolved)**  
+   - “How do I use this as an architect?” **(resolved)**  
+   - “How does AI benefit from LodeTime in practice?” **(resolved)**
+
+6) **Contracts & schemas**  
+   - What belongs in `.lodetime/contracts` vs `.lodetime/components`. **(resolved — partial)**  
+   - How strictly contracts are enforced. **(resolved)**
+
+7) **Observability**  
+   - What metrics/logs exist in each phase. **(resolved — deferred)**  
+   - What the minimal “status” output contains. **(resolved)**
+
 ## System boundaries (current framing)
 
 **Is**
@@ -225,7 +258,7 @@ Goal: keep `lode run` consistent while letting the backend vary by environment.
 **Runtime endpoint overrides (order):**
 1) CLI flags (`--endpoint`, `--engine`)
 2) Environment variables (`LODE_RUNTIME_ENDPOINT`)
-3) Project config (`.lodetime/lode.yaml` or `.lode/config.yaml`)
+3) Project config (`.lodetime/config.yaml`)
 4) User config (`~/.config/lode/config.yaml`)
 5) Auto‑detect
 
@@ -456,35 +489,305 @@ No contract spec changes required yet; note the potential deferrals above.
 - Decide the Phase documentation structure.
 - Confirm the minimal runtime interface for Phase 1.
 
-## TODO — Topics to discuss (long form)
+## Phase 2 (watcher + validation) — Q&A notes (draft)
 
-1) **Phase 0 (manual mode)**  
-   - Exact deliverables (what “done” looks like)  
-   - Minimum `.lodetime/` schema completeness  
-   - How humans/AI should use it without runtime
+**Signals & triggers**
+- Watch **code + docs + `.lodetime/`**; level of functionality may vary by Phase‑2 scope.
+- Graph changes trigger checks **only at checkpoint** (avoid race conditions).
+- CLI: `status` = read‑only; `check` = validation.
+- Ignore paths should be **configurable at runtime** (e.g., `lode config ignore-path <path>`).
 
-2) **Phase 2 (watcher + validation protocol)**  
-   - Which signals trigger checks?  
-   - What checks run at checkpoint vs full?  
-   - How does LodeTime avoid spam (severity levels)?
+**Validation protocol**
+- Default: run **full validation** at checkpoint; allow modes for partial vs full when needed.
+- End‑work: same as checkpoint, with full suite by default.
+- Slow tests may run **async** and report later.
+- Manual checkpoints allowed without begin‑work? **(open)**
 
-3) **Phase 3 (MCP + advanced workflows)**  
-   - What MCP tools are actually exposed?  
-   - How “tell” works vs “ask”.
+**Checkpoint (draft definition)**
+- A checkpoint is an **explicit boundary** where the developer/AI asks LodeTime to validate a stable state.
+- Triggered by `lode check` or `lode checkpoint` (name TBD). It can also be **auto** after an idle window, but Phase 2 likely prefers explicit checkpoints to avoid noise.
+- `lode check` should execute **as soon as possible** (high‑priority command; not queued behind long background work).
+- Steps:
+  1. Enter checkpoint mode (accepting new signals but deferring validation).
+  2. Wait for **quiescence** (no file events for N seconds).
+  3. Drain the signal queue, compute graph diff.
+  4. Run validation (fast checks + configured tests; slow tests can be async).
+  5. Emit report, clear "dirty" flags.
 
-4) **Runtime state & durability**  
-   - What “durable queue” means in practice.  
-   - Where logs/metrics live and how they’re retained.
+**Scenarios to decide (Y/N)**
+1. Edit README only -> no tests, docs-only validation. **Yes**
+2. Change `.lodetime/contracts/*` -> run full validation (graph + contracts). **Yes**
+3. Change `.lodetime/components/*` -> run full validation. **Yes**
+4. Change non-executable docs -> no tests; log-only. **Yes**
+5. Large rename/move across components -> warn at checkpoint, run full validation. **Yes**
+6. Change in a leaf component -> targeted tests only (if configured). **Yes**
+7. Change in a core component -> full tests. **Yes**
+8. Failing test already snoozed -> do not re-emit until end-work. **Yes**
+9. Graph change detected -> always run full validation. **Yes**
 
-5) **User workflows (day‑to‑day)**  
-   - “How do I use this as a developer?”  
-   - “How do I use this as an architect?”  
-   - “How does AI benefit from LodeTime in practice?”
+**Severity & spam control**
+- Live warnings for **critical issues**, but allow **snooze until checkpoint**.
+- De‑duplicate repeated warnings.
 
-6) **Contracts & schemas**  
-   - What belongs in `.lodetime/contracts` vs `.lodetime/components`.  
-   - How strictly contracts are enforced.
+**Test strategy**
+- Targeted tests should be guided by milestone/epic context (passed at begin‑work or milestone start).
+- Allow “ignore failing test until end‑work” (snooze) during active iteration.
+- Auto‑run checks should be default.
 
-7) **Observability**  
-   - What metrics/logs exist in each phase.  
-   - What the minimal “status” output contains.
+**State & durability**
+- Persist **last known graph** in Phase 2.
+- Durable queue / feedback persistence should be included in **Phase 2**.
+- On dirty restart: re‑run full checks; re‑surface prior warnings.
+- Clarify relationship between “durable event log” vs “durable queue.”
+
+**Durability (clarify terms)**
+- **Durable event log**: append-only record of signals and validation results (audit/replay).
+- **Durable queue**: persisted backlog of pending signals to process after restart (no loss/dup).
+- Phase 2 should include **queue persistence**; event log can start as a minimal checkpoint summary.
+
+**Notifications & UX**
+- Output to **log file** and **CLI**.
+- JSON reports **opt‑in** (config or `--json`), written to project root and gitignored.
+  - filename: `lode-report.json`
+  - config key: `reports.json=true`
+- Notify AI if possible (mechanism TBD).
+
+**`lode status` (draft expectations)**
+- High‑level system state: **running / degraded / stopped**.
+- Current mode: **idle / begin‑work / checkpoint / end‑work**.
+- Queue snapshot: **pending signal count**, **oldest age**, **last checkpoint time**.
+- Graph info: **last known graph hash**, **last change timestamp**.
+- Recent results: **last check outcome** (pass/warn/fail) and count of open warnings.
+- Config summary: active profile, watched paths, ignore rules (counts only).
+- Active tools: list of enabled tool adapters (names + last run timestamp).
+- Runtime: LodeTime runtime **version**.
+- Errors: last error(s) per supervisor/process (count + last timestamp).
+
+**Quiescence (clarify)**
+- “Quiescence” means **no file‑system events** for N seconds in watched paths (code, docs, `.lodetime/`), plus no pending internal signals in the queue.
+- It does **not** require network silence or stopping external tools; it only gates on LodeTime’s own input signals.
+
+## Phase 3 (MCP + advanced workflows) — Questions (draft)
+
+1) **MCP surface area**  
+   - Which MCP tools should exist in Phase 3 (list concrete tool names + intent)?  
+   - Which ones are read‑only vs mutate?
+
+2) **Ask vs Tell**  
+   - What does “tell” actually allow (write contracts, update components, write docs, run tests)?  
+   - Should “tell” be allowed to edit files directly, or only emit patches for approval?
+
+3) **Safety / approvals**  
+   - For any mutating tool, what confirmations are required (user prompt? policy file?)  
+   - Should LodeTime enforce a “no writes without user approval” gate?
+
+4) **Tool discovery & schema**  
+   - Should MCP include a “capabilities” tool (same as `lode tools`), or is CLI the source of truth?  
+   - How strict should tool schema versioning be?
+
+5) **AI integration**  
+   - Can LodeTime request AI help (LLM‑in‑the‑loop) in Phase 3, or is that deferred?  
+   - If allowed, what can it ask (summaries only, or reasoning, or suggestions)?
+
+6) **Notifications**  
+   - How should MCP deliver findings (streaming, batched, severity‑filtered)?
+
+7) **Permissions**  
+   - Should MCP have per‑repo permissions or profiles (e.g., readonly vs editor)?  
+   - Where should this be configured?
+
+8) **Failure modes**  
+   - If MCP is unavailable, what should CLI do? Degrade gracefully?
+
+## Phase 3 (MCP + advanced workflows) — Q&A notes (Phase‑1/2‑bound)
+
+**Safety / approvals**
+- “No writes without approval” should mean **explicit user confirmation** before any MCP tool mutates repo files (including `.lodetime/`).
+- Exact UX (prompt vs policy file) is **TBD**, but the gate should be enforced.
+
+**Tool discovery & schema**
+- Align MCP capability discovery with **`lode tools`** (single source of truth).
+- Schema versioning strictness is **TBD** (will revisit once Phase‑2 protocols settle).
+
+**Failure modes**
+- If MCP is unavailable, CLI should **degrade gracefully** and surface clear feedback.
+- Specific UX to be refined after Phase‑1/2 experience.
+
+**Notifications**
+- MCP notification semantics must match Phase‑2 **severity + snooze** model (details TBD).
+
+**Ask vs Tell (partial)**
+- LodeTime should **not** change code directly.
+- “Tell” should be limited to **updating `.lodetime/`** (contracts/components/config).
+- This introduces implementation debt (needs explicit workflow and tooling).
+
+**Proposed Tell workflow (draft)**
+- `lode tell <intent>` produces a **preview/patch** against `.lodetime/`.
+- User approves (interactive or policy‑gated), then LodeTime applies it.
+- Applied changes are recorded in the event log for traceability.
+
+## Runtime state & durability — Q&A notes (draft)
+
+**State location (decision)**
+**Decision:** Runtime state should **not** be committed to the repo.  
+Preferred options:
+  - `.lodetime/state/` but **gitignored** (simple, repo‑local).
+  - Host state dir (e.g., `~/.lodetime/state/<repo-id>`), mounted into the container (better for multi‑repo + persistence).
+Defaults:
+  - Start with `.lodetime/state/` + gitignore.
+  - Add override `LODE_STATE_DIR` later.
+Container persistence should rely on **named volumes or bind mounts**.
+This separation applies across `.lodetime/`: **specs/config are tracked**, runtime **state is not**.
+
+**Queue format**
+- JSONL is fine for Phase 2.
+
+**What gets persisted (open)**
+- Queue should persist **signals + control commands**.
+- Validation results and warnings may need **compaction** (open findings list + last check summary), not a full history.
+- Consumers: CLI, MCP/AI, log file, JSON report.
+
+**Retention (decision)**
+**Decision:** Queue entries are removed once processed at checkpoint.
+History/provenance is **deferred**; logs/debug data should be rotated (e.g., 7 days or N entries).
+
+**Restart semantics (leaning)**
+**Decision:** Rehydrate backlog first; accept new signals immediately into a buffer and append to disk.
+`lode check` commands should preempt background work.
+
+**Deduplication (leaning)**
+- Persist **file‑changed signals** (path + type) and coalesce per path/component.
+- Diffs can be computed at checkpoint if needed; no need to persist diffs in Phase 2.
+
+**Inspection**
+- Provide queue info in `lode status --verbose`, plus `lode queue` as a quick queue‑only view.
+
+**Concrete defaults (proposal)**
+- **State dir:** `.lodetime/state/` (gitignored) by default; allow override via `LODE_STATE_DIR`.
+- **Retention:** logs/debug JSONL rotated by **7 days** or **N entries** (configurable).
+- **Open findings:** current warnings/errors that are **unresolved** since last checkpoint; include severity, component, and first‑seen timestamp (not full history).
+
+## User workflows (day‑to‑day) — Q&A notes (draft)
+
+**Developer workflow**
+- Day‑to‑day usage is **unknown** until we gain real experience.
+- `lode check` should be run **when the developer wants validation** (manual intent).
+- “Snooze” should act like **do‑not‑disturb**: defer warnings to checkpoint or end‑work.
+
+**Architect workflow**
+- Workflow details are **unknown**; will be discovered via use.
+- Most valuable outputs are anything that can cause problems if ignored: **drift, dependency risks, contract coverage**.
+
+**AI assistant workflow**
+- AI should use whatever features exist in the current phase; usage depends on CLI vs MCP availability.
+- AI should be able to ask **“what can I do here?”** / **“what functionality is available?”** of CLI/MCP.
+- Minimal context response is **TBD**.
+
+**Outputs**
+- Logs can be more technical (timestamps, debug); CLI should be **user/AI‑oriented** with content tailored to consumer.
+- A daily/weekly summary report sounds useful.
+
+**Failure / edge cases**
+- Repeated failures likely require **escalation** (create a backlog “gap” item).
+
+**Proposed defaults (accepted)**
+- **Minimal AI context response**: component name + status, deps/dependents, relevant contracts + schema versions, warnings/errors, primary file paths, suggested tests (if known).
+- **Developer rhythm**: run `lode check` after a meaningful chunk (feature slice/bug fix/before commit); use `lode status` when idle or after errors; snooze scoped to current work session and auto‑cleared at end‑work.
+- **Architect rhythm**: weekly `lode check --full`, review drift/coverage; use `lode status --verbose` and `lode tools` to assess readiness/tool health.
+
+## Contracts & schemas — Q&A notes (draft)
+
+**Boundary (partial)**
+- Contract = **defined input/output between components** (general interpretation).
+- Contracts can be **public or internal** (internal class/library interfaces still count).
+- File paths: **unclear** whether they belong in contracts.
+Contract types to include:
+- **API contracts** (request/response shapes, endpoints)
+- **Data contracts** (schemas, DB tables, events/messages)
+- **Behavioral contracts** (idempotency, retries, ordering)
+- **Runtime guarantees** (latency/throughput, availability; later if needed)
+Goal: guide AI, discover drift, keep intent explicit.
+
+**Enforcement levels (decision)**
+**Decision:** Severities = **info / warn / error / block**.
+  - **Info**: FYI only.  
+  - **Warn**: visible, does not fail checks.  
+  - **Error**: fails `lode check`, but does not stop work.  
+  - **Block**: refuses “tell” updates and marks status **degraded** until resolved.
+Need an **emergency recovery** path (last resort): clear queues, reload state, and re‑run full checks.
+
+**Versioning (open)**
+- Possibly **one contract per file**, making file‑level `schema_version` sufficient.
+
+**Evolution (open)**
+- Breaking changes should use **deprecated / replaced_by / migration notes**.
+- Consider provenance fields (why/when/by‑who) if useful.
+
+**Ownership (partial)**
+- Anyone can edit contracts, but we must avoid LodeTime writing over concurrent human changes.
+- Need a clear **update cycle** to avoid race conditions.
+
+**Race‑condition avoidance (decision)**
+- Prefer a **lock file** (`.lodetime/.lock`) during “tell” updates (simple to implement).
+- Version guard is possible but may need retries/merges.
+- Patch‑only approach is not preferred.
+
+**Emergency recovery**
+- Command name: `lode reset`.
+- Should be **two‑phase/confirmed** (explicit Y/N after showing implications) due to destructive nature.
+
+## Observability — Q&A notes (draft)
+
+- Defer detailed metrics design until volume/needs are known.
+- Use **JSONL** for logs initially.
+- Keep metrics **internal** (no external exposure yet).
+- Alerting: **CLI + log** only for now.
+- No UI/dashboard until needed.
+- Stick to `lode status` as the primary surface; `lode status --verbose` includes queue info, and `lode queue` is an optional quick view.
+
+**Validation (partial)**
+- Yes to existence, compatibility, dependency direction.
+- Coverage meaning TBD.
+
+**Location (partial)**
+- Prefer keeping contracts **centralized** (avoid scattering); path overrides optional but not preferred.
+
+## Phase 0 (manual mode) — Q&A notes (draft)
+
+**Why `.lodetime/`? (decision recorded)**  
+We considered other names for visibility, but decided to standardize on **`.lodetime/`** as the authoritative, machine‑readable input.  
+`docs/` remains narrative/design only. Subdirectories under `.lodetime/` are sufficient for structure.  
+Alternatives (e.g., `lodetime/`, `specs/`, `schemas/`) are out of scope for now.
+
+### 1) “Done” criteria (to be finalized)
+- Phase 0 is complete when the **minimum `.lodetime/` schema** is present and consistent enough for humans/AI to use in planning and implementation.
+- Concrete deliverables should be agreed once requirements are clarified (see below).
+
+### 2) Minimum `.lodetime/` completeness
+- Required: `.lodetime/config.yaml`, `.lodetime/components/*.yaml`, `.lodetime/contracts/*.yaml`.
+- Placeholders are allowed **if** they are tracked and not orphaned.
+  - Each placeholder must include status/owner/reason/next‑action fields (exact schema TBD).
+  - Blockers should be explicit (what’s missing, who decides, and when).
+
+### 3) How humans/AI use Phase 0 (no runtime)
+Options to compare for friction vs rigor:
+- **Direct read**: AI reads `.lodetime/` + `docs/design/` and uses it for planning/implementation.
+- **Lightweight validation script**: a simple checker validates schema + cross‑references (e.g., missing contracts, orphan components).
+- **Manual checklist**: minimal checklist for architects/documenters to confirm consistency.
+
+Goal: maximize **automation with minimal manual steps**.
+
+### 4) Validation in Phase 0
+- Prefer automated checks; any scripts should be clearly labeled as Phase‑0‑only or evolve with later phases.
+- If Phase‑0 scripts are deprecated, archive rather than delete (history is useful).
+
+### 5) Scope boundaries (explicit NOTs)
+Draft “NOT included” list to confirm:
+- No long‑running runtime
+- No file watching
+- No automatic validation on change
+- No MCP/API
+- No background processes or daemons
+- No automated documentation updates (human/AI only)
+
+These “NOTs” are **Phase‑0 boundaries** to prevent scope creep. Yes—this helps humans and AI avoid building Phase‑1+ features too early.

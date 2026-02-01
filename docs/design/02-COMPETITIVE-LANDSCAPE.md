@@ -51,6 +51,13 @@
 - No human curation layer
 - **Lesson**: Don't reinvent repo maps. Build the INTENT LAYER on top.
 
+### IDEs & Static Analysis (LSP, linters, type checkers)
+- Excellent at **syntax/semantic** feedback as you type
+- Typically file‑ or project‑local, not architecture‑aware
+- Overlap exists (tests/linters), but LodeTime should **complement**:
+  - IDEs = fast, local feedback
+  - LodeTime = system‑level intent, contracts, and drift
+
 ---
 
 ## LodeTime's Position

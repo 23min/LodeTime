@@ -50,6 +50,7 @@ LodeTime tracks three things:
 | Code intelligence (Sourcegraph) | Architecture intelligence |
 | An IDE plugin | A standalone companion |
 | A CI/CD replacement | A CI/CD complement |
+| An auto-coder that mutates your repo | An observer/validator that only updates `.lodetime/` metadata (with explicit approval) |
 
 ---
 
