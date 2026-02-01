@@ -1,4 +1,5 @@
 id: config-loader
+schema_version: 1
 name: Config Loader
 status: planned
 description: Loads .lodetime/ YAML configuration files

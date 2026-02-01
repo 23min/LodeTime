@@ -1,4 +1,5 @@
 id: graph-api
+schema_version: 1
 name: Graph API
 version: "1.0"
 description: Internal API for architecture graph queries

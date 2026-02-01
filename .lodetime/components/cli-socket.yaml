@@ -1,4 +1,5 @@
 id: cli-socket
+schema_version: 1
 name: CLI Socket Server
 status: planned
 description: TCP socket server for CLI communication

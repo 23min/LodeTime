@@ -1,4 +1,5 @@
 id: notify-router
+schema_version: 1
 name: Notification Router
 status: planned
 description: Routes notifications to channels

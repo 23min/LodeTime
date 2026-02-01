@@ -1,8 +1,14 @@
 id: cli-protocol
+schema_version: 1
 name: CLI Protocol
 version: "1.0"
 description: JSON over TCP socket protocol for CLI ↔ Server
-transport: {type: TCP, port: 9998, format: JSON}
+transport:
+  default: tcp-loopback
+  transports:
+    - {id: tcp-loopback, type: TCP, host: 127.0.0.1, port: 9998, format: JSONL}
+    - {id: unix-socket, type: UDS, path: /tmp/lode.sock, format: JSONL, status: future}
+    - {id: stdio, type: STDIO, format: JSONL, status: future}
 commands:
   - {name: status, response: system status}
   - {name: component, args: {id: string}}

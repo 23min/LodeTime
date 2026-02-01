@@ -1,4 +1,5 @@
 id: file-watcher
+schema_version: 1
 name: File Watcher
 status: planned
 description: Watches file system for changes

@@ -1,4 +1,5 @@
 id: mcp-tools
+schema_version: 1
 name: MCP Tools
 version: "1.0"
 description: Tools exposed to AI via MCP

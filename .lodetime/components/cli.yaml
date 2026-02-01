@@ -1,4 +1,5 @@
 id: cli
+schema_version: 1
 name: LodeTime CLI
 status: planned
 language: go

@@ -1,4 +1,5 @@
 id: graph-server
+schema_version: 1
 name: Graph Server
 status: planned
 description: Holds architecture graph in memory (ETS + GenServer)
