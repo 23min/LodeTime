@@ -43,7 +43,10 @@ Provide menu:
 7. Wrap up a completed milestone
 8. Create a release
 9. Create or switch branches
-10. Something else (describe it)
+10. Update architecture specs (.lodetime)
+11. Refine a component spec/contract
+12. Update phase status
+13. Something else (describe it)
 ```
 
 ### Step 3: Route to Appropriate Skill
@@ -61,7 +64,10 @@ Based on the user's choice, hand off to the right skill and agent:
 | 7 | documenter | [milestone-wrap](milestone-wrap.md) | Complete milestone |
 | 8 | documenter | [release](release.md) | Release ceremony |
 | 9 | architect | [branching](branching.md) | Branch strategy |
-| 10 | - | - | Ask for more details and route accordingly |
+| 10 | architect | [custom/architecture-spec-maintenance](custom/architecture-spec-maintenance.md) | Update .lodetime specs |
+| 11 | planner | [custom/component-refine](custom/component-refine.md) | Refine component spec/contract |
+| 12 | architect | [custom/phase-progress](custom/phase-progress.md) | Update phase status |
+| 13 | - | - | Ask for more details and route accordingly |
 
 ### Step 4: Context Gathering
 
@@ -85,6 +91,18 @@ Before handing off to the selected skill, gather any additional context:
 - What merged to main
 - Last version number
 - Milestone ID completed
+
+**For architecture spec maintenance:**
+- Component or contract name(s)
+- Intended change summary
+
+**For component refinement:**
+- Component name
+- Intended responsibilities
+
+**For phase updates:**
+- Phase number/name
+- New status (Current/Complete/Pending)
 
 ### Step 5: Handoff
 
@@ -160,6 +178,9 @@ If the user's initial request is clear enough, skip the menu and go directly:
 | "Review my changes" | [code-review](code-review.md) |
 | "Complete milestone M-X" | [milestone-wrap](milestone-wrap.md) |
 | "Release version X" | [release](release.md) |
+| "Update architecture specs" | [custom/architecture-spec-maintenance](custom/architecture-spec-maintenance.md) |
+| "Refine component X" | [custom/component-refine](custom/component-refine.md) |
+| "Start phase X" | [custom/phase-progress](custom/phase-progress.md) |
 
 ---
 

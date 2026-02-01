@@ -46,9 +46,27 @@ Library but inactive skills live in `skills/inactive/`.
 
 **Custom (LodeTime) skills:** architecture-spec-maintenance, component-refine, phase-progress
 
+### Skills Index
+
+**Active (core):** branching, code-review, epic-refine, epic-start, epic-wrap, framework-review, gap-triage, milestone-draft, milestone-plan, milestone-start, milestone-wrap, post-mortem, red-green-refactor, release, roadmap, session-start
+
+**Custom (project):** architecture-spec-maintenance, component-refine, phase-progress
+
+**Inactive (library):** deployment, ui-debug
+
 ### 📁 instructions/
 Global guardrails that apply to every session:
 - **ALWAYS_DO.md** - Core rules, session hygiene, build/test requirements
+
+---
+
+## Layering
+
+Keep responsibilities clear to avoid leaking project specifics into the framework.
+
+- **Framework layer (`ai/`)**: portable agents, skills, and instructions. Avoid project-specific paths here unless routed through overrides.
+- **Project layer (repo root)**: product artifacts (`.lodetime/`, `docs/`, `lib/`, `cmd/`, `ROADMAP.md`).
+- **Bridge layer (overrides)**: `ai/instructions/PROJECT_PATHS.md` and `skills/custom/` connect the framework to this project.
 
 ---
 

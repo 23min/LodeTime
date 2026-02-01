@@ -44,6 +44,9 @@ Ask: "Which agent should work on this?" and describe the task:
 - **Implementing features** → `implementer` agent (TDD, coding, milestone execution)
 - **Writing tests** → `tester` agent (test strategy, coverage, quality)
 - **Writing documentation** → `documenter` agent (specs, guides, ADRs)
+- **Updating .lodetime specs** → `architect` agent (architecture-spec-maintenance)
+- **Refining components/contracts** → `planner` agent (component-refine)
+- **Updating phase status** → `architect` agent (phase-progress)
 - **Framework improvements** → `maintainer` agent (this repo/framework only, not solution code)
 
 ### "How do I fix a bug?"

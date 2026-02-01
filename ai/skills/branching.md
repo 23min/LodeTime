@@ -19,8 +19,6 @@ This repository uses a milestone-first workflow that scales from solo work to sm
 - Epic integration (optional): `epic/<epic-slug>` — integration branch for an architecture epic spanning multiple milestones
 - Milestone: `milestone/m0` — integration branch for a milestone spanning surfaces
 - Feature: `feature/<surface>-m0/<short-desc>` — actual work branches targeting the milestone branch
-- Release (optional): `release/m0` — brief hardening before tagging
-- Tags: `v0.1.0-m0` — snapshot of milestone release
 
 ### When to use each
 
@@ -32,8 +30,8 @@ This repository uses a milestone-first workflow that scales from solo work to sm
 
 Prefer a short slug that maps to an epic folder under your architecture docs:
 
-- Epic folder: `docs/architecture/ui-perf/` → branch: `epic/ui-perf`
-- Epic folder: `docs/architecture/classes/` → branch: `epic/classes`
+- Epic folder: `dev/architecture/ui-perf/` → branch: `epic/ui-perf`
+- Epic folder: `dev/architecture/classes/` → branch: `epic/classes`
 
 For "catch-up" or cross-epic integration trains, use an explicit integration slug (example: `epic/ft-05-integration`).
 
@@ -61,7 +59,6 @@ For "catch-up" or cross-epic integration trains, use an explicit integration slu
 - Complete milestone:
   - Merge all features into milestone via PRs (squash preferred)
   - Ensure tests/docs are updated
-  - Tag: v0.1.0-m0 (semantic version + milestone suffix)
   - Merge milestone/m0 → main and delete the branch
 
 - Complete epic (epic integration workflow):
@@ -90,7 +87,7 @@ Scopes you can use: `api`, `ui`, `cli`, `core`, `repo`, `docs`, `test`, `build`,
 
 ### Notes
 
-- Tags preserve history; delete feature and milestone branches after merge.
+- Epic tags are created during the release ceremony (see `skills/release.md`).
 - Keep milestone docs updated alongside code.
 - If your architecture docs live outside `docs/architecture/`, update the epic slug mapping accordingly.
 

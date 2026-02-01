@@ -79,6 +79,7 @@ lodetime/
 - [Implementation Phases](docs/phases/IMPLEMENTATION-PHASES.md) - The roadmap
 - [Decisions](docs/DECISIONS.md) - Architectural decisions
 - [CLAUDE.md](CLAUDE.md) - Development guide
+- [AI Framework](ai/README.md) - Agents, skills, and AI workflow
 
 ## Current Phase
 

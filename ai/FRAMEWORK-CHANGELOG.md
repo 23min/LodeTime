@@ -4,6 +4,16 @@ This file tracks major changes, improvements, and versions of the AI-Assisted De
 
 ---
 
+## [1.0.5] - 2026-02-01
+
+### Changed
+
+- Added routing for custom skills in session-start and GETTING_STARTED
+- Removed milestone tag guidance from branching strategy (epic tags only)
+- Added Skills Index and framework layering note in README
+
+---
+
 ## [1.0.4] - 2026-02-01
 
 ### Added
