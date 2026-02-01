@@ -1,4 +1,4 @@
-# Reference: Persistent Workspace & Dropzone
+# Reference: Persistence (Workspace & Dropzone)
 
 ## Why this exists
 
@@ -23,6 +23,8 @@ Why two?
 
 - Git repo is safe for code and tracked files.
 - Workspace is safe for backups, exports, and dropzone; survives rebuilds and repo resets.
+
+Note: runtime state lives in `.lodetime/state/` (gitignored) or an external host state dir; it should not be committed.
 
 ASCII map:
 
@@ -126,24 +128,6 @@ You should see the file on the host at:
 ```text
 ~/lodetime-workspace/dropzone/test.txt
 ```
-
-## Troubleshooting Codex persistence
-
-If you changed Codex persistence paths in `devcontainer.json` and see errors like
-`error loading default config ... No such file or directory`, it usually means the
-target directory does not exist or is not writable inside the container. Ensure the
-mapped path is created on the host and mounted to the same path in the container,
-or revert to the default Codex storage location.
-
-### Fix: Codex spinner + empty `.codex`
-
-If the Codex chat spinner never resolves and `.codex` is empty, the app-server
-likely can’t read/write its config directory. Fix by:
-
-1) Ensure the configured Codex path exists inside the container.
-2) Ensure the path is writable by the container user.
-3) Ensure the path is mounted from the host to the same container path.
-4) If unsure, revert to the default Codex storage location and rebuild.
 
 ## Related files
 

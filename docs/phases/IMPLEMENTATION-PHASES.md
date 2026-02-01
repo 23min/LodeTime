@@ -48,23 +48,24 @@ Build order:
 3. cli-socket (← graph-server)
 4. cli (← cli-socket)
 
-**Success**: `lodetime status` works.
+**Success**: `lode status` works.
 
 ---
 
 ## Phase 2: LodeTime Pupa
 
-**Goal**: LodeTime watches itself.
+**Goal**: LodeTime watches itself with checkpointed validation.
 
 Build:
 - file-watcher
-- test-runner
 - state-server
-- Basic notifications
+- validation runner (tests + contract checks)
+- durable signal queue
+- Basic notifications + severity
 
-**Magic moment**: Edit a file, LodeTime detects it, runs tests, reports.
+**Magic moment**: Edit a file → `lode check` runs validations and reports results.
 
-**Success**: LodeTime tests itself on save.
+**Success**: `lode check` validates changes; `lode status` shows queue + last check outcome.
 
 ---
 
@@ -75,8 +76,8 @@ Build:
 Build:
 - Full notifications
 - MCP server
-- WebSocket dashboard
-- Validation runner
+- WebSocket dashboard (optional)
+- Validation runner (expanded)
 
 **Success**: Full self-hosting, AI integration works.
 

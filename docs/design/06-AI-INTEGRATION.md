@@ -18,6 +18,8 @@ LodeTime provides this missing layer via MCP.
 
 ## MCP Tools
 
+**Constraint:** LodeTime does **not** mutate project code. Any “tell/update” action only writes `.lodetime/` metadata and requires explicit approval.
+
 ### lodetime_context
 Get full context for a file/component:
 ```json
@@ -45,6 +47,9 @@ Update status:
 {"tool": "lodetime_update", "input": {"component": "X", "status": "implemented"}}
 → {success, now_unblocked: [...]}
 ```
+Notes:
+- Updates only `.lodetime/` metadata.
+- Requires user approval.
 
 ---
 

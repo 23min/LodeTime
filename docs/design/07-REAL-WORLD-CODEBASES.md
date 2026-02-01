@@ -49,13 +49,13 @@ zones:
 
 ```bash
 # Start minimal
-lodetime init --minimal
+lode init --minimal
 
 # Add components incrementally
-lodetime add-component user-service --location=lib/users/
+lode add-component user-service --location=lib/users/
 
 # Enable stricter tracking later
-lodetime config set zones.core.tracking full
+lode config set zones.core.tracking full
 ```
 
 ---

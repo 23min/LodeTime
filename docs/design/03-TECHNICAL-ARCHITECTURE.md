@@ -51,6 +51,10 @@ File saved → FileWatcher (debounced) → Graph.Server.component_for_path()
          → Notify.Router.broadcast()
 ```
 
+Checkpointed validation (Phase 2+):
+- `lode check` triggers a checkpoint
+- Runtime waits for quiescence, drains signal queue, runs validation, emits report
+
 ---
 
 ## Why Go for CLI?
@@ -63,6 +67,12 @@ File saved → FileWatcher (debounced) → Graph.Server.component_for_path()
 
 ## Storage Strategy
 
-- **YAML files**: Source of truth, git-friendly
-- **ETS tables**: Runtime state, fast concurrent reads
+- **YAML files**: Source of truth, git-friendly (`.lodetime/`)
+- **Runtime state**: `.lodetime/state/` (gitignored) or host-mounted state dir
+- **Durable queue**: JSONL in state dir (e.g., `.lodetime/state/queue.jsonl`)
+- **ETS tables**: In-memory runtime state, fast concurrent reads
 - **No database**: Simplicity, YAML is enough
+
+Write safety:
+- LodeTime updates `.lodetime/` only with explicit approval.
+- Use a `.lodetime/.lock` during “tell” updates to avoid concurrent edits.

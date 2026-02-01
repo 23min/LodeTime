@@ -339,7 +339,7 @@ Phase‑1 critical path:
 - **config‑loader**: loads `.lodetime/` into runtime
 - **graph‑server**: owns component dependency graph + contracts
 - **cli‑socket**: runtime query/command interface
-- **cli**: human entry point (e.g., `lodetime status`)
+- **cli**: human entry point (e.g., `lode status`)
 
 Phase‑2/3 extensions:
 - **file‑watcher**: change events → runtime signals
@@ -465,6 +465,7 @@ Epics/milestones remain in `dev/` and are not tied 1:1 to phases.
 
 Notes:
 - “Daemon mode” = running in the background (service), not attached to a terminal. We’ll add it only if needed later.
+- **Gap:** if any CLI is currently named `lodetime`, it should be renamed to **`lode`**.
 
 ### Component spec impact (current)
 

@@ -12,16 +12,16 @@ Epics are organized by phase, and epics do not span phases.
 
 ## Phase 1 — LodeTime Larva
 
-- [ ] EPIC: (TBD) Basic query path (config-loader → graph-server → cli-socket → cli)
+- [ ] EPIC: (TBD) Basic query path (config-loader → graph-server → cli-socket → CLI)
 
 ## Phase 2 — LodeTime Pupa
 
-- [ ] EPIC: (TBD) File watcher + test runner integration
+- [ ] EPIC: (TBD) File watcher + checkpoint validation + durable queue
 
 ## Phase 3 — LodeTime Adult
 
 - [ ] EPIC: (TBD) MCP server + validation runner
-- [ ] EPIC: (TBD) Notifications + dashboard
+- [ ] EPIC: (TBD) Notifications (dashboard optional)
 
 ---
 

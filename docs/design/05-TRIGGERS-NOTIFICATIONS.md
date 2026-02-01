@@ -11,6 +11,24 @@ File save → Debounced → Git stage → Pre-commit → Post-commit
 (noisy)    (balanced)  (intentional) (gate)      (record)
 ```
 
+## Checkpoint Protocol (preferred)
+
+LodeTime should avoid “over‑the‑shoulder” noise. Instead:
+- `begin-work` → observe only (collect signals)
+- `checkpoint` (`lode check`) → validate current snapshot
+- `end-work` → full validation + report
+
+Fallback: if no explicit checkpoint, a **quiescence window** (no file events for N seconds) can trigger a checkpoint.
+
+## Severity + Snooze
+
+- **info** → FYI only  
+- **warn** → visible, does not fail checks  
+- **error** → fails `lode check`  
+- **block** → prevents “tell” updates; status degraded until resolved  
+
+Snooze should act like **do‑not‑disturb**: defer warnings until checkpoint or end‑work, with critical issues optionally surfaced immediately.
+
 ---
 
 ## Configuration
@@ -44,6 +62,8 @@ Tests prioritized:
   2. Fast tests first
   3. Direct before integration
 ```
+
+Tests are typically run at **checkpoint**; slow tests may run async and report later.
 
 ---
 

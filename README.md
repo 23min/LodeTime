@@ -39,7 +39,7 @@ code .
 # 5. Inside container
 mix deps.get
 mix compile
-./bin/lodetime status
+lode status
 ```
 
 ## Persistent Workspace & Dropzone
@@ -64,7 +64,7 @@ lodetime/
 │   ├── components/      # Component specifications
 │   └── contracts/       # Interface contracts
 ├── lib/                 # Elixir source code
-├── cmd/lodetime-cli/    # Go CLI
+├── cmd/lodetime-cli/    # Go CLI (lode command)
 ├── test/                # Tests
 └── docs/                # Documentation
     ├── design/          # Design documents
@@ -102,9 +102,9 @@ mix format         # Format code
 iex -S mix         # Interactive console
 
 # Go CLI
-./bin/lodetime status        # Project status
-./bin/lodetime component X   # Component details
-./bin/lodetime deps X        # Dependencies
+lode status        # Project status
+lode component X   # Component details
+lode deps X        # Dependencies
 
 # Development
 backup             # Backup current work
