@@ -70,9 +70,9 @@ backup() {
     local dest="/workspace-data/backups/${name}_${timestamp}"
     mkdir -p "$dest"
     cp -r /workspace/.lodetime "$dest/"
-    cp -r /workspace/lib "$dest/" 2>/dev/null || true
-    cp -r /workspace/test "$dest/" 2>/dev/null || true
-    cp -r /workspace/cmd "$dest/" 2>/dev/null || true
+    cp -r /workspace/lib "$dest/" 2>/work/null || true
+    cp -r /workspace/test "$dest/" 2>/work/null || true
+    cp -r /workspace/cmd "$dest/" 2>/work/null || true
     echo "Backed up to: $dest"
 }
 
@@ -81,8 +81,8 @@ export-work() {
     local dest="/workspace-data/exports/work_${timestamp}"
     mkdir -p "$dest"
     cd /workspace
-    git diff > "$dest/uncommitted.diff" 2>/dev/null || true
-    git diff --cached > "$dest/staged.diff" 2>/dev/null || true
+    git diff > "$dest/uncommitted.diff" 2>/work/null || true
+    git diff --cached > "$dest/staged.diff" 2>/work/null || true
     cp -r .lodetime "$dest/"
     echo "Exported to: $dest"
 }
@@ -114,3 +114,9 @@ echo "  mt            - Run Elixir tests"
 echo "  gobuild       - Build Go CLI"
 echo "  backup        - Backup current work"
 echo ""
+
+# Sync AI agents and skills to .github/ for VS Code Copilot
+if [ -f ai/scripts/sync-agents.sh ]; then
+    echo "🤖 Syncing AI agents and skills..."
+    bash ai/scripts/sync-agents.sh
+fi

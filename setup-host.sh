@@ -9,7 +9,7 @@ echo "🏠 Setting up LodeTime workspace on host..."
 case "$(uname -s)" in
     Darwin*)    OS="macOS" ;;
     Linux*)     
-        if grep -q Microsoft /proc/version 2>/dev/null; then
+        if grep -q Microsoft /proc/version 2>/work/null; then
             OS="WSL"
         else
             OS="Linux"
@@ -35,7 +35,7 @@ mkdir -p "$WORKSPACE_DIR"/{backups,dropzone,scratch,exports,chat-sessions}
 
 # WSL-specific: Create Windows-accessible dropzone
 if [ "$OS" = "WSL" ]; then
-    WIN_HOME=$(wslpath "$(cmd.exe /c 'echo %USERPROFILE%' 2>/dev/null | tr -d '\r')")
+    WIN_HOME=$(wslpath "$(cmd.exe /c 'echo %USERPROFILE%' 2>/work/null | tr -d '\r')")
     WIN_DROPZONE="$WIN_HOME/lodetime-dropzone"
     
     if [ ! -d "$WIN_DROPZONE" ]; then

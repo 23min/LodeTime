@@ -381,7 +381,7 @@ flowchart LR
   user([User])
   ai([AI Assistant])
   ldt([LodeTime Runtime])
-  repo[(Project Repo<br/>code + .lodetime + dev/ docs)]
+  repo[(Project Repo<br/>code + .lodetime + work/ docs)]
   fs([File Watcher])
   cli[[CLI Go]]
   api[[MCP API Phase 3+]]
@@ -441,7 +441,7 @@ flowchart LR
   buffer --> act
 ```
 
-Epics/milestones remain in `dev/` and are not tied 1:1 to phases.
+Epics/milestones remain in `work/` and are not tied 1:1 to phases.
 
 ## Open questions for next discussion
 
