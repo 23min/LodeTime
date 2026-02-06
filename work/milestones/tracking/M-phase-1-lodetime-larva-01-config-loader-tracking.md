@@ -1,16 +1,22 @@
 # M-phase-1-lodetime-larva-01-config-loader Tracking
 
-**Status:** ⬜ Planned  
-**Started:** TBD
+**Status:** 🚧 In Progress  
+**Started:** 2026-02-06
 
 ## Implementation Log
-- None yet.
+- 2026-02-06: Added config loader tests and implemented initial loader/model/error modules.
+- 2026-02-06: Documented loader/model/error API via module docs.
 
 ## Tests (TDD)
-- List tests before implementation (RED → GREEN → REFACTOR).
+- `LodeTime.Config.Loader.load/1` returns `{:ok, model}` for repo `.lodetime/`.
+- Missing `config.yaml` returns `{:error, [error]}` with file + message.
+- Malformed YAML returns `{:error, [error]}` with file + message.
+- Missing required config fields returns errors per field.
+- Missing required component fields returns errors per file.
+- Missing required contract fields returns errors per file.
 
 ## Checks
-- None yet.
+- `mix test test/lodetime/config/loader_test.exs`
 
 ## Release Notes
 - None yet.
