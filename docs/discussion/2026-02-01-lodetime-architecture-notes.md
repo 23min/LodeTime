@@ -441,7 +441,7 @@ flowchart LR
   buffer --> act
 ```
 
-Epics/milestones remain in `work/` and are not tied 1:1 to phases.
+Epics/milestones remain in `work/` and are not tied 1:1 to phases. Phases define product capability boundaries; epics are flexible planning units that can span phases or be split across them.
 
 ## Open questions for next discussion
 

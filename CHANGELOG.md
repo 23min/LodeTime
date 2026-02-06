@@ -11,15 +11,17 @@ Each entry should be concise (1-3 lines) with a link to the detailed epic releas
 ```markdown
 ## [Date] - Epic: [Epic Name]
 
-[One-sentence summary of what was delivered]. See [detailed release notes](docs/epics/releases/<epic-slug>.md).
+[One-sentence summary of what was delivered]. See [detailed release notes](work/epics/releases/<epic-slug>.md).
 ```
 
 ---
 
 ## Releases
 
-*No releases yet. Epic releases will be added here when epics are wrapped and merged to main.*
+## 2026-02-06 - Epic: Phase 0 Manual LodeTime
+
+Formalized Phase 0 planning and closure with completed milestones for schema/catalog, docs, and validator workflow. See [detailed release notes](work/epics/releases/phase-0-manual-lodetime.md).
 
 ---
 
-**Note:** For milestone-level details, see the milestone specs in `docs/milestones/` (active) or `docs/milestones/completed/` (archived). Each milestone spec includes a Release Notes section.
+**Note:** For milestone-level details, see milestone specs in `work/milestones/` (active) or `work/milestones/completed/` (archived). Each milestone spec includes a Release Notes section.
