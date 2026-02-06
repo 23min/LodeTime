@@ -1,16 +1,18 @@
 # M-phase-1-lodetime-larva-05-cli-socket Tracking
 
-**Status:** ⬜ Planned  
-**Started:** TBD
+**Status:** 🚧 In Progress  
+**Started:** 2026-02-06
 
 ## Implementation Log
-- None yet.
+- 2026-02-06: Implemented CLI socket server (TCP + JSONL) with status and error responses.
 
 ## Tests (TDD)
-- List tests before implementation (RED → GREEN → REFACTOR).
+- TCP server accepts JSONL and returns status payload.
+- Unknown command returns `{ok:false}` with error code + message.
+- Server writes logs to `logs/cli-socket/`.
 
 ## Checks
-- None yet.
+- `mix test test/lodetime/interface/cli_socket_test.exs`
 
 ## Release Notes
 - None yet.

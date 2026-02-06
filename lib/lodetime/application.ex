@@ -20,7 +20,7 @@ defmodule LodeTime.Application do
       # Phase 1 components (uncomment as implemented):
       # LodeTime.Config.Server,
       LodeTime.Graph.Server,
-      # LodeTime.Interface.CliSocket,
+      LodeTime.Interface.CliSocket,
       
       # Phase 2 components:
       # LodeTime.Watcher.Supervisor,

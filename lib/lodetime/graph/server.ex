@@ -36,6 +36,10 @@ defmodule LodeTime.Graph.Server do
     GenServer.call(server, :reload)
   end
 
+  def status_payload(server \\ __MODULE__) do
+    GenServer.call(server, :status_payload)
+  end
+
   def summarize(%{components: components, contracts: contracts})
       when is_map(components) and is_map(contracts) do
     %{
@@ -87,6 +91,22 @@ defmodule LodeTime.Graph.Server do
   def handle_call(:summary, _from, state) do
     graph = graph_for_summary(state)
     {:reply, summarize(graph), state}
+  end
+
+  @impl true
+  def handle_call(:status_payload, _from, state) do
+    graph = summarize(graph_for_summary(state))
+
+    payload = %{
+      mode: "connected",
+      runtime_state: runtime_state(state),
+      phase: current_phase(state),
+      graph: graph,
+      last_error: last_error_summary(state),
+      runtime_version: runtime_version()
+    }
+
+    {:reply, payload, state}
   end
 
   @impl true
@@ -143,4 +163,28 @@ defmodule LodeTime.Graph.Server do
 
   defp graph_for_summary(%{degraded: true, last_good_graph: graph}) when is_map(graph), do: graph
   defp graph_for_summary(state), do: state.graph
+
+  defp current_phase(%{model: %{config: config}}) when is_map(config) do
+    Map.get(config, "current_phase")
+  end
+
+  defp current_phase(_state), do: nil
+
+  defp runtime_state(%{degraded: true}), do: "degraded"
+  defp runtime_state(_state), do: "running"
+
+  defp last_error_summary(%{last_error: nil}), do: %{count: 0}
+  defp last_error_summary(%{last_error: errors}) when is_list(errors) do
+    last = List.last(errors)
+    %{
+      count: length(errors),
+      last_message: last && last.message
+    }
+  end
+
+  defp runtime_version do
+    :lodetime
+    |> Application.spec(:vsn)
+    |> to_string()
+  end
 end
