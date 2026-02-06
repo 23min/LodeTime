@@ -76,7 +76,7 @@ echo "  backup        - Backup current work"
 echo ""
 
 # Sync AI agents and skills to .github/ for VS Code Copilot
-if [ -f ai/scripts/sync-agents.sh ]; then
+if [ -f .ai/scripts/sync-agents.sh ]; then
     echo "🤖 Syncing AI agents and skills..."
-    bash ai/scripts/sync-agents.sh
+    bash .ai/scripts/sync-agents.sh
 fi

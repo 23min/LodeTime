@@ -47,6 +47,10 @@ Thumbs.db
 .lodetime/cache/
 .lodetime/state.json
 
+# AI framework (local overrides only)
+.github/agents/
+.github/skills/
+
 # Temporary
 tmp/
 temp/

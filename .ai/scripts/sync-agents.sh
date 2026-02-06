@@ -1,6 +1,6 @@
 #!/bin/bash
-# Sync ai/agents/*.md to .github/agents/*.agent.md with YAML frontmatter
-# Sync ai/skills/*.md to .github/skills/*.skill.md
+# Sync .ai/agents/*.md to .github/agents/*.agent.md with YAML frontmatter
+# Sync .ai/skills/*.md to .github/skills/*.skill.md
 
 set -e
 
