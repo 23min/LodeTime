@@ -61,6 +61,7 @@ func init() {
 	// Add subcommands
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(statusCmd)
+	rootCmd.AddCommand(runCmd)
 	rootCmd.AddCommand(componentCmd)
 	rootCmd.AddCommand(initCmd)
 }

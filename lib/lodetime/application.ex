@@ -15,11 +15,11 @@ defmodule LodeTime.Application do
       {Registry, keys: :unique, name: LodeTime.Registry},
       
       # PubSub for internal events
-      {Phoenix.PubSub, name: LodeTime.PubSub}
-      
+      {Phoenix.PubSub, name: LodeTime.PubSub},
+
       # Phase 1 components (uncomment as implemented):
       # LodeTime.Config.Server,
-      # LodeTime.Graph.Server,
+      LodeTime.Graph.Server,
       # LodeTime.Interface.CliSocket,
       
       # Phase 2 components:
