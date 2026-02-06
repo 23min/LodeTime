@@ -50,8 +50,11 @@ RUN go install golang.org/x/tools/gopls@latest \
     && go install github.com/go-delve/delve/cmd/dlv@latest \
     && go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 
-# Setup zsh
+# Setup zsh with oh-my-zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+# Install oh-my-posh for PowerShell theming
+RUN curl -s https://ohmyposh.dev/install.sh | bash -s
 
 # Create directories
 RUN mkdir -p /home/vscode/bin /home/vscode/.shell_history
