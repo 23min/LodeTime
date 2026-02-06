@@ -1,13 +1,13 @@
 # GitHub Copilot Instructions for LodeTime
 
-This file routes to the canonical AI instructions maintained in `ai/`.
+This file routes to the canonical AI instructions maintained in `.ai/`.
 
 ## Quick Reference
 
-- **New to this project?** See `ai/instructions/GETTING_STARTED.md` for common workflows and questions
-- **Always-on rules:** See `ai/instructions/ALWAYS_DO.md`
-- **Agent definitions:** See `ai/agents/` for role-specific perspectives
-- **Skills/workflows:** See `ai/skills/` for repeatable procedures
+- **New to this project?** See `.ai/instructions/GETTING_STARTED.md` for common workflows and questions
+- **Always-on rules:** See `.ai/instructions/ALWAYS_DO.md`
+- **Agent definitions:** See `.ai/agents/` for role-specific perspectives
+- **Skills/workflows:** See `.ai/skills/` for repeatable procedures
 - **Project context:** See `docs/` for architecture, specs, and epics
 
 ## Core Principles (Summary)
@@ -26,22 +26,22 @@ This is an AI-First development project with three main pillars:
 
 ## Project Structure
 
-- `ai/instructions/` - Always-on rules and guidelines
-- `ai/agents/` - Role-based agent definitions (WHO)
-- `ai/skills/` - Workflow procedures (HOW)
+- `.ai/instructions/` - Always-on rules and guidelines
+- `.ai/agents/` - Role-based agent definitions (WHO)
+- `.ai/skills/` - Workflow procedures (HOW)
 - `docs/` - Architecture, specs, and epic documentation
 - `wiki/` - Human-readable process documentation (Swedish)
 - `PROVENANCE.md` - Ad-hoc change log
 
 ## Available Agents
 
-- **Implementer** (`ai/agents/implementer.md`) - Software developer focused on code quality
+- **Implementer** (`.ai/agents/implementer.md`) - Software developer focused on code quality
 
 *More agents coming soon: Architect, Tester, Documenter, Deployer*
 
 ## Available Skills
 
-- **epic-start** (`ai/skills/epic-start.md`) - Initialize a new epic with proper structure
+- **epic-start** (`.ai/skills/epic-start.md`) - Initialize a new epic with proper structure
 
 *More skills coming soon: epic-wrap, milestone-start, red-green-refactor, code-review*
 
@@ -57,9 +57,9 @@ This helps maintain accuracy during long sessions. See `ai/skills/context-refres
 
 ## Getting Started
 
-1. Read `ai/instructions/ALWAYS_DO.md` for critical rules
+1. Read `.ai/instructions/ALWAYS_DO.md` for critical rules
 2. Check `docs/epics/active/` to understand current work
 3. Consult relevant agent definition for role-specific guidance
 4. Use skills for repeatable workflows
 
-For complete instructions, always consult the `ai/` directory.
+For complete instructions, always consult the `.ai/` directory.
