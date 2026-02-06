@@ -1,16 +1,26 @@
 #!/bin/bash
-# Sync .ai/agents/*.md to .github/agents/*.agent.md with YAML frontmatter
+# Sync ai/agents/*.md to .github/agents/*.agent.md with YAML frontmatter
+# Sync ai/skills/*.md to .github/skills/*.skill.md
 
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 AGENTS_DIR="${SCRIPT_DIR}/../agents"
-OUTPUT_DIR="${SCRIPT_DIR}/../../.github/agents"
+SKILLS_DIR="${SCRIPT_DIR}/../skills"
+AGENTS_OUTPUT="${SCRIPT_DIR}/../../.github/agents"
+SKILLS_OUTPUT="${SCRIPT_DIR}/../../.github/skills"
 
-echo "Syncing agents from ${AGENTS_DIR} to ${OUTPUT_DIR}..."
+echo "Syncing agents and skills..."
+echo ""
+
+# ============================================================================
+# SYNC AGENTS
+# ============================================================================
+
+echo "Syncing agents from ${AGENTS_DIR} to ${AGENTS_OUTPUT}..."
 
 # Create output directory
-mkdir -p "${OUTPUT_DIR}"
+mkdir -p "${AGENTS_OUTPUT}"
 
 # Track synced files
 synced=0
@@ -19,7 +29,7 @@ for file in "${AGENTS_DIR}"/*.md; do
   [ -f "$file" ] || continue
   
   basename=$(basename "$file" .md)
-  output="${OUTPUT_DIR}/${basename}.agent.md"
+  output="${AGENTS_OUTPUT}/${basename}.agent.md"
   
   # Extract metadata
   name=$(grep "^# Agent:" "$file" | sed 's/# Agent: //' | xargs)
@@ -109,6 +119,58 @@ EOF
   synced=$((synced + 1))
 done
 
-echo ""
 echo "✓ Synced ${synced} agents to .github/agents/"
-echo "  Reload VS Code window to see updated agents in chat dropdown"
+echo ""
+
+# ============================================================================
+# SYNC SKILLS
+# ============================================================================
+
+echo "Syncing skills from ${SKILLS_DIR} to ${SKILLS_OUTPUT}..."
+
+# Create output directory
+mkdir -p "${SKILLS_OUTPUT}"
+
+# Track synced files
+synced_skills=0
+
+for file in "${SKILLS_DIR}"/*.md; do
+  [ -f "$file" ] || continue
+  
+  # Skip README files
+  basename=$(basename "$file")
+  if [[ "$basename" == "README.md" ]]; then
+    continue
+  fi
+  
+  basename=$(basename "$file" .md)
+  output="${SKILLS_OUTPUT}/${basename}.skill.md"
+  
+  # Skills don't need frontmatter processing, just copy with footer
+  cat > "$output" <<EOF
+$(cat "$file")
+
+---
+
+**Source:** This skill is automatically synced from [\`.ai/skills/${basename}.md\`](../../.ai/skills/${basename}.md)
+
+To update this skill, edit the source file, and run:
+\`\`\`bash
+./.ai/scripts/sync-agents.sh
+\`\`\`
+EOF
+
+  echo "  ✓ ${basename}.skill.md"
+  synced_skills=$((synced_skills + 1))
+done
+
+echo "✓ Synced ${synced_skills} skills to .github/skills/"
+echo ""
+
+# ============================================================================
+# SUMMARY
+# ============================================================================
+
+echo ""
+echo "✓ Synced ${synced} agents and ${synced_skills} skills"
+echo "  Reload VS Code window to see updates in chat"
