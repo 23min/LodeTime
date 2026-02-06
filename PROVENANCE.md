@@ -3,7 +3,7 @@
 This file tracks **ad-hoc AI contributions** to the LodeTime project.
 
 **Scope:** Manual prompting, quick fixes, exploratory changes, and unplanned work.
-**Not included:** Formal agent tasks tracked in `agent-tasks/` directory.
+**Not included:** Formal agent tasks tracked under `work/` (epic and milestone trackers).
 
 Newest entries are at the top.
 
@@ -19,4 +19,3 @@ Newest entries are at the top.
 ## -- End Template
 
 ---
-

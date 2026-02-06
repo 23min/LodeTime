@@ -18,7 +18,7 @@ This folder contains deprecated or inactive skills that are no longer part of th
 ### ui-debug.md
 **Deprecated:** 2026-02-03  
 **Reason:** UI debugging is highly project-specific and varies by framework/technology. Generic debugging guidance belongs in project-specific documentation.  
-**Replacement:** Create project-specific debugging guides in `docs/development/` or `wiki/`. Use `code-review` skill for systematic issue investigation.
+**Replacement:** Create project-specific debugging guides in `docs/development/`. Use `code-review` skill for systematic issue investigation.
 
 ## Adding Skills to Inactive
 

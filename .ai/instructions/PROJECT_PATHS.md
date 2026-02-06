@@ -16,12 +16,11 @@ This file enables framework portability by abstracting project-specific paths. W
 
 - **MILESTONE_PATH:** `work/milestones/` (milestone specifications)
 - **MILESTONE_TRACKING_PATH:** `work/milestones/tracking/` (milestone tracking documents)
-- **MILESTONE_RELEASES_PATH:** `work/releases/` (completed milestone archives)
+- **MILESTONE_RELEASES_PATH:** `work/milestones/releases/` (completed milestone archives)
 - **EPICS_PATH:** `work/epics/` (epic specifications and planning documentation)
-- **GAPS_PATH:** `work/gaps.md` (project-specific gaps and discovered work)
+- **GAPS_PATH:** `work/GAPS.md` (project-specific gaps and discovered work)
 - **PROVENANCE_PATH:** `PROVENANCE.md` (ad-hoc change log)
 - **CHANGELOG_PATH:** `CHANGELOG.md` (release changelog)
-- **WIKI_PATH:** `wiki/` (human-readable documentation, primarily Swedish)
 - **DEVELOPMENT_GUIDES_PATH:** `docs/guides/` (development guides and conventions)
 - **SPECS_PATH:** `work/specs/` (reusable templates and specifications)
 

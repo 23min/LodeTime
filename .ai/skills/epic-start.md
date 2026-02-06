@@ -31,6 +31,9 @@
 - Not already in `work/epics/active/` (if resuming, skip this skill)
 
 ## Process:
+0) Ensure required directories exist (create if missing):
+   - `work/epics/`
+   - `work/epics/active/`
 1) Verify epic has been refined in `work/epics/<epic-slug>/README.md`
 2) Move (or copy) epic spec to `work/epics/active/<epic-slug>.md` to signal active work
 3) Review and update roadmaps:

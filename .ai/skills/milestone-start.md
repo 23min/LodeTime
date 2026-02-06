@@ -58,6 +58,10 @@ Open and review the milestone specification:
 
 **If starting fresh (no tracking doc exists):**
 
+Ensure required directories exist (create if missing):
+- `work/milestones/`
+- `work/milestones/tracking/`
+
 Create tracking document with this structure:
 
 ```markdown

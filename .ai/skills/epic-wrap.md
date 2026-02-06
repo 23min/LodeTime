@@ -34,9 +34,14 @@
 ## Process:
 1) Verify each milestone status is ✅ Complete.
 
-2) Move milestone specs from `work/milestones/` to `work/milestones/completed/` as a batch (e.g., `M-01.01.md`, `M-01.02.md`, etc.).
+2) Ensure required directories exist (create if missing):
+   - `work/milestones/completed/`
+   - `work/epics/releases/`
+   - `work/epics/completed/`
 
-3) Create epic release document at `work/epics/releases/<epic-slug>.md`:
+3) Move milestone specs from `work/milestones/` to `work/milestones/completed/` as a batch (e.g., `M-01.01.md`, `M-01.02.md`, etc.).
+
+4) Create epic release document at `work/epics/releases/<epic-slug>.md`:
    - Aggregate all milestone release notes
    - Summarize epic achievements and impact
    - List all completed milestones
@@ -66,7 +71,7 @@
      [Business value and user impact]
      ```
 
-4) Update root `CHANGELOG.md` (create if it doesn't exist):
+5) Update root `CHANGELOG.md` (create if it doesn't exist):
    - Add high-level entry for this epic
    - Link to detailed epic release document
    - Keep it concise (1-3 lines per epic)
@@ -77,15 +82,15 @@
      [One-sentence summary]. See [detailed release notes](work/epics/releases/<epic-slug>.md).
      ```
 
-5) Move epic spec from `work/epics/active/<epic-slug>.md` to `work/epics/completed/<epic-slug>.md`
+6) Move epic spec from `work/epics/active/<epic-slug>.md` to `work/epics/completed/<epic-slug>.md`
 
-6) Update:
+7) Update:
    - `ROADMAP.md` (high-level: mark epic complete)
    - `work/epics/epic-roadmap.md` (technical: mark complete, update status)
 
-7) Ask whether the epic should merge via PR or directly to main.
+8) Ask whether the epic should merge via PR or directly to main.
 
-8) Ensure release ceremony steps are ready or completed.
+9) Ensure release ceremony steps are ready or completed.
 
 Outputs:
 - Epic release document created in `work/epics/releases/<epic-slug>.md`

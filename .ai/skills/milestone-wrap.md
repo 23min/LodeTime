@@ -66,6 +66,10 @@ Record in tracking doc:
 
 In the milestone spec file (`work/milestones/<milestone-id>.md`), update the header:
 
+If any required directories are missing, create them first:
+- `work/milestones/`
+- `work/milestones/tracking/`
+
 ```markdown
 # [ID] — [Title]
 

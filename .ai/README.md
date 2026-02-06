@@ -64,7 +64,7 @@ This framework assumes standard paths. If your project differs, update this sect
 - Milestone tracking: `work/milestones/tracking/` (progress logs)
 - Milestone releases: Release notes section within milestone spec itself
 - Milestone naming: `M-<epic-slug>-XX[-suffix]` (see work/specs/templates/milestone-naming-convention.md)
-- Gaps: `docs/gaps.md` (discovered work out of scope)
+- Gaps: `work/GAPS.md` (discovered work out of scope)
 - Specs: `work/specs/` (feature specifications)
 - Development guides: `docs/development/`
 - Copilot rules: `.github/copilot-instructions.md`

@@ -58,7 +58,7 @@ For production bugs:
 ### "I found something out of scope, what do I do?"
 
 Ask: "This is out of scope for current milestone, where do I track it?"
-→ Uses `gap-triage` skill to log in `docs/gaps.md`
+→ Uses `gap-triage` skill to log in `work/GAPS.md`
 
 ### "How do I review code before committing?"
 
@@ -132,6 +132,6 @@ Copilot: [Uses deployment skill]
 - **Agents:** See `.ai/agents/` for role definitions
 - **Skills:** See `.ai/skills/` for workflow procedures  
 - **Project context:** See `docs/` for architecture, specs, and epics
-- **Process documentation:** See `wiki/` (Swedish) for human-readable guides
+- **Process documentation:** See `docs/` for human-readable guides
 
 **Still confused?** Just ask: "How do I [what you want to do]?"

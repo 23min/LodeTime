@@ -41,14 +41,16 @@
 
 ## Process:
 1) Ensure epic context and milestone plan exist. If missing, run epic-refine and milestone-plan first.
-2) Create or update the milestone spec under `work/milestones/<milestone-id>.md` (e.g., `work/milestones/M-03.10.md`).
-3) Populate required sections with testable acceptance criteria and explicit scope boundaries.
-4) Include a TDD-ready implementation plan that calls out RED -> GREEN -> REFACTOR.
+2) Ensure required directories exist (create if missing):
+   - `work/milestones/`
+3) Create or update the milestone spec under `work/milestones/<milestone-id>.md` (e.g., `work/milestones/M-03.10.md`).
+4) Populate required sections with testable acceptance criteria and explicit scope boundaries.
+5) Include a TDD-ready implementation plan that calls out RED -> GREEN -> REFACTOR.
    - **Optional:** Use @plan as subagent to decompose complex implementation phases into tactical steps
    - @plan excels at breaking down "how to implement" into granular TDD cycles
-5) Add or update references in:
+6) Add or update references in:
    - work/epics/epic-roadmap.md (epic status and milestone list)
-   - docs/ROADMAP.md (high-level status)
+   - ROADMAP.md (high-level status)
    - work/epics/<epic-slug>/README.md (if it lists milestones)
 
 Outputs:

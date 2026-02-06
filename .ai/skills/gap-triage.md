@@ -32,7 +32,7 @@
 - Gap is truly out-of-scope (not covered by current ACs)
 
 ## Process
-1) Record the gap in the backlog section of docs/ROADMAP.md (or agreed backlog doc)
+1) Record the gap in `work/GAPS.md` (project gap log). Optionally add a short note to `ROADMAP.md` only if it affects epic prioritization.
 2) Classify: scope gap, design gap, implementation gap, or documentation gap
 3) Decide disposition with the user:
    - Include in current milestone (update scope + tests)

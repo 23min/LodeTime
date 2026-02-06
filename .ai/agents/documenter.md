@@ -6,8 +6,7 @@ Responsibilities:
 - Draft and update milestone specs and tracking docs from milestone plans
 - Keep roadmap, charters, and reference docs aligned
 - Produce release notes and verify doc cross-links
-- Maintain project documentation (docs/, wiki/)
-- Sync translations between framework docs (English) and wiki (Swedish)
+- Maintain project documentation (docs/, work/specs/)
 - Keep documentation accessible for different audiences (developers, stakeholders)
 
 **Key Skills:** milestone-draft, milestone-wrap, release, gap-triage

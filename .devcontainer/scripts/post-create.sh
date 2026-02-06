@@ -25,6 +25,20 @@ if [ ! -w "/workspace-data" ]; then
 fi
 mkdir -p /workspace-data/{backups,dropzone,scratch,exports}
 
+# Create framework working directories (safe if they already exist)
+mkdir -p /workspace/work/epics/{active,completed,releases} \
+         /workspace/work/milestones/{tracking,completed,releases} \
+         /workspace/work/specs
+
+# Ensure placeholder files exist so empty dirs are tracked in git
+touch /workspace/work/epics/active/.gitkeep \
+      /workspace/work/epics/completed/.gitkeep \
+      /workspace/work/epics/releases/.gitkeep \
+      /workspace/work/milestones/.gitkeep \
+      /workspace/work/milestones/tracking/.gitkeep \
+      /workspace/work/milestones/completed/.gitkeep \
+      /workspace/work/milestones/releases/.gitkeep
+
 # Install Elixir dependencies
 cd /workspace
 if [ -f mix.exs ]; then

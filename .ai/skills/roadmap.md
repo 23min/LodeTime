@@ -33,12 +33,12 @@
 - For complete: epic-wrap has been completed
 
 ## Policy
-- docs/ROADMAP.md is the authoritative list of proposed and active epics
+- ROADMAP.md is the authoritative list of proposed and active epics
 - work/epics/epic-roadmap.md is the authoritative list of epics with docs
 - These two files must stay in sync
 
 ## Status flow
-- **Proposed:** Only in docs/ROADMAP.md
+- **Proposed:** Only in ROADMAP.md
 - **Planned:** Epic folder exists with README.md
 - **Active:** Milestones underway
 - **Complete:** Epic wrapped and milestones archived
@@ -46,18 +46,18 @@
 ## Process
 
 **1) Proposed epic:**
-- Add to docs/ROADMAP.md with intent and rough ordering
+- Add to ROADMAP.md with intent and rough ordering
 - No epic folder required
 
 **2) Promote to Planned/Active:**
 - Run epic-refine
 - Create work/epics/<epic-slug>/README.md
 - Add to work/epics/epic-roadmap.md
-- Update docs/ROADMAP.md status
+- Update ROADMAP.md status
 
 **3) Complete:**
 - Run epic-wrap
-- Update docs/ROADMAP.md and work/epics/epic-roadmap.md
+- Update ROADMAP.md and work/epics/epic-roadmap.md
 
 ## Outputs
 - Roadmap and epic roadmap in sync

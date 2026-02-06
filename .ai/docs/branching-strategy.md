@@ -200,7 +200,6 @@ Clear ownership prevents confusion during merges:
 | `src/` | epic/milestone branches | Project implementation |
 | `tests/` | epic/milestone branches | Project tests |
 | `docs/` | epic/milestone branches | Project documentation |
-| `wiki/` | epic/milestone branches | Project guides |
 | `.github/` | Shared | Update from either side |
 
 ---

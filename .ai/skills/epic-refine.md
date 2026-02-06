@@ -35,7 +35,7 @@
 2) Review existing epic docs and roadmap entries (if any):
    - work/epics/<epic-slug>/README.md
    - work/epics/epic-roadmap.md
-   - docs/ROADMAP.md
+  - ROADMAP.md
 3) Run a structured Q&A and capture decisions in a short notes block.
 4) Produce an initial milestone outline for the epic.
 5) Confirm open questions and owners; do not proceed to drafting milestones until resolved or explicitly deferred.

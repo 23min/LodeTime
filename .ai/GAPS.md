@@ -3,7 +3,7 @@
 Discovered gaps, inconsistencies, and improvement opportunities in the AI-First development framework.
 
 **Scope:** Framework issues, skill gaps, process improvements  
-**Not included:** Solution/code bugs (use `docs/gaps.md` for those)
+**Not included:** Solution/code bugs (use `work/GAPS.md` for those)
 
 ---
 
@@ -209,29 +209,29 @@ When the documenter agent creates milestone specifications using the milestone-d
 **Related Docs:** docs/development/milestone-documentation-guide.md, .ai/skills/milestone-draft.md
 
 ### Maintainer vs Documenter Role Confusion
-**Discovered:** 2026-01-30 during wiki translation discussion  
+**Discovered:** 2026-01-30 during documentation ownership discussion  
 **Category:** Agent Roles  
 **Impact:** Medium - Unclear ownership of documentation tasks  
 **Status:** Resolved  
 
 **Issue:**
-Maintainer agent responsibilities included "Keep documentation structure consistent (docs/, wiki/)" which conflated:
+Maintainer agent responsibilities included "Keep documentation structure consistent (docs/)" which conflated:
 - Framework documentation (.ai/ directory) - framework maintenance
-- Project documentation (docs/, wiki/) - project content and translation
+- Project documentation (docs/, work/specs/) - project content
 
 **Resolution:**
 - **Maintainer agent:** Owns ai/ directory only (framework code, skills, agents, instructions)
-- **Documenter agent:** Owns project documentation (docs/, wiki/, specs, translations)
+- **Documenter agent:** Owns project documentation (docs/, work/specs/)
 
 **Action Items:**
 - [x] Update maintainer.md to clarify framework-only scope
-- [x] Update documenter.md to include wiki/ and translation responsibilities
-- [x] Document wiki translation sync as documenter task (not maintainer)
+- [x] Update documenter.md to include docs/ and specs responsibilities
+- [x] Remove translation sync as a documenter task (not maintainer)
 
 **Rationale:**
 - Framework (.ai/) is code-like infrastructure maintained separately
-- Project docs (docs/, wiki/) are content that evolves with project features
-- Translations (English → Swedish) are content work, not framework work
+- Project docs (docs/, work/specs/) are content that evolves with project features
+- Translations (if any) are content work, not framework work
 
 **Related Agents:** maintainer, documenter
 
@@ -431,7 +431,7 @@ Working on schema design - decided two schemas approach
 
 ## Recent Decisions
 - 14:35: Two schemas (bar-chart, trend-table) for independent evolution
-- 15:20: DevOps links in wiki for org accessibility
+- 15:20: DevOps links in docs for org accessibility
 
 ## Open Questions
 - Session ID generation method (see below)
@@ -745,7 +745,7 @@ Use descriptive titles without sequential IDs:
 - [ ] Update gap-triage skill to reflect new format
 
 **Related Skills:** gap-triage  
-**Related Docs:** ai/GAPS.md (this file), docs/gaps.md (project-level gaps)
+**Related Docs:** ai/GAPS.md (this file), work/GAPS.md (project-level gaps)
 
 ---
 

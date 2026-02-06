@@ -203,7 +203,7 @@ RED: Write failing test
 
 ### 4. Supporting Workflows
 
-- **Gap Discovery:** When work outside scope is found → `gap-triage` → Add to gaps.md
+- **Gap Discovery:** When work outside scope is found → `gap-triage` → Add to `work/GAPS.md`
 - **Context Loss:** If framework context lost → `context-refresh` → Reload state
 - **Framework Issues:** After release → `framework-review` → `post-mortem`
 

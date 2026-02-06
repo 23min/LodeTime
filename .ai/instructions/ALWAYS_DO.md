@@ -107,7 +107,7 @@ Update `PROVENANCE.md` for **ad-hoc work only**, such as:
 - Unplanned refactoring
 - Any work NOT part of a formal agent task/milestone
 
-**Do NOT update PROVENANCE.md** for formal agent tasks that have their own tracker files in `agent-tasks/` or epic tracking documents.
+**Do NOT update PROVENANCE.md** for formal agent tasks that have their own tracker files under `work/` (epic/milestone tracking docs).
 
 ### After Completing Ad-hoc Work Sessions
 
@@ -183,12 +183,6 @@ The entire repository is maintained in English to optimize AI performance. This 
 - AI instructions
 - Commit messages
 - PROVENANCE.md
-
-**Wiki language:** Primarily Swedish
-
-There is no `wiki/` folder in this repo; keep documentation in `docs/` and follow the repository language rules above.
-
----
 
 ## 🔄 Long Session Protocol
 
