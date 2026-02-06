@@ -20,11 +20,7 @@ var runCmd = &cobra.Command{
 			os.Exit(1)
 		}
 
-		if !inDevcontainer() {
-			color.Red("lode run (Phase 1) requires a devcontainer. Host Docker boot is implemented in a later milestone.")
-			os.Exit(1)
-		}
-
+	if inDevcontainer() {
 		mixCmd := exec.Command("mix", "run", "--no-halt")
 		mixCmd.Dir = root
 		mixCmd.Stdout = os.Stdout
@@ -35,6 +31,40 @@ var runCmd = &cobra.Command{
 			color.Red("Runtime exited: %v", err)
 			os.Exit(1)
 		}
+		return
+	}
+
+	if !dockerAvailable() {
+		color.Red("Docker is required for host runtime boot in Phase 1.")
+		os.Exit(1)
+	}
+
+	image := "lodetime-runtime:local"
+	container := "lodetime-runtime"
+	color.Cyan("Building runtime image (%s)...", image)
+	buildCmd := exec.Command("docker", "build", "-t", image, root)
+	buildCmd.Stdout = os.Stdout
+	buildCmd.Stderr = os.Stderr
+	if err := buildCmd.Run(); err != nil {
+		color.Red("Docker build failed: %v", err)
+		os.Exit(1)
+	}
+
+	color.Cyan("Starting runtime container (%s)...", container)
+	runCmd := exec.Command(
+		"docker", "run",
+		"--rm",
+		"--name", container,
+		"-v", fmt.Sprintf("%s:/app", root),
+		"-w", "/app",
+		image,
+	)
+	runCmd.Stdout = os.Stdout
+	runCmd.Stderr = os.Stderr
+	if err := runCmd.Run(); err != nil {
+		color.Red("Docker run failed: %v", err)
+		os.Exit(1)
+	}
 	},
 }
 
@@ -49,6 +79,11 @@ func inDevcontainer() bool {
 	}
 
 	return false
+}
+
+func dockerAvailable() bool {
+	_, err := exec.LookPath("docker")
+	return err == nil
 }
 
 func init() {
