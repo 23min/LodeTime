@@ -30,30 +30,35 @@ This is an AI-First development project with three main pillars:
 - `.ai/agents/` - Role-based agent definitions (WHO)
 - `.ai/skills/` - Workflow procedures (HOW)
 - `docs/` - Architecture, specs, and epic documentation
-- `wiki/` - Human-readable process documentation (Swedish)
 - `PROVENANCE.md` - Ad-hoc change log
 
 ## Available Agents
 
+- **Architect** (`.ai/agents/architect.md`) - System design, epic planning
+- **Planner** (`.ai/agents/planner.md`) - Milestone planning
 - **Implementer** (`.ai/agents/implementer.md`) - Software developer focused on code quality
-
-*More agents coming soon: Architect, Tester, Documenter, Deployer*
+- **Tester** (`.ai/agents/tester.md`) - Test planning and validation
+- **Documenter** (`.ai/agents/documenter.md`) - Documentation and release notes
+- **Deployer** (`.ai/agents/deployer.md`) - Release and deployment
+- **Maintainer** (`.ai/agents/maintainer.md`) - Framework evolution and repo infra
 
 ## Available Skills
 
 - **epic-start** (`.ai/skills/epic-start.md`) - Initialize a new epic with proper structure
-
-*More skills coming soon: epic-wrap, milestone-start, red-green-refactor, code-review*
+- **epic-wrap** (`.ai/skills/epic-wrap.md`) - Close out an epic
+- **milestone-plan** (`.ai/skills/milestone-plan.md`) - Define milestone plan
+- **red-green-refactor** (`.ai/skills/red-green-refactor.md`) - TDD cycle
+- **gap-triage** (`.ai/skills/gap-triage.md`) - Handle scope gaps
 
 ## Context Refresh Protocol
 
 If the user says "refresh context" or "reload instructions":
-1. Re-read `ai/instructions/ALWAYS_DO.md`
-2. Re-read the active agent file from `ai/agents/` (if in specific role)
+1. Re-read `.ai/instructions/ALWAYS_DO.md`
+2. Re-read the active agent file from `.ai/agents/` (if in specific role)
 3. Check `docs/epics/active/` and `docs/milestones/tracking/` for current work
 4. Summarize current state and confirm understanding
 
-This helps maintain accuracy during long sessions. See `ai/skills/context-refresh.md` for full procedure.
+This helps maintain accuracy during long sessions. See `.ai/skills/context-refresh.md` for full procedure.
 
 ## Getting Started
 

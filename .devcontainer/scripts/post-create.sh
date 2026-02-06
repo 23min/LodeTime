@@ -5,9 +5,15 @@ set -e
 
 echo "🚀 Setting up LodeTime development environment..."
 
-# Oh My Zsh installation
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+# Setup shells (oh-my-zsh, powerlevel10k, oh-my-posh)
+if [ -f /workspace/.devcontainer/scripts/setup-shells.sh ]; then
+    echo "🎨 Setting up shells with Powerlevel10k theme..."
+    bash /workspace/.devcontainer/scripts/setup-shells.sh
+else
+    # Fallback: Basic oh-my-zsh installation
+    if [ ! -d "$HOME/.oh-my-zsh" ]; then
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    fi
 fi
 
 # Create workspace directories (ensure permissions when running as non-root)
@@ -87,7 +93,6 @@ export-work() {
     echo "Exported to: $dest"
 }
 EOF
-
 # Create helper scripts
 mkdir -p ~/bin
 
@@ -118,5 +123,5 @@ echo ""
 # Sync AI agents and skills to .github/ for VS Code Copilot
 if [ -f .ai/scripts/sync-agents.sh ]; then
     echo "🤖 Syncing AI agents and skills..."
-  bash .ai/scripts/sync-agents.sh
+    bash .ai/scripts/sync-agents.sh
 fi

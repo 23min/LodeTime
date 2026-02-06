@@ -34,7 +34,7 @@ Violating this rule breaks the AI-First workflow and removes human oversight.
   - Significant architectural decisions: Create ADR in `work/epics/<epic-slug>/adrs/XXX-decision-title.md`
   - Epic progress/scope changes: Add brief note to epic spec's Progress Notes section
   - Milestone work: Use tracking doc's Implementation Log section
-  - Gaps discovered: Add to `docs/gaps.md` and reference from epic/milestone
+- Gaps discovered: Add to `.ai/GAPS.md` and reference from epic/milestone
   - Ad-hoc work: Use PROVENANCE.md
 
 ## Conflict Resolution
@@ -163,7 +163,7 @@ Use Conventional Commits format:
 
 **Examples:**
 ```
-docs(wiki): add AI configuration documentation
+docs: add AI configuration documentation
 
 feat(reporting): implement data extraction from PerfOps
 
@@ -186,14 +186,7 @@ The entire repository is maintained in English to optimize AI performance. This 
 
 **Wiki language:** Primarily Swedish
 
-The `wiki/` folder contains Swedish content for team communication. When writing or updating wiki content:
-- Use Swedish for explanatory prose
-- Keep technical terms natural (don't force translations for common tech jargon)
-- Keep file paths, commands, and code examples in English
-- Keep tool/product names unchanged (e.g., InfrastructureTemplate, PerfOps, GitHub)
-- Keep references to English repo content in English
-
-**Example:** "Vi använder devcontainer för att säkerställa reproducerbar miljö. Se `.devcontainer/devcontainer.json` för konfiguration."
+There is no `wiki/` folder in this repo; keep documentation in `docs/` and follow the repository language rules above.
 
 ---
 

@@ -3,6 +3,12 @@
 
 echo "🔄 LodeTime container started"
 
+# Sync AI agents and skills to .github/ for VS Code Copilot
+if [ -f /workspace/.ai/scripts/sync-agents.sh ]; then
+    echo "🤖 Syncing AI agents and skills..."
+    bash /workspace/.ai/scripts/sync-agents.sh || true
+fi
+
 # Ensure mounted VS Code extension volume is writable by the remote user
 sudo chown -R vscode:vscode /home/vscode/.vscode-server/extensions 2>/dev/null || true
 
