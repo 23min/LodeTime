@@ -26,16 +26,37 @@ defmodule LodeTime.Graph.ServerTest do
       assert %{component_count: 1, contract_count: 1} = Server.summary(pid)
       Logger.flush()
       assert File.exists?(log_path)
+      assert %{degraded: false, last_good_at: %DateTime{}} = Server.status(pid)
       GenServer.stop(pid)
     end
 
-    test "returns error on invalid config" do
-      Process.flag(:trap_exit, true)
+    test "starts in degraded mode on invalid config" do
       root = tmp_dir()
       File.mkdir_p!(Path.join(root, ".lodetime"))
 
-      assert {:error, {:config_error, errors}} = Server.start_link(root_path: root, name: nil)
+      assert {:ok, pid} = Server.start_link(root_path: root, name: nil)
+      assert %{degraded: true, last_good_at: nil, last_error: errors} = Server.status(pid)
       assert Enum.any?(errors, &match?(%LodeTime.Config.Error{file: "config.yaml"}, &1))
+      GenServer.stop(pid)
+    end
+  end
+
+  describe "reload/1" do
+    test "preserves last known good graph on failure" do
+      root = tmp_dir()
+      write_config(root)
+      write_components(root)
+      write_contracts(root)
+
+      assert {:ok, pid} = Server.start_link(root_path: root, name: nil)
+      assert %{component_count: 1, contract_count: 1} = Server.summary(pid)
+
+      File.rm!(Path.join([root, ".lodetime", "config.yaml"]))
+      assert {:error, errors} = Server.reload(pid)
+      assert Enum.any?(errors, &match?(%LodeTime.Config.Error{file: "config.yaml"}, &1))
+      assert %{degraded: true, last_good_at: %DateTime{}} = Server.status(pid)
+      assert %{component_count: 1, contract_count: 1} = Server.summary(pid)
+      GenServer.stop(pid)
     end
   end
 
