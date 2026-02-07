@@ -133,6 +133,9 @@ Build order stays aligned with `docs/phases/IMPLEMENTATION-PHASES.md` and `CLAUD
 ## Framework Gaps
 - Epic Draft vs Planned Gate (see `.ai/GAPS.md`)
 
+## Project Gaps
+- Devcontainer Post-Start CLI Binary Name Drift (see `work/GAPS.md`)
+
 ## Wrap Notes
 - Epic wrapped as complete on 2026-02-07.
 - Milestones archived under `work/milestones/completed/`.

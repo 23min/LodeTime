@@ -165,6 +165,20 @@ There is no dedicated skill to record framework gaps in `.ai/GAPS.md`, and no tr
 **Recommendation:**
 Add a `framework-gap-triage` skill (maintainer-owned) with explicit triggers (e.g., “document a framework gap”) that records entries in `.ai/GAPS.md` and enforces the ALWAYS_DO reference rule in epics/milestones.
 
+### Gap Logging Path Ambiguity Across Framework Docs
+**Discovered:** 2026-02-07 during gap-recording workflow correction  
+**Category:** Process  
+**Impact:** Medium - Gaps can be logged to the wrong file when framework instructions conflict  
+**Status:** Identified  
+
+**Issue:**
+Framework guidance is inconsistent about where to log discovered gaps. `.ai/instructions/ALWAYS_DO.md` says to log in `.ai/GAPS.md`, while `.ai/instructions/PROJECT_PATHS.md` and `gap-triage` point project gaps to `work/GAPS.md`. This creates avoidable mistakes.
+
+**Recommendation:**
+- Clarify source-of-truth routing for gap types in one place and reference it from both files
+- Update `ALWAYS_DO.md` wording to distinguish framework gaps vs project gaps
+- Add an explicit rule: when gap scope/location is ambiguous, ask the user before logging
+
 ### Built-in @plan Subagent Not Documented
 **Discovered:** 2026-02-03 during framework reconciliation with external project  
 **Category:** Documentation  
@@ -788,4 +802,4 @@ Use descriptive titles without sequential IDs:
 
 ---
 
-**Last Updated:** 2026-01-29
+**Last Updated:** 2026-02-07
