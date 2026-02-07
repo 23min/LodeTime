@@ -141,6 +141,30 @@ This section provides strategic prioritization of active framework gaps to guide
 
 ## Active Framework Gaps
 
+### Epic Draft vs Planned Gate
+**Discovered:** 2026-02-06 during Phase 1 epic kickoff discussion  
+**Category:** Process  
+**Impact:** Medium - Ambiguous “start the next epic” requests can trigger premature milestone creation and roadmap edits  
+**Status:** Identified  
+
+**Issue:**
+There is no explicit gate to clarify whether a request to “start the next epic” means a draft/refinement-only step or a full planning step that includes milestone creation and roadmap updates.
+
+**Recommendation:**
+Define an “Epic Lifecycle” with explicit stages (Draft, Planned, In Progress, Complete) and specify when milestones and roadmap entries are created.
+
+### Missing Framework Gap Triage Skill
+**Discovered:** 2026-02-06 during framework gap documentation discussion  
+**Category:** Skill  
+**Impact:** Medium - Framework gaps can be recorded in the wrong location or handled inconsistently  
+**Status:** Identified  
+
+**Issue:**
+There is no dedicated skill to record framework gaps in `.ai/GAPS.md`, and no trigger that routes “document a framework gap” requests to a maintainer workflow. The existing `gap-triage` skill writes to `work/GAPS.md` (project gaps), which is the wrong target for framework issues.
+
+**Recommendation:**
+Add a `framework-gap-triage` skill (maintainer-owned) with explicit triggers (e.g., “document a framework gap”) that records entries in `.ai/GAPS.md` and enforces the ALWAYS_DO reference rule in epics/milestones.
+
 ### Built-in @plan Subagent Not Documented
 **Discovered:** 2026-02-03 during framework reconciliation with external project  
 **Category:** Documentation  

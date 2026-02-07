@@ -11,7 +11,8 @@ Epics are planning units and do not have to map 1:1 to phases. We group epics by
 
 ## Phase 1 — LodeTime Larva
 
-- [ ] EPIC: (TBD) Basic query path (config-loader → graph-server → cli-socket → CLI)
+- [x] EPIC: Phase 1 LodeTime Larva (`phase-1-lodetime-larva`) complete
+  Delivered basic query path (config-loader → graph-server → cli-socket → CLI), runtime boot (`lode run`), status/check CLI, and Phase 1 docs/build bootstrap.
 
 ## Phase 2 — LodeTime Pupa
 
