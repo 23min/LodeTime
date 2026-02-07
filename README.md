@@ -24,8 +24,8 @@ In short: LodeTime is for teams who want a persistent, always‑on “project br
 
 ```bash
 # 1. Clone the repo
-git clone <repo-url>
-cd lodetime
+git clone https://github.com/23min/LodeTime.git
+cd LodeTime
 
 # 2. Create persistent workspace (run on host)
 ./setup-host.sh
@@ -88,9 +88,9 @@ See `docs/phases/IMPLEMENTATION-PHASES.md` for full roadmap.
 | Phase | Description | Status |
 |-------|-------------|--------|
 | -1 | Foundation (dev environment) | ✓ |
-| 0 | Manual LodeTime (YAML only) | Current |
-| 1 | LodeTime Larva (basic queries) | Pending |
-| 2 | LodeTime Pupa (file watching) | Pending |
+| 0 | Manual LodeTime (YAML only) | ✓ |
+| 1 | LodeTime Larva (basic queries) | ✓ |
+| 2 | LodeTime Pupa (file watching) | Current |
 | 3 | LodeTime Adult (full system) | Pending |
 
 ## Key Commands

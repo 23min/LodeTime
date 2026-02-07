@@ -1,7 +1,7 @@
 id: config-loader
 schema_version: 1
 name: Config Loader
-status: planned
+status: implemented
 description: Loads .lodetime/ YAML configuration files
 location: lib/lodetime/config/
 depends_on: []

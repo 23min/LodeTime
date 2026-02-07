@@ -13,7 +13,7 @@ docs/discussion/# HOW WE GOT HERE - Design journey
 .lodetime/      # THE ARCHITECTURE (source of truth)
 ```
 
-## Current Phase: 0 (Manual LodeTime)
+## Current Phase: 2 (LodeTime Pupa)
 
 Check `.lodetime/config.yaml` for status.
 

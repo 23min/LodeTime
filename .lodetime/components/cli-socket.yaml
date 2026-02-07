@@ -1,7 +1,7 @@
 id: cli-socket
 schema_version: 1
 name: CLI Socket Server
-status: planned
+status: implemented
 description: TCP socket server for CLI communication
 location: lib/lodetime/interface/cli_socket/
 depends_on: [graph-server]
