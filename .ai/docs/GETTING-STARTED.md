@@ -1,6 +1,6 @@
 # Getting Started with AI-First Development
 
-This guide helps you use the AI framework effectively through natural conversation with GitHub Copilot.
+This guide helps you use the AI framework effectively through natural conversation with your AI assistant.
 
 ## Common Questions
 
@@ -70,7 +70,7 @@ Ask: "Review this code" or "Run code review on these changes"
 ### Starting a New Milestone
 ```
 You: "Let's start milestone M-epic-name-01"
-Copilot: [Uses milestone-start skill]
+AI: [Uses milestone-start skill]
 - Creates tracking doc
 - Sets up branch
 - Plans TDD phases
@@ -80,7 +80,7 @@ Copilot: [Uses milestone-start skill]
 ### Implementing with TDD
 ```
 You: "Continue with red-green-refactor"
-Copilot: [Uses red-green-refactor skill]
+AI: [Uses red-green-refactor skill]
 - RED: Write failing test
 - GREEN: Minimal code to pass
 - REFACTOR: Improve structure
@@ -90,7 +90,7 @@ Copilot: [Uses red-green-refactor skill]
 ### Completing Work
 ```
 You: "Let's wrap this milestone"
-Copilot: [Uses milestone-wrap skill]
+AI: [Uses milestone-wrap skill]
 - Adds Release Notes section
 - Updates roadmaps
 - Syncs documentation
@@ -99,7 +99,7 @@ Copilot: [Uses milestone-wrap skill]
 ### Deploying Changes
 ```
 You: "Deploy this to staging"
-Copilot: [Uses deployment skill]
+AI: [Uses deployment skill]
 - Validates environment
 - Runs deployment
 - Verifies health checks
@@ -122,15 +122,72 @@ Copilot: [Uses deployment skill]
 
 ## Key Principles
 
-1. **Just ask** - Copilot knows the framework, agents, and skills
+1. **Just ask** - Your AI assistant knows the framework, agents, and skills
 2. **Conversational** - No need to memorize commands or syntax
 3. **Guardrails** - Framework prevents mistakes (never commits without approval)
 4. **Iterative** - Framework improves through use (tracked in PROVENANCE.md)
 
+## Decision Guidance
+
+### Milestone Granularity
+
+**Too coarse:** "Validate data pipeline" (single milestone)
+- Loses tracking visibility
+- Hard to measure progress
+- Can't parallelize work
+
+**Too fine:** One milestone per query/function
+- Too much overhead
+- Loses big picture
+- Creates many small PRs
+
+**Just right:** Logical checkpoints with measurable outcomes
+- Example: "Query Refinement", "Schema Validation", "Fixture Export"
+- Reasonable PR sizes
+- Clear progress markers
+
+## Key Learnings
+
+1. **Start with planning, move to active** — `work/epics/` is for planning, `work/epics/active/` is for execution
+2. **Epic integration branches protect main** — Prevents half-implemented features on main
+3. **Milestones are logical checkpoints** — Not arbitrary time windows
+4. **TDD from the start** — Don't skip the RED phase
+5. **Documentation is part of done** — Not optional cleanup
+6. **Framework enables AI handoffs** — Clear context for agent transitions
+
+## Before vs. After Framework
+
+### Without Framework (Ad-hoc)
+```
+You: "Let's build feature X"
+AI:  [Creates code]
+You: "Fix this error"
+AI:  [Edits code]
+You: "Try this approach"
+AI:  [Updates code]
+...
+Result: Working code, but no clear handoff point
+```
+
+### With Framework (Structured)
+```
+You: "Start epic feature-x"
+AI:  [Creates epic spec, branches, tracking]
+You: "Start milestone M1"
+AI:  [Creates tracking doc, defines tests]
+AI:  RED - Define expected outputs
+AI:  GREEN - Iterate until passing
+AI:  REFACTOR - Clean up, document patterns
+You: "Wrap milestone M1"
+AI:  [Validates, documents, ready for PR]
+...
+Result: Clear progress, documented decisions, ready for next phase
+```
+
 ## Need More Detail?
 
 - **Agents:** See `.ai/agents/` for role definitions
-- **Skills:** See `.ai/skills/` for workflow procedures  
+- **Skills:** See `.ai/skills/` for workflow procedures
 - **Project context:** See `docs/` for architecture, specs, and epics
 - **Process documentation:** See `docs/` for human-readable guides
 

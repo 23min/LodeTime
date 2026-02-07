@@ -57,3 +57,18 @@ Run `./setup-host.sh` on the host to create it. Use `/workspace-data/dropzone` f
 - `lib/lodetime/` - Elixir source
 - `cmd/lodetime-cli/` - Go CLI
 - `docs/` - Documentation
+
+## AI Framework
+
+This project uses role-based agents and skills defined in `.ai/`. Read the relevant agent definition before acting in a role:
+
+- **architect** (`.ai/agents/architect.md`) — design decisions, epic scoping
+- **planner** (`.ai/agents/planner.md`) — milestone decomposition
+- **documenter** (`.ai/agents/documenter.md`) — specs, tracking docs, release notes
+- **implementer** (`.ai/agents/implementer.md`) — coding, TDD execution
+- **tester** (`.ai/agents/tester.md`) — test planning, verification
+- **deployer** (`.ai/agents/deployer.md`) — infrastructure, releases
+- **maintainer** (`.ai/agents/maintainer.md`) — framework (.ai/) only
+
+Guardrails: `.ai/instructions/ALWAYS_DO.md`
+Handoff flow: `.ai/docs/handoff-guide.md`

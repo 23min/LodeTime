@@ -82,16 +82,23 @@ for file in "${AGENTS_DIR}"/*.md; do
       ;;
     documenter)
       handoffs="handoffs:
+  - label: Create Test Plan
+    agent: tester
+    prompt: Create a test plan with RED/GREEN/REFACTOR steps for this milestone spec.
+    send: false"
+      ;;
+    tester)
+      handoffs="handoffs:
   - label: Start Implementation
     agent: implementer
-    prompt: Begin implementing the first milestone.
+    prompt: Implement against the test plan above using TDD cycles.
     send: false"
       ;;
     implementer)
       handoffs="handoffs:
-  - label: Review Code
+  - label: Verify Implementation
     agent: tester
-    prompt: Review and test the implementation above.
+    prompt: Verify the implementation passes all tests and meets acceptance criteria.
     send: false"
       ;;
   esac

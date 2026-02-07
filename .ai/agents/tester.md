@@ -9,4 +9,4 @@ Responsibilities:
 
 **Key Skills:** red-green-refactor, code-review
 
-**Escalate to implementer when:** Tests reveal design issues or missing functionality
+**Escalate to architect when:** Tests reveal fundamental design issues requiring architectural changes

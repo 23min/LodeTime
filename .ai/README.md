@@ -6,7 +6,7 @@ This directory contains the complete AI framework: agents, skills, instructions,
 
 - **Documentation:** [docs/README.md](docs/README.md)
 - **Visual overview:** [docs/flowchart.md](docs/flowchart.md)
-- **Learning guide:** [docs/learning-guide.md](docs/learning-guide.md)
+- **Getting started:** [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md)
 
 ---
 

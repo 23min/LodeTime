@@ -23,7 +23,7 @@ The AI-First Development Framework is a methodology and toolset for building sof
 ## Quick Links
 
 ### For Humans
-- **[Learning Guide](learning-guide.md)** - How to use the framework
+- **[Getting Started](GETTING-STARTED.md)** - How to use the framework
 - **[Architecture](architecture.md)** - How the framework is structured (coming soon)
 - **[Flowchart](flowchart.md)** - Visual representation of framework components
 - **[Branching Strategy](branching-strategy.md)** - Git workflow for framework evolution
@@ -63,7 +63,7 @@ ai/                          # Complete AI framework
 │   ├── README.md            # This file
 │   ├── flowchart.md         # Visual diagram
 │   ├── rationale.md         # Design decisions
-│   ├── learning-guide.md    # Usage guide
+│   ├── GETTING-STARTED.md   # Usage guide
 │   └── branching-strategy.md # Git workflow
 ├── GAPS.md                  # Framework issues
 └── README.md                # Quick reference
@@ -112,7 +112,7 @@ Agents are role-based AI personas available in VS Code's agent switcher dropdown
 
 ### For New Users
 
-1. Read [Learning Guide](learning-guide.md) for framework basics
+1. Read [Getting Started](GETTING-STARTED.md) for framework basics
 2. Review [Flowchart](flowchart.md) for visual overview
 3. Check project's `.github/copilot-instructions.md` for project-specific setup
 4. Use `session-start` skill when beginning work
