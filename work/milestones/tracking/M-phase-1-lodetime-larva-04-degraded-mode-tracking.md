@@ -1,7 +1,8 @@
 # M-phase-1-lodetime-larva-04-degraded-mode Tracking
 
-**Status:** 🚧 In Progress  
+**Status:** ✅ Completed  
 **Started:** 2026-02-06
+**Completed:** 2026-02-06
 
 ## Implementation Log
 - 2026-02-06: Implemented degraded state, last-known-good tracking, and reload API in graph server.
@@ -15,4 +16,4 @@
 - `mix test test/lodetime/graph/server_test.exs`
 
 ## Release Notes
-- None yet.
+- Added degraded mode and last-known-good graph behavior for runtime error resilience.

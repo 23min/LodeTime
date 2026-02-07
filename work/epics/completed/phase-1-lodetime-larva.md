@@ -1,7 +1,8 @@
 # Epic: Phase 1 — LodeTime Larva
 
-**Status:** 📝 Draft  
+**Status:** ✅ Complete  
 **Created:** 2026-02-06
+**Wrapped On:** 2026-02-07
 
 ## Goal
 Deliver the basic query path so `lode status` can load configuration, build a graph, and report a minimal system status via the CLI.
@@ -13,6 +14,7 @@ Deliver the basic query path so `lode status` can load configuration, build a gr
 - Implement CLI commands: `lode run`, `lode status` (default + `--verbose`), and a minimal `lode check` stub.
 - Support connected + offline CLI modes with explicit flags; default auto mode.
 - Provide minimal docs for usage and expected output.
+- Provide build/bootstrap path for local CLI use (`./build.sh` -> `./bin/lode`).
 
 ## Out of Scope
 - File watching, validation runner, queues, or notifications.
@@ -22,21 +24,22 @@ Deliver the basic query path so `lode status` can load configuration, build a gr
 - Non-container runtime mode.
 
 ## Deliverables
-- [ ] Config loader with clear error handling for missing/invalid `.lodetime/` files.
-- [ ] Graph server process that loads the config and responds to status queries.
-- [ ] CLI socket bridge for query/response between CLI and graph server.
-- [ ] CLI commands: `lode run`, `lode status` (default + `--verbose`), and `lode check` stub.
-- [ ] Connected + offline CLI modes with explicit flags and mode disclosure in output.
-- [ ] Basic docs for running `lode status` in Phase 1.
-- [ ] JSON report output (opt-in) and log file output.
+- [x] Config loader with clear error handling for missing/invalid `.lodetime/` files.
+- [x] Graph server process that loads the config and responds to status queries.
+- [x] CLI socket bridge for query/response between CLI and graph server.
+- [x] CLI commands: `lode run`, `lode status` (default + `--verbose`), and `lode check` stub.
+- [x] Connected + offline CLI modes with explicit flags and mode disclosure in output.
+- [x] Basic docs for running `lode status` in Phase 1.
+- [x] JSON report output (opt-in) and log file output.
+- [x] Build/bootstrap path for local CLI (`./build.sh` -> `./bin/lode`).
 
 ## Milestones
-- [ ] M-phase-1-lodetime-larva-01-config-loader
-- [ ] M-phase-1-lodetime-larva-02-graph-server-boot (devcontainer)
-- [ ] M-phase-1-lodetime-larva-03-host-container-boot (Docker only)
-- [ ] M-phase-1-lodetime-larva-04-degraded-mode
-- [ ] M-phase-1-lodetime-larva-05-cli-socket
-- [ ] M-phase-1-lodetime-larva-06-cli
+- [x] M-phase-1-lodetime-larva-01-config-loader
+- [x] M-phase-1-lodetime-larva-02-graph-server-boot (devcontainer)
+- [x] M-phase-1-lodetime-larva-03-host-container-boot (Docker only)
+- [x] M-phase-1-lodetime-larva-04-degraded-mode
+- [x] M-phase-1-lodetime-larva-05-cli-socket
+- [x] M-phase-1-lodetime-larva-06-cli
 
 ## Success Criteria
 - `lode status` runs end-to-end on a fresh checkout and reports a minimal status summary.
@@ -68,7 +71,7 @@ Deliver the basic query path so `lode status` can load configuration, build a gr
 
 ### Status Output
 - Default fields:
-  - `mode`, `runtime_state`, `phase`
+  - `mode`, `runtime_state`
   - `graph.component_count`, `graph.contract_count`
   - `last_error.count`, `last_error.last_at`, `last_error.last_message` (optional)
   - `runtime_version`
@@ -121,8 +124,16 @@ Deliver the basic query path so `lode status` can load configuration, build a gr
 ### Docs
 - Phase 1 usage + expectations live in `docs/phases/phase-1/`.
 
+### Build Bootstrap
+- `./build.sh` builds `./bin/lode` and compiles runtime where available.
+
 ## Notes
 Build order stays aligned with `docs/phases/IMPLEMENTATION-PHASES.md` and `CLAUDE.md`.
 
 ## Framework Gaps
 - Epic Draft vs Planned Gate (see `.ai/GAPS.md`)
+
+## Wrap Notes
+- Epic wrapped as complete on 2026-02-07.
+- Milestones archived under `work/milestones/completed/`.
+- Release notes: `work/epics/releases/phase-1-lodetime-larva.md`.

@@ -75,8 +75,7 @@ func TestBuildOfflineStatus(t *testing.T) {
 		t.Fatalf("mkdir contracts: %v", err)
 	}
 
-	config := `current_phase: 2
-zones:
+	config := `zones:
   core:
     paths: [lib/]
   docs:
@@ -110,10 +109,6 @@ triggers:
 	if payload["source"] != "offline" {
 		t.Fatalf("expected source offline, got %v", payload["source"])
 	}
-	if formatValue(payload["phase"]) != "2" {
-		t.Fatalf("expected phase 2, got %v", payload["phase"])
-	}
-
 	graph := mapValue(payload["graph"])
 	if formatValue(graph["component_count"]) != "2" {
 		t.Fatalf("expected component_count 2, got %v", graph["component_count"])
@@ -135,7 +130,6 @@ func TestRenderStatusHumanConnected(t *testing.T) {
 	payload := map[string]any{
 		"mode":            "connected",
 		"runtime_state":   "running",
-		"phase":           1,
 		"runtime_version": "0.1.0",
 		"graph": map[string]any{
 			"component_count": 2,
@@ -153,9 +147,6 @@ func TestRenderStatusHumanConnected(t *testing.T) {
 	}
 	if !strings.Contains(output, "Runtime State: running") {
 		t.Fatalf("expected runtime state line, got: %s", output)
-	}
-	if !strings.Contains(output, "Phase: 1") {
-		t.Fatalf("expected phase line, got: %s", output)
 	}
 	if !strings.Contains(output, "component_count: 2") {
 		t.Fatalf("expected component_count line, got: %s", output)

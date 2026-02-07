@@ -8,7 +8,6 @@ import (
 	"net"
 	"os"
 	"path/filepath"
-	"strconv"
 	"strings"
 	"time"
 
@@ -286,10 +285,6 @@ func buildOfflineStatus(lodeDir string, verbose bool) (map[string]any, error) {
 		},
 	}
 
-	if phase, ok := coercePhase(config["current_phase"]); ok {
-		payload["phase"] = phase
-	}
-
 	if verbose {
 		if summary := buildConfigSummary(config); summary != nil {
 			payload["config_summary"] = summary
@@ -331,27 +326,6 @@ func countYamlFiles(dir string) (int, error) {
 	}
 
 	return count, nil
-}
-
-func coercePhase(value any) (any, bool) {
-	switch v := value.(type) {
-	case int:
-		return v, true
-	case int64:
-		return int(v), true
-	case float64:
-		return int(v), true
-	case string:
-		if v == "" {
-			return nil, false
-		}
-		if parsed, err := strconv.Atoi(v); err == nil {
-			return parsed, true
-		}
-		return v, true
-	default:
-		return nil, false
-	}
 }
 
 func buildConfigSummary(config map[string]any) map[string]any {
@@ -450,8 +424,6 @@ func renderStatusHuman(payload map[string]any, verbose bool, offline bool) strin
 	if source, ok := payload["source"]; ok {
 		fmt.Fprintf(builder, "Source: %s\n", formatValue(source))
 	}
-
-	fmt.Fprintf(builder, "Phase: %s\n", formatValue(payload["phase"]))
 
 	if !offline {
 		fmt.Fprintf(builder, "Runtime State: %s\n", stringValue(payload["runtime_state"], "n/a"))

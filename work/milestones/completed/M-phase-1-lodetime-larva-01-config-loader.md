@@ -1,6 +1,6 @@
 # M-phase-1-lodetime-larva-01-config-loader: Config Loader
 
-**Status:** ⬜ Planned  
+**Status:** ✅ Completed  
 **Epic:** phase-1-lodetime-larva
 
 ## Goal

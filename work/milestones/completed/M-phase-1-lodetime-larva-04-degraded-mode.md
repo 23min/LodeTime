@@ -1,6 +1,6 @@
 # M-phase-1-lodetime-larva-04-degraded-mode: Degraded Mode + Last Known Good
 
-**Status:** ⬜ Planned  
+**Status:** ✅ Completed  
 **Epic:** phase-1-lodetime-larva
 
 ## Goal

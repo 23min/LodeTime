@@ -1,7 +1,8 @@
 # M-phase-1-lodetime-larva-02-graph-server-boot Tracking
 
-**Status:** 🚧 In Progress  
+**Status:** ✅ Completed  
 **Started:** 2026-02-06
+**Completed:** 2026-02-06
 
 ## Implementation Log
 - 2026-02-06: Added initial graph server summary test and minimal summary function.
@@ -20,4 +21,4 @@
 - `mix test test/lodetime/graph/server_test.exs`
 
 ## Release Notes
-- None yet.
+- Added `LodeTime.Graph.Server` boot path, supervision wiring, and graph-server runtime logging.

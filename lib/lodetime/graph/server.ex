@@ -100,7 +100,6 @@ defmodule LodeTime.Graph.Server do
     payload = %{
       mode: "connected",
       runtime_state: runtime_state(state),
-      phase: current_phase(state),
       graph: graph,
       last_error: last_error_summary(state),
       runtime_version: runtime_version()
@@ -163,12 +162,6 @@ defmodule LodeTime.Graph.Server do
 
   defp graph_for_summary(%{degraded: true, last_good_graph: graph}) when is_map(graph), do: graph
   defp graph_for_summary(state), do: state.graph
-
-  defp current_phase(%{model: %{config: config}}) when is_map(config) do
-    Map.get(config, "current_phase")
-  end
-
-  defp current_phase(_state), do: nil
 
   defp runtime_state(%{degraded: true}), do: "degraded"
   defp runtime_state(_state), do: "running"

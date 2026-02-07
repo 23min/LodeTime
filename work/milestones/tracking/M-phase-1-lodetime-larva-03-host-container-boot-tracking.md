@@ -1,7 +1,8 @@
 # M-phase-1-lodetime-larva-03-host-container-boot Tracking
 
-**Status:** 🚧 In Progress  
+**Status:** ✅ Completed  
 **Started:** 2026-02-06
+**Completed:** 2026-02-06
 
 ## Implementation Log
 - 2026-02-06: Started host container boot implementation.
@@ -15,7 +16,7 @@
   - `lode run` fails with clear guidance when Docker is unavailable.
 
 ## Checks
-- None yet.
+- Manual run validation via `lode run` host Docker path.
 
 ## Release Notes
-- None yet.
+- Added host Docker runtime boot path in `lode run` with repo-root `Dockerfile`.

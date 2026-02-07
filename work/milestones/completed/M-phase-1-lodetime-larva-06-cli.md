@@ -1,6 +1,6 @@
 # M-phase-1-lodetime-larva-06-cli: CLI Status + Check + Output
 
-**Status:** ⬜ Planned  
+**Status:** ✅ Completed  
 **Epic:** phase-1-lodetime-larva
 
 ## Goal
@@ -17,6 +17,7 @@ Deliver the Phase 1 CLI commands with connected + offline modes and human-readab
 ## Scope
 In scope:
 - CLI binary name is `lode`.
+- Build bootstrap via `./build.sh` that produces `./bin/lode` for local CLI use.
 - `lode status` (default + `--verbose`).
 - `lode check` stub (informational only).
 - `lode run` start-or-connect behavior once CLI socket exists.
@@ -29,6 +30,7 @@ Out of scope:
 - Unicode/boxed formatting.
 
 ## Acceptance Criteria
+- Fresh checkout can run `./build.sh` and then execute CLI commands via `./bin/lode`.
 - `lode status` uses CLI socket in connected mode and falls back to offline in auto mode.
 - `lode status --json` outputs JSON only.
 - Human output uses sectioned ASCII layout.
@@ -41,6 +43,7 @@ Out of scope:
 
 ## Implementation Plan
 - Update Go CLI root command to use `lode`.
+- Add/maintain `build.sh` to build `./bin/lode` (and compile runtime if available).
 - Implement status client for TCP JSONL protocol.
 - Implement offline status path reading `.lodetime/` directly.
 - Add output formatter for sectioned ASCII and JSON output.
@@ -53,3 +56,4 @@ Out of scope:
 
 ## Release Notes
 - CLI supports `lode status` with connected/offline modes and JSON output.
+- Added `build.sh` bootstrap path for local `./bin/lode` usage.
