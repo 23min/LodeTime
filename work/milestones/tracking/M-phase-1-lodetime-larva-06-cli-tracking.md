@@ -1,16 +1,20 @@
 # M-phase-1-lodetime-larva-06-cli Tracking
 
-**Status:** ⬜ Planned  
-**Started:** TBD
+**Status:** 🚧 In Progress  
+**Started:** 2026-02-06
 
 ## Implementation Log
-- None yet.
+- 2026-02-06: Implemented `lode status` with connected/offline/auto modes, JSONL client, and sectioned ASCII/JSON output.
+- 2026-02-06: Added `lode check` stub and updated `lode run` to start-or-connect with engine resolution.
 
 ## Tests (TDD)
-- List tests before implementation (RED → GREEN → REFACTOR).
+- `lode status` connected mode parses JSONL and renders sectioned ASCII.
+- `lode status --json` outputs JSON only.
+- `lode status --offline` omits runtime-only fields and includes `source: offline`.
+- `lode check` returns informational output and exit 0 when runtime is reachable.
 
 ## Checks
-- None yet.
+- `cd cmd/lodetime-cli && go test ./...`
 
 ## Release Notes
 - None yet.
