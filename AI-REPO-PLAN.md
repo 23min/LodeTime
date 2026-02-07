@@ -53,27 +53,22 @@ No changes needed — paths work correctly with subtree installation.
 
 ## Phase 2: Create the standalone repo
 
-### 2.1 Extract .ai/ with history
+### 2.1 Fresh clone with cleaned content
 
-Use `git subtree split` to extract `.ai/` directory with its full git history:
+No history extraction — old commits may contain project-specific references.
+Start with a clean initial commit using the current (scrubbed) `.ai/` content.
 
 ```bash
-# From LodeTime repo
-git subtree split --prefix=.ai -b ai-framework-extract
+# Clone the empty repo
+git clone git@github.com:23min/ai-first-framework.git /tmp/ai-first-framework
+cd /tmp/ai-first-framework
 
-# Clone the new repo
-git clone git@github.com:23min/ai-first-framework.git
-cd ai-first-framework
-
-# Pull the extracted history
-git remote add lodetime <path-to-lodetime>
-git pull lodetime ai-framework-extract --allow-unrelated-histories
-
-# Clean up
-git remote remove lodetime
+# Copy cleaned .ai/ content to repo root
+cp -r <lodetime>/.ai/* .
+cp -r <lodetime>/.ai/.gitignore . 2>/dev/null  # if exists
 ```
 
-This preserves the full commit history of everything under `.ai/`.
+The repo root IS what becomes `.ai/` in consumer projects via subtree.
 
 ### 2.2 Add repo-level files
 
@@ -219,7 +214,7 @@ Create issue labels matching the gap categories:
 | 1.2 | Make README.md generic | — |
 | 1.3 | Clean up references | 1.1, 1.2 |
 | 1.4 | Validate sync scripts | — |
-| 2.1 | Extract with history | 1.* |
+| 2.1 | Fresh clone + copy content | 1.* |
 | 2.2 | Add repo-level files | 2.1 |
 | 2.3 | Write install docs | 2.1 |
 | 2.4 | Tag v1.2.0 | 2.2, 2.3 |
@@ -235,12 +230,13 @@ Phase 4 can run in parallel with Phase 3.
 
 ---
 
-## Decisions Needed
+## Decisions (Resolved)
 
-1. **License** — MIT? Apache 2.0? Unlicensed for now?
-2. **Squash on subtree add?** — `--squash` keeps LodeTime history clean but loses individual framework commits in LodeTime's log. Recommended: yes, squash.
-3. **GAPS.md after migration** — Keep as local scratchpad pattern, or remove entirely?
-4. **README structure** — Single README with install section at top, or separate INSTALL.md?
+1. **License** — MIT
+2. **History** — Fresh initial commit (no `git subtree split`). Old commits may contain project-specific references. Clean slate on framework repo; full history stays in LodeTime locally.
+3. **Squash on subtree add** — Yes, `--squash` for consumer projects.
+4. **GAPS.md after migration** — Keep as local scratchpad (strip entries, keep format section).
+5. **README structure** — Single README with install section at top.
 
 ---
 
