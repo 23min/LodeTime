@@ -2,7 +2,7 @@
 
 Extract `.ai/` from LodeTime into standalone repo `git@github.com:23min/ai-first-framework.git`.
 
-**Integration method:** Git subtree
+**Integration method:** Git submodule (consumers add framework as `.ai/` submodule)
 **Branch:** `chore/ai-repo`
 
 ---
@@ -235,8 +235,20 @@ Phase 4 can run in parallel with Phase 3.
 1. **License** — MIT
 2. **History** — Fresh initial commit (no `git subtree split`). Old commits may contain project-specific references. Clean slate on framework repo; full history stays in LodeTime locally.
 3. **Squash on subtree add** — Yes, `--squash` for consumer projects.
-4. **GAPS.md after migration** — Keep as local scratchpad (strip entries, keep format section).
+4. **GAPS.md after migration** — Removed entirely. Framework gaps go to GitHub Issues via `gh issue create`.
 5. **README structure** — Single README with install section at top.
+6. **Installation method** — Git submodule (primary). Submodule provides:
+   - Clean version tracking (commit hash pinned in consumer repo)
+   - Simple updates (`git submodule update --remote`)
+   - Automatic fetch for collaborators (with `--recurse-submodules` or devcontainer config)
+   - "0 steps" via devcontainer: `postCreateCommand: "git submodule update --init && bash .ai/scripts/init-project.sh && bash .ai/scripts/sync-all.sh"`
+
+   Considered alternatives:
+   - **Copy approach** — Simple but no upstream tracking, manual updates
+   - **Git subtree** — Inlines files (no `.gitmodules`), but merge commits clutter history
+   - **CLI tool** — Most polished but requires npm package maintenance
+
+   Submodule chosen for balance of simplicity and version control.
 
 ---
 
