@@ -3,10 +3,10 @@
 
 echo "🔄 LodeTime container started"
 
-# Sync AI agents and skills to .github/ for VS Code Copilot
-if [ -f /workspace/.ai/scripts/sync-agents.sh ]; then
+# Sync AI framework to all AI assistant targets (.github/, .claude/)
+if [ -f /workspace/.ai/scripts/sync-all.sh ]; then
     echo "🤖 Syncing AI agents and skills..."
-    bash /workspace/.ai/scripts/sync-agents.sh || true
+    bash /workspace/.ai/scripts/sync-all.sh || true
 fi
 
 # Ensure mounted VS Code extension volume is writable by the remote user

@@ -47,9 +47,12 @@ Thumbs.db
 .lodetime/cache/
 .lodetime/state.json
 
-# AI framework (local overrides only)
+# AI framework (synced from .ai/ - not tracked in git)
 .github/agents/
 .github/skills/
+.claude/skills/
+.claude/agents/
+.claude/rules/
 
 # Temporary
 tmp/

@@ -9,6 +9,7 @@
     "vscode": {
       "extensions": [
         "openai.chatgpt",
+        "anthropic.claude-code",
         "jakebecker.elixir-ls",
         "phoenixframework.phoenix",
         "golang.go",

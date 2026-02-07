@@ -134,8 +134,8 @@ echo "  gobuild       - Build Go CLI"
 echo "  backup        - Backup current work"
 echo ""
 
-# Sync AI agents and skills to .github/ for VS Code Copilot
-if [ -f .ai/scripts/sync-agents.sh ]; then
+# Sync AI framework to all AI assistant targets (.github/, .claude/)
+if [ -f .ai/scripts/sync-all.sh ]; then
     echo "🤖 Syncing AI agents and skills..."
-    bash .ai/scripts/sync-agents.sh
+    bash .ai/scripts/sync-all.sh
 fi

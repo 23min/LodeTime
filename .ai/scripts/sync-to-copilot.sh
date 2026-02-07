@@ -1,6 +1,9 @@
 #!/bin/bash
 # Sync .ai/agents/*.md to .github/agents/*.agent.md with YAML frontmatter
 # Sync .ai/skills/*.md to .github/skills/*.skill.md
+#
+# Source: .ai/ (canonical)
+# Target: .github/agents/, .github/skills/
 
 set -e
 
@@ -111,7 +114,7 @@ $(cat "$file")
 
 To update this agent, edit the source file and run:
 \`\`\`bash
-./.ai/scripts/sync-agents.sh
+.ai/scripts/sync-to-copilot.sh
 \`\`\`
 EOF
 
@@ -156,7 +159,7 @@ $(cat "$file")
 
 To update this skill, edit the source file, and run:
 \`\`\`bash
-./.ai/scripts/sync-agents.sh
+.ai/scripts/sync-to-copilot.sh
 \`\`\`
 EOF
 

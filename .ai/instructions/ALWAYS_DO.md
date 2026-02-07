@@ -17,7 +17,7 @@ Violating this rule breaks the AI-First workflow and removes human oversight.
 ---
 
 ## Core guardrails
-- Follow the project’s AI/dev instructions (for example: `.github/copilot-instructions.md`) and relevant development docs (for example under `docs/development/`).
+- Follow the project's AI/dev instructions (`ROADMAP.md` for current state, `docs/` for design) and relevant development docs under `work/`.
 - No time or effort estimates in docs or plans.
 - Search efficiently (prefer fast tools like `rg`/`fd` when available).
 - Avoid history-rewriting / destructive git operations unless explicitly instructed (e.g., `reset --hard`, force-push, mass rebase).
@@ -41,7 +41,7 @@ Violating this rule breaks the AI-First workflow and removes human oversight.
 
 When instructions conflict, precedence is:
 1. Explicit user directive in current session
-2. Project-specific docs (.github/copilot-instructions.md)
+2. Project-specific docs (CLAUDE.md, ROADMAP.md, .lodetime/)
 3. ALWAYS_DO.md (this file)
 4. Skill-specific guidance
 5. Agent role defaults

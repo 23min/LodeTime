@@ -13,9 +13,9 @@ docs/discussion/# HOW WE GOT HERE - Design journey
 .lodetime/      # THE ARCHITECTURE (source of truth)
 ```
 
-## Current Phase: 2 (LodeTime Pupa)
+## Current State
 
-Check `.lodetime/config.yaml` for status.
+See `ROADMAP.md` for current phase, active epic, and project context.
 
 ## Build Order
 

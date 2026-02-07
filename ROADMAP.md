@@ -1,5 +1,16 @@
 # LodeTime Roadmap (Epics)
 
+## Project Context
+
+LodeTime is a BEAM-based living development companion that keeps a project's intent, architecture, and health "alive" while you work. It bridges humans, code, and AI tools by turning architecture docs into a living source of truth.
+
+- **Current phase:** 2 (Pupa) — see `docs/phases/IMPLEMENTATION-PHASES.md`
+- **Active epic:** (none yet)
+- **Epic tracker:** `work/epics/epic-roadmap.md`
+- **AI framework:** `.ai/` (skills, agents, instructions)
+
+## Epics
+
 This roadmap tracks **epics** and their status. Phases are defined separately in `docs/phases/IMPLEMENTATION-PHASES.md`.
 
 Epics are planning units and do not have to map 1:1 to phases. We group epics by phase here for convenience, but epics may span phases or be sliced across them.
