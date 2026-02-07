@@ -17,10 +17,10 @@ Create `docs/development/branching-strategy.md` in your project covering:
 - **Milestone branches** (`milestone/mX`): Use for multi-surface coordinated work
 - **Feature branches** (`feature/<surface>-mX/<short-desc>`): Standard working branches
 - **Naming examples:**
-  - `feature/api-m3/graph-queries`
-  - `feature/ui-m2/timeline-viz`
+  - `feature/api-m3/auth-endpoints`
+  - `feature/ui-m2/dashboard-layout`
   - `milestone/m4`
-  - `epic/graph-api`
+  - `epic/api-redesign`
 
 **Use when:**
 - Starting epic or milestone work

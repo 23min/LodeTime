@@ -34,9 +34,9 @@ Confirm that `work/epics/releases/<epic-slug>.md` exists and is complete with:
 **Tag format:** `epic/<epic-slug>`
 
 Example tags:
-- `epic/critical-flow-reporting`
-- `epic/azure-deployment`
-- `epic/graph-api`
+- `epic/user-authentication`
+- `epic/data-pipeline`
+- `epic/api-redesign`
 
 ```bash
 # Create annotated tag with epic summary

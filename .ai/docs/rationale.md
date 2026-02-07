@@ -303,10 +303,10 @@ This **directly conflicts** with our human-gated philosophy. We need oversight a
 
 ### 4. Brownfield Complexity
 
-**This project type involves:**
-- Extracting functionality from legacy PerfOps system
-- Working with existing Kusto queries, Grafana dashboards
-- Infrastructure templates that integrate with existing Azure resources
+**Many real projects involve:**
+- Extracting functionality from legacy systems
+- Working with existing data pipelines and dashboards
+- Infrastructure templates that integrate with existing cloud resources
 - Incremental modernization, not greenfield development
 
 **Spec Kit is optimized for greenfield:**
@@ -515,7 +515,7 @@ Decision point for deeper integration or divergence.
 **Rationale:**
 1. **Scale Match:** Our framework handles multi-epic, multi-year projects. Spec Kit is feature-focused.
 2. **Control Requirements:** Human-gated commits are critical. Spec Kit is more autonomous.
-3. **Brownfield Fit:** We're extracting from PerfOps, not building greenfield. Our framework handles this better.
+3. **Brownfield Fit:** Many projects involve legacy extraction, not greenfield. Our framework handles this better.
 4. **Investment Protection:** We have a working v1.0.0 framework with active epics. Switching cost is high.
 5. **Flexibility:** Our framework adapts to ad-hoc work, gaps, post-mortems. Spec Kit is prescriptive.
 6. **Portability:** No tooling dependencies means we work anywhere. Spec Kit needs Python ecosystem.
@@ -541,7 +541,6 @@ Decision point for deeper integration or divergence.
 
 ---
 
-**Version:** 1.0  
-**Last Updated:** 2026-01-29  
-**Author:** xpetbru + GitHub Copilot  
+**Version:** 1.0
+**Last Updated:** 2026-01-29
 **Review Status:** Initial analysis, to be revisited after first epic completion

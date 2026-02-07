@@ -45,7 +45,7 @@ Always:
 
 When instructions conflict, precedence is:
 1. Explicit user directive in current session
-2. Project-specific docs (CLAUDE.md, ROADMAP.md, .lodetime/)
+2. Project-specific docs (CLAUDE.md, ROADMAP.md, project config)
 3. ALWAYS_DO.md (this file)
 4. Skill-specific guidance
 5. Agent role defaults

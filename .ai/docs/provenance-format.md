@@ -32,6 +32,6 @@ Description of changes made.
 
 - **Date:** YYYY-MM-DD, optionally with time
 - **Description:** Brief summary of what changed
-- **Author:** Human name + AI tool used (e.g., "xpetbru + Claude Code")
+- **Author:** Human name + AI tool used (e.g., "yourname + Claude Code")
 - **Commit:** Git hash if available (optional)
 - **Files:** Key files modified

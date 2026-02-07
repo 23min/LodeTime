@@ -104,10 +104,10 @@ User: "Start a session"
 AI: [Presents menu]
 User: "1 - Plan a new epic"
 AI: "What's the epic name and high-level goal?"
-User: "Epic: graph-api, Goal: Add graph query support"
+User: "Epic: api-redesign, Goal: Modernize the REST API"
 AI: "Switching to architect role and using epic-refine skill.
-     Epic: graph-api
-     Goal: Add graph query support
+     Epic: api-redesign
+     Goal: Modernize the REST API
      Proceeding with structured Q&A..."
 [epic-refine skill executes]
 ```

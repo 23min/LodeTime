@@ -161,27 +161,27 @@ Create tracking document with this structure:
 - Epic integration: work from `epic/<epic-slug>`
 
 **Examples:**
-- `feature/api-m3/graph-queries`
-- `feature/ui-m2/timeline-viz`
+- `feature/api-m3/auth-endpoints`
+- `feature/ui-m2/dashboard-layout`
 - `milestone/m4`
-- `epic/graph-api`
+- `epic/api-redesign`
 
 **Commands:**
 ```bash
 # Create feature branch from main
 git checkout main
 git pull
-git checkout -b feature/api-m3/graph-queries
+git checkout -b feature/api-m3/auth-endpoints
 
 # Or from milestone branch
 git checkout milestone/m3
 git pull
-git checkout -b feature/api-m3/graph-queries
+git checkout -b feature/api-m3/auth-endpoints
 
 # Or from epic branch
-git checkout epic/graph-api
+git checkout epic/api-redesign
 git pull
-git checkout -b feature/api-m3/graph-queries
+git checkout -b feature/api-m3/auth-endpoints
 ```
 
 ### Step 4: Plan TDD Phases
@@ -294,7 +294,7 @@ AI: "Reviewing milestone M-03.10...
      
      Actions:
      1. Creating tracking doc: work/milestones/tracking/M-03.10-tracking.md
-     2. Creating branch: feature/api-m3/graph-queries
+     2. Creating branch: feature/api-m3/auth-endpoints
      3. Planning TDD phases from spec...
      
      Phase 1 TDD plan:

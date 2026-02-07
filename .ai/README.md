@@ -52,27 +52,9 @@ Global guardrails that apply to every session:
 
 ## Project Conventions
 
-This framework assumes standard paths. If your project differs, update this section and global-search-replace references.
+This framework assumes standard paths. If your project differs, update `instructions/PROJECT_PATHS.md`.
 
-### Standard Paths
-- Roadmap: `ROADMAP.md` (high-level strategic), `work/epics/epic-roadmap.md` (detailed technical)
-- Changelog: `CHANGELOG.md` (root, high-level epic releases)
-- Architecture: `work/epics/<epic-slug>/` (planning phase, ADRs)
-- Epics: `work/epics/active/` (execution phase), `work/epics/completed/` (archived)
-- Epic releases: `work/epics/releases/<epic-slug>.md` (authoritative release documentation)
-- Milestones: `work/milestones/` (active specs), `work/milestones/completed/` (archived)
-- Milestone tracking: `work/milestones/tracking/` (progress logs)
-- Milestone releases: Release notes section within milestone spec itself
-- Milestone naming: `M-<epic-slug>-XX[-suffix]` (see work/specs/templates/milestone-naming-convention.md)
-- Gaps: `work/GAPS.md` (discovered work out of scope)
-- Specs: `work/specs/` (feature specifications)
-- Development guides: `docs/development/`
-- Copilot rules: `.github/copilot-instructions.md`
-- Test results: tracking docs
-- Git tags: `epic/<epic-slug>` (for epic releases only, no milestone tags)
-
-### Overrides for This Project
-[List any deviations from standard paths here]
+See `instructions/PROJECT_PATHS.md` for the full path configuration.
 
 ---
 

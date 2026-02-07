@@ -249,19 +249,19 @@ If direct merge is used:
 - ✅ AC3: Respects max depth limits
 
 ### Test Coverage
-- GraphQueryHandler: 18 tests
-- GraphQueryController: 4 integration tests
+- QueryHandler: 18 tests
+- QueryController: 4 integration tests
 - All edge cases covered
 
 ### Files Modified
-- src/FlowTime.API/Controllers/GraphController.cs
-- src/FlowTime.Core/Graph/GraphQueryHandler.cs
-- tests/FlowTime.API.Tests/GraphControllerTests.cs
-- tests/FlowTime.Core.Tests/GraphQueryHandlerTests.cs
+- src/MyApp/Controllers/QueryController.cs
+- src/MyApp.Core/QueryHandler.cs
+- tests/MyApp.Tests/QueryControllerTests.cs
+- tests/MyApp.Core.Tests/QueryHandlerTests.cs
 
 ### Notes
-- Performance is good for graphs up to 10k nodes
-- Future work: add breadth-first option
+- Performance is good for large datasets
+- Future work: add pagination support
 - Future work: add caching for repeated queries
 ```
 

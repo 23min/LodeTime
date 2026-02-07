@@ -14,9 +14,9 @@ The framework uses a long-lived `framework/ai-evolution` branch to isolate frame
 
 ```
 main (stable)
-  ├── epic/critical-flow-foundation
-  │     └── milestone/m-cfdf-01
-  │     └── milestone/m-cfdf-02
+  ├── epic/user-authentication
+  │     └── milestone/m-uauth-01
+  │     └── milestone/m-uauth-02
   │
   ├── epic/infrastructure-foundation
   │     └── milestone/m-if-01

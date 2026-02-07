@@ -209,7 +209,7 @@ GitHub Copilot provides a built-in `@plan` subagent (similar to `@workspace`) th
 ---
 
 ### Milestone Spec Links in Epic README
-**Discovered:** 2026-01-29 during critical-flow-data-foundation epic creation  
+**Discovered:** 2026-01-29 during epic creation
 **Category:** Skill (milestone-draft)  
 **Impact:** Low-Medium - Inconsistent documentation structure, manual work to add/remove links  
 **Status:** Identified  
@@ -460,9 +460,9 @@ Create `.ai/sessions/session-[id].md` for ephemeral session state (regular direc
 
 **Session ID:** [id]
 **Started:** 2026-01-30 14:00
-**Branch:** arch/critical-flow-mvp-plan
-**Epic:** critical-flow-data-foundation
-**Milestone:** m-cfdf-01-query-schema
+**Branch:** arch/my-epic-plan
+**Epic:** my-epic-name
+**Milestone:** m-epic-01-first-milestone
 
 ## Current Focus
 Working on schema design - decided two schemas approach
