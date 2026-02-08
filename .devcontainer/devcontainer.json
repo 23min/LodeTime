@@ -17,7 +17,8 @@
         "eamodio.gitlens",
         "usernamehw.errorlens",
         "gruntfuggly.todo-tree",
-        "mhutchie.git-graph"
+        "mhutchie.git-graph",
+        "bierner.github-markdown-preview"
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "zsh",
