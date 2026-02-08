@@ -9,18 +9,27 @@ This file enables framework portability by abstracting project-specific paths. W
 
 ## Required Paths
 
+Core skills depend on these. Run `bash .ai/scripts/init-project.sh` to create the directory structure.
+
 - **EPIC_ROADMAP_PATH:** `ROADMAP.md` (high-level epic list + status)
 - **EPIC_TECH_ROADMAP_PATH:** `work/epics/epic-roadmap.md` (detailed technical view)
-
-## Optional Paths
-
+- **EPICS_PATH:** `work/epics/` (epic specifications and planning documentation)
 - **MILESTONE_PATH:** `work/milestones/` (milestone specifications)
 - **MILESTONE_TRACKING_PATH:** `work/milestones/tracking/` (milestone tracking documents)
+
+## Recommended Paths
+
+Specific workflows need these (archiving, gap tracking, release management).
+
 - **MILESTONE_RELEASES_PATH:** `work/milestones/releases/` (completed milestone archives)
-- **EPICS_PATH:** `work/epics/` (epic specifications and planning documentation)
 - **GAPS_PATH:** `work/GAPS.md` (project-specific gaps and discovered work)
 - **PROVENANCE_PATH:** `PROVENANCE.md` (ad-hoc change log)
 - **CHANGELOG_PATH:** `CHANGELOG.md` (release changelog)
+
+## Optional Paths
+
+Convenience paths — framework works without them.
+
 - **DEVELOPMENT_GUIDES_PATH:** `docs/guides/` (development guides and conventions)
 - **SPECS_PATH:** `work/specs/` (reusable templates and specifications)
 
@@ -52,13 +61,3 @@ When implementing, agents should read this file to resolve the actual path, or u
 - Tracking docs are separate from specs (tracking progress, not defining scope)
 - The `work/` directory is framework-managed territory (epics, milestones, specs, releases)
 - The `docs/` directory is project territory (guides, references, design explorations, architecture research)
-
-## Future: Full Abstraction
-
-Currently, many skills still have hardcoded `docs/` paths. Future work should:
-
-1. Update all skills to reference PROJECT_PATHS variables
-2. Create a runtime mechanism for path resolution
-3. Enable skills to work in any project by just updating this file
-
-See framework gap: "Incomplete Path Abstraction in Framework"
