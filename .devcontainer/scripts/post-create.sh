@@ -39,6 +39,13 @@ touch /workspace/work/epics/active/.gitkeep \
       /workspace/work/milestones/completed/.gitkeep \
       /workspace/work/milestones/releases/.gitkeep
 
+# Fix ownership on Docker named volumes (created as root, but we run as vscode)
+for dir in /workspace/deps /workspace/_build; do
+  if [ -d "$dir" ] && [ ! -w "$dir" ]; then
+    sudo chown -R "$(id -u):$(id -g)" "$dir"
+  fi
+done
+
 # Install Elixir dependencies
 cd /workspace
 if [ -f mix.exs ]; then
