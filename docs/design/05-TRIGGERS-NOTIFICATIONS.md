@@ -48,6 +48,34 @@ triggers:
 
 ---
 
+## YAML-Drift Detection
+
+The file watcher doesn't just map code changes to tests — it also detects when code changes **without** corresponding `.lodetime/` updates. This is the reverse validation flow:
+
+```
+File changed: lib/users/registration.ex
+         ↓
+Component: user-service (last YAML update: 12 commits ago)
+         ↓
+Drift signals:
+  - New module appeared not matching declared dependencies
+  - Actual imports diverge from depends_on
+  - Significant code churn but YAML untouched
+         ↓
+Severity: warn (at checkpoint) → error (at end-work if unresolved)
+```
+
+This is LodeTime's answer to **spec drift** — the problem where code evolves but architecture definitions go stale. A static spec file cannot detect its own obsolescence; a running companion can.
+
+Detection strategies (progressive):
+- **Staleness heuristic**: code under a component's `location` changed N times without YAML update → warn
+- **Dependency divergence**: actual imports don't match `depends_on` → error
+- **Orphan detection**: new modules appear under a component's path with no declared relationship → warn
+
+See: `docs/discussion/2026-02-09-sdd-drift-analysis.md` for rationale (two layers of drift).
+
+---
+
 ## Smart Test Selection
 
 ```

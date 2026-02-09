@@ -77,16 +77,31 @@ zones:
 
 ## Rules
 
-Architectural constraints:
+Architectural constraints that LodeTime validates continuously:
 
 ```yaml
 rules:
   - id: no-circular-deps
     severity: error
-    
+
   - id: no-legacy-imports
     severity: warning
 ```
+
+### Component-Level Constraints (Anti-Debt Rules)
+
+Beyond global rules, components can declare **constraints** — patterns they must follow or forbid. These are lightweight anti-debt guards, not code-level linting:
+
+```yaml
+id: payment-gateway
+constraints:
+  require: [result-wrapper, idempotent-operations]
+  forbid: [direct-db-access, raw-try-catch]
+```
+
+Constraints encode *how* a component must be built, not just *what* it depends on. They prevent architectural erosion that dependency rules alone can't catch.
+
+See: `docs/discussion/2026-02-09-sdd-drift-analysis.md` for rationale (SDD anti-debt concept).
 
 ---
 
